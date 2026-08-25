@@ -1,0 +1,2550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Month Long Dinner Meal Plan</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2b333a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Meal Plan">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #eef0f0;
+    --paper: #fbfbfa;
+    --ink: #2b333a;
+    --muted: #6b7178;
+    --accent: #3d7c78;
+    --accent2: #4a6fa5;
+    --accent3: #8c8368;
+    --border: #d8d9d4;
+    --tag-american: #e3f0ee;
+    --tag-american-text: #2f6b66;
+    --tag-mexican: #ece8dc;
+    --tag-mexican-text: #7a6f4e;
+    --tag-italian: #e7edf5;
+    --tag-italian-text: #3a5a85;
+    --tag-seafood: #e3eef2;
+    --tag-seafood-text: #2b6e86;
+    --tag-gout: #eceef0;
+    --tag-gout-text: #4a555e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Karla', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 0 0 60px;
+  }
+
+  header {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 48px 32px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(61,124,120,0.14);
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 10%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(74,111,165,0.10);
+  }
+
+  .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent3);
+    margin-bottom: 10px;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+
+  header p {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(238,240,240,0.7);
+    max-width: 540px;
+    line-height: 1.6;
+  }
+
+  .legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+    align-items: center;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(238,240,240,0.75);
+  }
+
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dot-american { background: var(--accent); }
+  .dot-mexican  { background: var(--accent3); }
+  .dot-italian  { background: var(--accent2); }
+  .dot-seafood  { background: #1a6a9a; }
+
+  .gout-note {
+    margin-top: 18px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(238,240,240,0.6);
+    max-width: 580px;
+    line-height: 1.65;
+  }
+
+  .gout-note strong { color: rgba(238,240,240,0.9); font-weight: 600; }
+
+  .controls {
+    max-width: 960px;
+    margin: 28px auto 0;
+    padding: 0 24px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 7px 18px;
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    background: var(--paper);
+    font-family: 'Karla', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.18s;
+    color: var(--ink);
+  }
+
+  .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-btn.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+  .filter-btn[onclick*="'american'"] { background: var(--tag-american); color: var(--tag-american-text); border-color: var(--tag-american); }
+  .filter-btn[onclick*="'american'"].active { background: var(--tag-american-text); color: #ffffff; border-color: var(--tag-american-text); }
+
+  .filter-btn[onclick*="'mexican'"] { background: var(--tag-mexican); color: var(--tag-mexican-text); border-color: var(--tag-mexican); }
+  .filter-btn[onclick*="'mexican'"].active { background: var(--tag-mexican-text); color: #ffffff; border-color: var(--tag-mexican-text); }
+
+  .filter-btn[onclick*="'italian'"] { background: var(--tag-italian); color: var(--tag-italian-text); border-color: var(--tag-italian); }
+  .filter-btn[onclick*="'italian'"].active { background: var(--tag-italian-text); color: #ffffff; border-color: var(--tag-italian-text); }
+
+  .filter-btn[onclick*="'seafood'"] { background: var(--tag-seafood); color: var(--tag-seafood-text); border-color: var(--tag-seafood); }
+  .filter-btn[onclick*="'seafood'"].active { background: var(--tag-seafood-text); color: #ffffff; border-color: var(--tag-seafood-text); }
+
+  .weeks {
+    max-width: 960px;
+    margin: 32px auto 0;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .week-block {
+    background: var(--paper);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .week-header {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .week-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    opacity: 0.2;
+    line-height: 1;
+    color: #ffffff;
+  }
+
+  .week-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+
+  .week-sub {
+    font-size: 13px;
+    font-weight: 300;
+    opacity: 0.55;
+    color: #ffffff;
+  }
+
+  .days-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  .day-card {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    transition: background 0.15s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .day-card:hover { background: #fdf0e4; }
+  .day-card.hidden { display: none; }
+
+  .day-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 5px;
+  }
+
+  .day-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+
+  .meal-name {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 7px;
+  }
+
+  .meal-desc {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.55;
+    margin-bottom: 10px;
+    flex: 1;
+  }
+
+  .gout-tip {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--tag-gout-text);
+    background: var(--tag-gout);
+    border-radius: 6px;
+    padding: 5px 8px;
+    margin-bottom: 8px;
+    line-height: 1.45;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: auto;
+  }
+
+  .cuisine-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+
+  .tag-american { background: var(--tag-american); color: var(--tag-american-text); }
+  .tag-mexican  { background: var(--tag-mexican);  color: var(--tag-mexican-text);  }
+  .tag-italian  { background: var(--tag-italian);  color: var(--tag-italian-text);  }
+  .tag-seafood  { background: var(--tag-seafood);  color: var(--tag-seafood-text);  }
+
+  .guide-wrap {
+    max-width: 960px;
+    margin: 32px auto 0;
+    padding: 0 24px;
+  }
+
+  .guide-inner {
+    background: var(--paper);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 26px 28px;
+  }
+
+  .guide-inner h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+  }
+
+  .guide-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .guide-col h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .guide-col.good h4  { color: var(--accent2); }
+  .guide-col.limit h4 { color: var(--accent3); }
+
+  .guide-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .guide-col ul li {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--muted);
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.45;
+  }
+
+  .guide-col ul li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    font-weight: 900;
+  }
+
+  .guide-col.good ul li::before  { color: var(--accent2); }
+  .guide-col.limit ul li::before { color: var(--accent3); }
+
+  footer {
+    max-width: 960px;
+    margin: 36px auto 0;
+    padding: 0 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 540px) {
+    header { padding: 36px 18px 32px; }
+    .controls, .weeks, .guide-wrap { padding: 0 14px; }
+    .days-grid { grid-template-columns: 1fr 1fr; }
+    .guide-cols { grid-template-columns: 1fr; }
+  }
+
+  /* Checked / done state */
+  .day-card.done {
+    background: #f0f7f0;
+    opacity: 0.75;
+  }
+
+  .day-card.done .meal-name {
+    text-decoration: line-through;
+    color: var(--muted);
+  }
+
+  .day-card.done .day-num {
+    opacity: 0.4;
+  }
+
+  .check-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px 5px 8px;
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    font-family: 'Karla', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+
+  .check-btn:hover {
+    border-color: var(--accent2);
+    color: var(--accent2);
+    background: #f0f7f0;
+  }
+
+  .check-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    background: white;
+    flex-shrink: 0;
+  }
+
+  .day-card.done .check-btn {
+    border-color: var(--accent2);
+    color: var(--accent2);
+    background: #e4f0e4;
+  }
+
+  .day-card.done .check-btn .check-icon {
+    background: var(--accent2);
+    border-color: var(--accent2);
+    color: white;
+  }
+
+  /* Progress bar */
+  .progress-wrap {
+    max-width: 960px;
+    margin: 20px auto 0;
+    padding: 0 24px;
+  }
+
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  .progress-label strong { color: var(--accent2); font-size: 13px; }
+
+  .progress-bar-outer {
+    background: var(--border);
+    border-radius: 20px;
+    height: 8px;
+    overflow: hidden;
+  }
+
+  .progress-bar-inner {
+    height: 100%;
+    background: var(--accent2);
+    border-radius: 20px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  .reset-btn {
+    font-family: 'Karla', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.15s;
+  }
+
+  .reset-btn:hover { color: var(--accent); }
+
+  /* Swap button & menu */
+  .card-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  .swap-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    font-family: 'Karla', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+
+  .swap-btn:hover {
+    border-color: var(--accent3);
+    color: var(--accent3);
+    background: #fff8e6;
+  }
+
+  .day-card.swapped {
+    border-right-color: var(--accent3);
+    border-bottom-color: var(--accent3);
+  }
+
+  .tag-swap {
+    background: #fff8e6;
+    color: var(--accent3);
+  }
+
+  /* Swap menu overlay */
+  .swap-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 100;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .swap-overlay.open {
+    display: flex;
+  }
+
+  .swap-menu {
+    background: var(--paper);
+    border-radius: 20px 20px 0 0;
+    padding: 24px;
+    width: 100%;
+    max-width: 520px;
+    max-height: 75vh;
+    overflow-y: auto;
+  }
+
+  .swap-menu h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+
+  .swap-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 6px;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Karla', sans-serif;
+    text-align: left;
+    transition: all 0.15s;
+    gap: 10px;
+  }
+
+  .swap-option-tags {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .swap-group-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 16px 4px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .swap-group-heading:first-child {
+    margin-top: 4px;
+  }
+
+  .swap-group-count {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--accent3);
+    background: var(--tag-mexican);
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  .swap-option:hover {
+    border-color: var(--accent3);
+    background: #fff8e6;
+  }
+
+  .restore-option {
+    border-color: var(--accent2);
+    color: var(--accent2);
+    margin-bottom: 12px;
+  }
+
+  .restore-option:hover {
+    background: #f0f7f0;
+  }
+
+  .swap-option-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .swap-close {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: var(--ink);
+    color: var(--bg);
+    font-family: 'Karla', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  /* Recipe modal */
+  .meal-name {
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+
+  .meal-name:hover {
+    color: var(--accent);
+  }
+
+  .meal-name::after {
+    content: ' →';
+    opacity: 0;
+    transition: opacity 0.15s;
+    font-weight: 400;
+  }
+
+  .meal-name:hover::after {
+    opacity: 0.5;
+  }
+
+  .recipe-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .recipe-overlay.open {
+    display: flex;
+  }
+
+  .recipe-modal {
+    background: var(--paper);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 640px;
+    max-height: 88vh;
+    overflow-y: auto;
+    position: relative;
+  }
+
+  .recipe-header {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 28px 32px 22px;
+    border-radius: 16px 16px 0 0;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
+  .recipe-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent3);
+    margin-bottom: 6px;
+  }
+
+  .recipe-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+
+  .recipe-servings {
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.7;
+  }
+
+  .recipe-close-x {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: var(--bg);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    transition: background 0.15s;
+  }
+
+  .recipe-close-x:hover {
+    background: rgba(255,255,255,0.25);
+  }
+
+  .recipe-body {
+    padding: 24px 32px 28px;
+  }
+
+  .recipe-section h5 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid var(--border);
+  }
+
+  .recipe-section.steps h5 {
+    color: var(--accent);
+    margin-top: 24px;
+  }
+
+  .recipe-ingredients {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .recipe-ingredients li {
+    font-size: 13.5px;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.55;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .recipe-ingredients li::before {
+    content: '○';
+    position: absolute;
+    left: 0;
+    color: var(--accent2);
+    font-weight: 700;
+  }
+
+  .recipe-steps {
+    list-style: none;
+    counter-reset: step-counter;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .recipe-steps li {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.6;
+    padding-left: 38px;
+    position: relative;
+    counter-increment: step-counter;
+  }
+
+  .recipe-steps li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 26px;
+    height: 26px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Karla', sans-serif;
+  }
+
+  .recipe-missing {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  @media (max-width: 540px) {
+    .recipe-overlay { padding: 0; align-items: flex-end; }
+    .recipe-modal { max-height: 92vh; border-radius: 16px 16px 0 0; }
+    .recipe-header { padding: 24px 22px 18px; }
+    .recipe-body { padding: 20px 22px 24px; }
+    .recipe-title { font-size: 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+  </div>
+</header>
+
+<div class="controls">
+  <button class="filter-btn active" onclick="filterMeals('all', this)">All Meals</button>
+  <button class="filter-btn" onclick="filterMeals('american', this)">American</button>
+  <button class="filter-btn" onclick="filterMeals('mexican', this)">Mexican</button>
+  <button class="filter-btn" onclick="filterMeals('italian', this)">Italian</button>
+  <button class="filter-btn" onclick="filterMeals('seafood', this)">Seafood</button>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-label">
+    <span>Meals completed — <strong id="monthLabel"></strong></span>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <strong id="progressText">0 of 31</strong>
+      <button class="reset-btn" onclick="resetAll()">↺ Reset</button>
+    </div>
+  </div>
+  <div class="progress-bar-outer">
+    <div class="progress-bar-inner" id="progressBar"></div>
+  </div>
+</div>
+
+<div class="weeks" id="weeksContainer"></div>
+
+<footer>
+</footer>
+
+<div class="swap-overlay" id="swapMenu">
+  <div class="swap-menu">
+    <h4>Pick a swap for tonight</h4>
+    <div id="swapList"></div>
+    <button class="swap-close" onclick="closeSwapMenu()">Cancel</button>
+  </div>
+</div>
+
+<div class="recipe-overlay" id="recipeModal">
+  <div class="recipe-modal">
+    <div class="recipe-header">
+      <button class="recipe-close-x" onclick="closeRecipe()">×</button>
+      <div class="recipe-tag" id="recipeTag">Recipe</div>
+      <div class="recipe-title" id="recipeTitle"></div>
+      <div class="recipe-servings" id="recipeServings"></div>
+    </div>
+    <div class="recipe-body" id="recipeBody"></div>
+  </div>
+</div>
+
+<script>
+// Recipes for all 31 main meals + 12 swap meals
+// Keyed by meal name (exact match to meal.name in meals[] and swapPool[])
+const recipes = {
+  "Classic Smash Burgers": {
+    servings: "Serves 4",
+    ingredients: [
+      "1 lb 80/20 ground beef, divided into 8 small balls",
+      "8 slices American cheese",
+      "8 brioche buns (or 4 doubles)",
+      "Dill pickle chips",
+      "1 tomato, sliced",
+      "Iceberg lettuce, shredded",
+      "1/2 white onion, thinly sliced",
+      "Salt and pepper",
+      "Special sauce: 1/2 cup mayo + 2 tbsp ketchup + 1 tbsp yellow mustard + 1 tbsp pickle relish"
+    ],
+    steps: [
+      "Mix special sauce ingredients in a small bowl. Set aside.",
+      "Heat a cast iron skillet or griddle over high heat until smoking.",
+      "Place beef ball on hot surface, smash hard with a sturdy spatula until very thin (under 1/4 inch).",
+      "Season with salt and pepper. Cook 90 seconds until edges are crispy.",
+      "Flip, top with cheese, cook 30 seconds more.",
+      "Toast buns in the rendered fat.",
+      "Build: bottom bun, sauce, lettuce, tomato, two patties stacked, pickles, onion, top bun."
+    ]
+  },
+
+  "Seasoned Beef Tacos": {
+    servings: "Serves 4-6",
+    ingredients: [
+      "1.5 lbs lean ground beef (or mix half ground turkey)",
+      "12 crunchy taco shells",
+      "2 cups shredded cheddar",
+      "Iceberg lettuce, shredded",
+      "2 tomatoes, diced",
+      "1 cup sour cream",
+      "Taco seasoning: 1 tbsp chili powder, 1 tsp cumin, 1 tsp paprika, 1 tsp garlic powder, 1 tsp onion powder, 1/2 tsp oregano, salt and pepper"
+    ],
+    steps: [
+      "Mix all seasoning spices in a small bowl.",
+      "Brown beef in a large skillet over medium-high heat, breaking apart as it cooks.",
+      "Drain excess fat. Add seasoning and 1/3 cup water. Simmer 5 minutes until thickened.",
+      "Warm taco shells in a 350F oven for 5 minutes.",
+      "Set up a taco bar with all the toppings and let everyone build their own."
+    ]
+  },
+
+  "Chicken Alfredo": {
+    servings: "Serves 4",
+    ingredients: [
+      "1 lb fettuccine",
+      "2 large chicken breasts, seasoned with salt, pepper, garlic powder",
+      "4 tbsp butter",
+      "4 cloves garlic, minced",
+      "2 cups heavy cream",
+      "1.5 cups freshly grated parmesan",
+      "Salt, pepper, pinch of nutmeg",
+      "Fresh parsley for garnish",
+      "Olive oil for cooking chicken"
+    ],
+    steps: [
+      "Boil fettuccine in salted water until al dente. Reserve 1 cup pasta water before draining.",
+      "Heat olive oil in a skillet, cook chicken 6-7 minutes per side until 165F internal. Rest, then slice.",
+      "In same skillet, melt butter, add garlic, cook 30 seconds.",
+      "Pour in cream, simmer 3-4 minutes until slightly thickened.",
+      "Reduce heat to low. Whisk in parmesan gradually. Season with salt, pepper, nutmeg.",
+      "Toss pasta in sauce, adding pasta water to loosen if needed.",
+      "Top with sliced chicken and parsley."
+    ]
+  },
+
+  "Carne Asada Tacos": {
+    servings: "Serves 4-6",
+    ingredients: [
+      "1.5 lbs skirt or flank steak",
+      "Marinade: 1/3 cup orange juice, 1/4 cup lime juice, 1/4 cup soy sauce, 4 cloves garlic minced, 1 jalapeno minced, 1/2 cup chopped cilantro, 1 tsp cumin, 1 tsp chili powder, 2 tbsp olive oil",
+      "16 small corn tortillas",
+      "1 white onion, finely diced",
+      "1 cup chopped cilantro",
+      "Lime wedges",
+      "Salsa verde or your favorite hot sauce"
+    ],
+    steps: [
+      "Combine marinade ingredients. Marinate steak 2-8 hours in the fridge.",
+      "Heat grill or cast iron to high. Cook steak 3-4 minutes per side for medium-rare.",
+      "Rest steak 10 minutes. Slice against the grain into thin strips, then chop.",
+      "Warm tortillas on a hot dry skillet, 30 seconds per side.",
+      "Build tacos: double tortilla, steak, onion, cilantro, lime squeeze."
+    ]
+  },
+
+  "Stuffed Chicken Breast": {
+    servings: "Serves 4",
+    ingredients: [
+      "4 large chicken breasts",
+      "8 oz cream cheese, softened",
+      "10 oz frozen spinach, thawed and well-drained",
+      "1 cup shredded mozzarella",
+      "3 cloves garlic, minced",
+      "Salt, pepper, paprika",
+      "4 tbsp butter, melted",
+      "2 cloves garlic for the butter drizzle"
+    ],
+    steps: [
+      "Preheat oven to 375F.",
+      "Mix cream cheese, drained spinach, mozzarella, and garlic in a bowl.",
+      "Cut a deep pocket in the side of each chicken breast (don't cut through).",
+      "Stuff each breast with the mixture. Secure with toothpicks if needed.",
+      "Season outside with salt, pepper, paprika.",
+      "Place in baking dish. Drizzle with melted butter mixed with extra garlic.",
+      "Bake 30-35 minutes until 165F internal. Rest 5 minutes before serving."
+    ]
+  },
+
+  "Shrimp Tacos": {
+    servings: "Serves 4",
+    ingredients: [
+      "1 lb large shrimp, peeled and deveined",
+      "2 tsp chili powder, 1 tsp cumin, 1 tsp paprika, 1/2 tsp garlic powder, salt",
+      "2 tbsp olive oil",
+      "8 flour tortillas",
+      "2 avocados, sliced",
+      "Lime wedges",
+      "Chipotle slaw: 3 cups shredded cabbage, 1/2 cup mayo, 1 chipotle in adobo minced, 2 tbsp lime juice, salt"
+    ],
+    steps: [
+      "Mix slaw ingredients. Refrigerate while you cook the shrimp.",
+      "Toss shrimp with seasoning and olive oil.",
+      "Heat skillet over medium-high. Cook shrimp 2 minutes per side until pink and opaque.",
+      "Warm tortillas on a dry skillet.",
+      "Build: tortilla, slaw, shrimp, avocado, lime squeeze."
+    ]
+  },
+
+  "Grilled Hotdogs & Oven Fries": {
+    servings: "Serves 4",
+    ingredients: [
+      "8 all-beef hot dogs",
+      "8 hot dog buns",
+      "Toppings: yellow mustard, ketchup, sweet relish, diced onion, sauerkraut",
+      "4 large russet potatoes, cut into fries",
+      "3 tbsp olive oil",
+      "1 tsp salt, 1/2 tsp pepper, 1/2 tsp garlic powder, 1/2 tsp paprika"
+    ],
+    steps: [
+      "Preheat oven to 425F.",
+      "Toss potato fries with oil and seasonings. Spread on baking sheet in single layer.",
+      "Bake 25-30 minutes, flipping halfway, until crispy and golden.",
+      "Heat grill to medium-high. Grill hot dogs 5-7 minutes, turning to char all sides.",
+      "Toast buns on the grill for 30 seconds.",
+      "Set out toppings buffet style and let everyone build their own."
+    ]
+  },
+
+  "Buttermilk Fried Chicken": {
+    servings: "Serves 4-6",
+    ingredients: [
+      "8 pieces chicken (mix of thighs and drumsticks)",
+      "Brine: 3 cups buttermilk, 2 tbsp hot sauce, 1 tbsp salt, 1 tsp pepper",
+      "Dredge: 3 cups flour, 2 tbsp paprika, 1 tbsp garlic powder, 1 tbsp onion powder, 2 tsp salt, 1 tsp pepper, 1 tsp cayenne",
+      "Vegetable oil for frying",
+      "For the gravy: 1/4 cup pan drippings, 1/4 cup flour, 3 cups whole milk, salt and pepper",
+      "Mashed potatoes (your favorite recipe)"
+    ],
+    steps: [
+      "Combine brine ingredients. Soak chicken at least 4 hours, ideally overnight.",
+      "Mix dredge ingredients in a large bowl.",
+      "Heat oil to 325F in a heavy pot or cast iron skillet (about 2 inches deep).",
+      "Dredge chicken pieces, shaking off excess. Let sit on a rack 10 minutes.",
+      "Fry in batches 12-15 minutes, turning, until 165F internal and deep golden.",
+      "For gravy: whisk flour into hot drippings, cook 2 minutes, gradually whisk in milk, simmer until thick.",
+      "Serve chicken with mashed potatoes and gravy."
+    ]
+  },
+
+  "Grilled Chicken Tacos": {
+    servings: "Serves 4-6",
+    ingredients: [
+      "1.5 lbs boneless skinless chicken thighs",
+      "Marinade: 1/4 cup olive oil, 3 tbsp lime juice, 3 cloves garlic, 1 tsp cumin, 1 tsp chili powder, 1 tsp oregano, 1 tsp salt",
+      "12 flour tortillas",
+      "1 cup crumbled cotija cheese",
+      "Pickled red onions: 1 red onion thinly sliced, 1/2 cup white vinegar, 1 tsp sugar, 1 tsp salt",
+      "Avocado crema: 2 avocados, 1/2 cup sour cream, 1 lime juiced, 1 garlic clove, salt"
+    ],
+    steps: [
+      "Make pickled onions: cover sliced onion with vinegar, sugar, salt. Let sit 30+ minutes.",
+      "Blend avocado crema ingredients until smooth.",
+      "Marinate chicken thighs at least 30 minutes.",
+      "Grill chicken over medium-high heat 6-7 minutes per side until 165F. Rest, then slice.",
+      "Warm tortillas. Build tacos: chicken, pickled onion, crema drizzle, cotija."
+    ]
+  },
+
+  "Chicken Piccata": {
+    servings: "Serves 4",
+    ingredients: [
+      "4 chicken breasts, butterflied and pounded thin",
+      "1/2 cup flour for dredging",
+      "Salt, pepper",
+      "3 tbsp olive oil",
+      "4 tbsp butter, divided",
+      "1/2 cup chicken broth",
+      "1/3 cup fresh lemon juice",
+      "1/4 cup capers, drained",
+      "1/4 cup fresh parsley, chopped",
+      "1 lb angel hair pasta"
+    ],
+    steps: [
+      "Boil pasta in salted water until al dente. Drain.",
+      "Season chicken cutlets, dredge in flour, shake off excess.",
+      "Heat oil and 2 tbsp butter in large skillet over medium-high.",
+      "Cook cutlets 3 minutes per side until golden. Transfer to plate.",
+      "Add broth, lemon juice, capers to pan. Simmer 3 minutes, scraping browned bits.",
+      "Whisk in remaining butter. Return chicken to pan, simmer 1 minute.",
+      "Toss with parsley. Serve over angel hair pasta with extra sauce."
+    ]
+  },
+
+  "Herb-Grilled Chicken Thighs": {
+    servings: "Serves 4",
+    ingredients: [
+      "8 bone-in skin-on chicken thighs",
+      "Marinade: 1/3 cup olive oil, 3 tbsp lemon juice, 4 cloves garlic minced, 2 tbsp fresh rosemary, 2 tbsp fresh thyme, 1 tsp salt, 1/2 tsp pepper",
+      "4 ears corn, husks on",
+      "Mixed greens, cherry tomatoes, cucumber for salad",
+      "Simple vinaigrette: olive oil, red wine vinegar, dijon, salt, pepper"
+    ],
+    steps: [
+      "Marinate chicken thighs at least 1 hour, up to overnight.",
+      "Heat grill to medium. Soak corn in water 10 minutes.",
+      "Grill chicken skin-side down 8 minutes. Flip, grill 8-10 more minutes until 175F.",
+      "Grill corn 15-20 minutes, turning, until husks char. Peel back husks to serve.",
+      "Toss salad with vinaigrette. Serve everything together."
+    ]
+  },
+
+  "Garlic Butter Shrimp & Rice": {
+    servings: "Serves 4",
+    ingredients: [
+      "1 lb large shrimp, peeled and deveined",
+      "6 tbsp butter",
+      "6 cloves garlic, minced",
+      "2 tbsp fresh parsley, chopped",
+      "1 lemon (juice and zest)",
+      "Pinch red pepper flakes",
+      "Salt, pepper",
+      "2 cups jasmine rice",
+      "1 head broccoli or 2 cups vegetables, cut for roasting",
+      "Olive oil for vegetables"
+    ],
+    steps: [
+      "Cook rice according to package directions.",
+      "Roast vegetables: toss with oil, salt, pepper. Roast at 425F for 20 minutes.",
+      "Season shrimp with salt and pepper.",
+      "Melt butter in skillet over medium-high. Add garlic, cook 30 seconds.",
+      "Add shrimp in single layer. Cook 2 minutes per side until pink.",
+      "Toss with lemon juice, zest, parsley, red pepper flakes.",
+      "Serve shrimp and pan butter over rice with vegetables on the side."
+    ]
+  },
+
+  "Chicken Marsala": {
+    servings: "Serves 4",
+    ingredients: [
+      "4 chicken breasts, butterflied and pounded thin",
+      "1/2 cup flour for dredging",
+      "Salt, pepper",
+      "3 tbsp olive oil",
+      "4 tbsp butter, divided",
+      "8 oz cremini mushrooms, sliced",
+      "3 cloves garlic, minced",
+      "3/4 cup dry Marsala wine",
+      "1 cup chicken broth",
+      "1/4 cup heavy cream",
+      "Fresh parsley",
+      "12 oz egg noodles"
+    ],
+    steps: [
+      "Boil egg noodles in salted water. Drain, toss with butter.",
+      "Season cutlets, dredge in flour.",
+      "Heat oil and 2 tbsp butter in skillet. Cook chicken 3-4 minutes per side. Transfer to plate.",
+      "Add mushrooms, cook 5 minutes until browned.",
+      "Add garlic, cook 30 seconds. Pour in Marsala, scrape pan, reduce 2 minutes.",
+      "Add broth, simmer 5 minutes until reduced by half.",
+      "Stir in cream and remaining butter. Return chicken to pan, simmer 2 minutes.",
+      "Top with parsley. Serve over egg noodles."
+    ]
+  },
+
+  "BBQ Pulled Chicken Sandwiches": {
+    servings: "Serves 6",
+    ingredients: [
+      "3 lbs boneless chicken thighs",
+      "Salt, pepper, garlic powder",
+      "Homemade BBQ sauce: 1 cup ketchup, 1/3 cup brown sugar, 1/4 cup apple cider vinegar, 2 tbsp Worcestershire, 1 tbsp dijon, 1 tsp smoked paprika, 1 tsp garlic powder, 1 tsp onion powder",
+      "6 brioche buns",
+      "Coleslaw: 4 cups shredded cabbage, 1/2 cup mayo, 2 tbsp apple cider vinegar, 1 tbsp sugar, salt and pepper"
+    ],
+    steps: [
+      "Mix coleslaw ingredients. Refrigerate at least 1 hour.",
+      "Whisk BBQ sauce ingredients in a saucepan. Simmer 10 minutes.",
+      "Season chicken thighs. Place in slow cooker.",
+      "Pour 2/3 of BBQ sauce over chicken. Cook on low 6 hours or high 3 hours.",
+      "Shred chicken with two forks in the cooking liquid.",
+      "Toast buns. Pile chicken on bottom, top with coleslaw and remaining BBQ sauce."
+    ]
+  },
+
+  "Chicken Birria Tacos": {
+    servings: "Serves 4-6",
+    ingredients: [
+      "2 lbs boneless chicken thighs",
+      "5 dried guajillo chiles, stems and seeds removed",
+      "3 dried ancho chiles, stems and seeds removed",
+      "1 onion, quartered",
+      "6 cloves garlic",
+      "1 can (14 oz) diced tomatoes",
+      "1 tsp cumin, 1 tsp oregano, 1 tsp smoked paprika, 1/2 tsp cinnamon, 2 bay leaves",
+      "4 cups chicken broth",
+      "Salt to taste",
+      "16 corn tortillas",
+      "2 cups shredded Oaxacan or mozzarella cheese",
+      "Chopped onion and cilantro for garnish"
+    ],
+    steps: [
+      "Toast dried chiles in a dry skillet 30 seconds per side. Soak in hot water 15 minutes.",
+      "Blend soaked chiles, onion, garlic, tomatoes, spices, and 1 cup broth until smooth.",
+      "In a large pot, combine chicken, blended sauce, remaining broth, bay leaves. Simmer covered 1 hour.",
+      "Remove chicken, shred. Skim fat from broth (this becomes your dipping consommé).",
+      "Dip tortilla in the red fat from the broth. Place on hot griddle.",
+      "Add cheese and shredded chicken to one half. Fold and crisp 2 minutes per side.",
+      "Serve with bowl of consommé for dipping, plus onion and cilantro."
+    ]
+  },
+
+  "Cuban Sandwiches": {
+    servings: "Serves 4",
+    ingredients: [
+      "4 Cuban or hoagie rolls",
+      "1 lb roasted pork (leftover or store-bought), sliced",
+      "1/2 lb shaved ham",
+      "8 slices Swiss cheese",
+      "Dill pickle slices",
+      "Yellow mustard",
+      "Butter for the press",
+      "Seasoned fries (use the recipe from Day 7)"
+    ],
+    steps: [
+      "Make oven fries (see Day 7 recipe).",
+      "Slice rolls open. Spread mustard on both sides.",
+      "Layer: Swiss, pork, ham, pickles, more Swiss. Close sandwich.",
+      "Butter outside of bread.",
+      "Heat large skillet or panini press over medium. Press sandwiches with a heavy pan or another skillet.",
+      "Cook 3-4 minutes per side until bread is crispy and cheese is melted.",
+      "Slice diagonally. Serve with fries."
+    ]
+  },
+
+  "Classic Meatloaf": {
+    servings: "Serves 6",
+    ingredients: [
+      "2 lbs ground beef (or 1.5 lb beef + 0.5 lb ground turkey)",
+      "1 cup breadcrumbs",
+      "1/2 cup whole milk",
+      "2 eggs, beaten",
+      "1 onion, finely diced",
+      "3 cloves garlic, minced",
+      "2 tbsp Worcestershire sauce",
+      "1 tbsp dijon mustard",
+      "1 tsp salt, 1/2 tsp pepper",
+      "Glaze: 1/2 cup ketchup, 3 tbsp brown sugar, 1 tbsp apple cider vinegar",
+      "Mashed potatoes and green beans for serving"
+    ],
+    steps: [
+      "Preheat oven to 350F.",
+      "Soak breadcrumbs in milk 5 minutes.",
+      "Mix beef, soaked breadcrumbs, eggs, onion, garlic, Worcestershire, mustard, salt, pepper. Don't overmix.",
+      "Form into a loaf shape on a foil-lined baking sheet.",
+      "Whisk glaze ingredients. Brush half over loaf.",
+      "Bake 45 minutes. Brush with remaining glaze. Bake 15 more minutes until 160F internal.",
+      "Rest 10 minutes. Slice and serve with mashed potatoes and green beans."
+    ]
+  },
+
+  "Pork Carnitas Tacos": {
+    servings: "Serves 6",
+    ingredients: [
+      "3 lbs pork shoulder, cut into 2-inch chunks",
+      "1 onion, quartered",
+      "4 cloves garlic",
+      "1 orange, cut in half",
+      "2 bay leaves",
+      "1 tbsp cumin, 1 tbsp oregano, 1 tsp smoked paprika, 2 tsp salt",
+      "16 corn tortillas",
+      "Pineapple salsa: 2 cups diced fresh pineapple, 1/2 red onion diced, 1 jalapeno minced, 1/4 cup cilantro, 2 limes juiced, salt",
+      "Pickled jalapenos for garnish"
+    ],
+    steps: [
+      "Mix pineapple salsa ingredients. Let sit at least 15 minutes.",
+      "Place pork in slow cooker with onion, garlic, orange (squeeze juice in then add), bay leaves, spices.",
+      "Cook on low 8 hours until very tender.",
+      "Shred pork. Spread on baking sheet, drizzle with some cooking liquid.",
+      "Broil 5-7 minutes until edges crisp up.",
+      "Warm tortillas. Build: pork, pineapple salsa, pickled jalapeno, cilantro."
+    ]
+  },
+
+  "Stuffed Shells": {
+    servings: "Serves 6",
+    ingredients: [
+      "1 box jumbo pasta shells (about 24)",
+      "Filling: 2 cups ricotta, 10 oz frozen spinach (thawed and drained), 1 cup mozzarella, 1/2 cup parmesan, 1 egg, 2 cloves garlic minced, salt, pepper, pinch nutmeg",
+      "White garlic sauce: 4 tbsp butter, 4 cloves garlic minced, 3 tbsp flour, 2.5 cups whole milk, 1 cup heavy cream, 1 cup parmesan, salt and pepper",
+      "1 cup mozzarella for topping"
+    ],
+    steps: [
+      "Preheat oven to 375F. Boil shells until just under al dente. Drain, cool.",
+      "Mix all filling ingredients in a bowl.",
+      "Make sauce: melt butter, cook garlic 30 seconds. Whisk in flour, cook 1 minute.",
+      "Gradually whisk in milk and cream. Simmer until thickened, 5 minutes. Stir in parmesan.",
+      "Spread 1 cup sauce in 9x13 baking dish.",
+      "Stuff each shell with filling, place in dish.",
+      "Pour remaining sauce over shells. Top with mozzarella.",
+      "Bake covered 25 minutes, uncover and bake 10 more until bubbly and golden."
+    ]
+  },
+
+  "Bacon Smash Burgers": {
+    servings: "Serves 4",
+    ingredients: [
+      "1 lb 80/20 ground beef, divided into 8 small balls",
+      "8 strips bacon",
+      "8 slices pepper jack cheese",
+      "8 brioche buns (or 4 doubles)",
+      "2 large onions, thinly sliced",
+      "2 tbsp butter for onions",
+      "Chipotle mayo: 1/2 cup mayo + 2 chipotle peppers in adobo minced + 1 tsp adobo sauce + 1 tsp lime juice",
+      "Salt, pepper"
+    ],
+    steps: [
+      "Caramelize onions: melt butter in skillet, add onions, cook 25-30 minutes on medium-low until deep brown.",
+      "Cook bacon in oven at 400F on a rack for 18-20 minutes until crispy.",
+      "Mix chipotle mayo ingredients.",
+      "Heat cast iron over high heat. Smash beef balls thin, season, cook 90 seconds.",
+      "Flip, top with cheese, cook 30 seconds.",
+      "Build: bun, mayo, patties stacked, bacon, caramelized onions, top bun."
+    ]
+  },
+
+  "Red Sauce Chicken Enchiladas": {
+    servings: "Serves 6",
+    ingredients: [
+      "3 cups shredded rotisserie or roasted chicken",
+      "12 corn tortillas",
+      "3 cups shredded Mexican cheese blend",
+      "Red enchilada sauce: 3 tbsp oil, 3 tbsp flour, 2 tbsp chili powder, 1 tsp cumin, 1 tsp garlic powder, 1/2 tsp oregano, 2 cups chicken broth, 1 can (8 oz) tomato sauce, salt",
+      "Toppings: sour cream, sliced black olives, chopped cilantro, sliced green onion"
+    ],
+    steps: [
+      "Preheat oven to 375F.",
+      "Make sauce: heat oil, whisk in flour and spices, cook 1 minute. Whisk in broth and tomato sauce. Simmer 10 minutes.",
+      "Spread 1/2 cup sauce in 9x13 baking dish.",
+      "Dip each tortilla briefly in warm sauce. Fill with chicken and a sprinkle of cheese, roll up, place seam-down.",
+      "Pour remaining sauce over enchiladas. Top with all remaining cheese.",
+      "Bake 20-25 minutes until bubbly. Let rest 5 minutes.",
+      "Top with sour cream, olives, cilantro, green onions."
+    ]
+  },
+
+  "Garlic Shrimp Fettuccine": {
+    servings: "Serves 4",
+    ingredients: [
+      "1 lb fettuccine",
+      "1 lb large shrimp, peeled and deveined",
+      "6 tbsp butter",
+      "6 cloves garlic, minced",
+      "1/2 cup dry white wine",
+      "1/4 cup lemon juice",
+      "Zest of 1 lemon",
+      "1/4 cup fresh parsley",
+      "Pinch red pepper flakes",
+      "Salt, pepper",
+      "Side salad of mixed greens"
+    ],
+    steps: [
+      "Boil fettuccine in salted water until al dente. Reserve 1 cup pasta water before draining.",
+      "Season shrimp with salt and pepper.",
+      "Melt 3 tbsp butter in large skillet over medium-high. Add shrimp, cook 2 minutes per side. Remove.",
+      "Add remaining butter and garlic to pan. Cook 30 seconds.",
+      "Pour in wine and lemon juice. Simmer 2 minutes.",
+      "Return shrimp to pan with pasta. Toss with lemon zest, parsley, red pepper flakes.",
+      "Add pasta water as needed to loosen sauce. Serve with side salad."
+    ]
+  },
+
+  "Pan-Fried Pork Chops": {
+    servings: "Serves 4",
+    ingredients: [
+      "4 thick-cut bone-in pork chops (1 inch thick)",
+      "Salt, pepper, garlic powder, paprika",
+      "3 tbsp olive oil",
+      "3 tbsp butter",
+      "4 sprigs fresh thyme",
+      "3 cloves garlic, smashed",
+      "4 ears corn kernels (or 2 cups frozen), 2 tbsp butter, salt, pepper for skillet corn",
+      "1.5 lbs baby potatoes, halved, tossed with oil, salt, pepper, rosemary"
+    ],
+    steps: [
+      "Roast potatoes at 425F for 30-35 minutes until crispy.",
+      "Pat pork chops dry. Season generously on both sides.",
+      "Heat oil in cast iron over medium-high until shimmering.",
+      "Sear chops 4 minutes until deep golden. Flip.",
+      "Add butter, thyme, garlic. Spoon foaming butter over chops as they cook 4-5 more minutes (145F internal).",
+      "Rest chops 5 minutes.",
+      "Cook corn in butter 5 minutes, season.",
+      "Serve chops with corn and potatoes."
+    ]
+  },
+
+  "Steak & Chicken Fajitas": {
+    servings: "Serves 6",
+    ingredients: [
+      "1 lb skirt steak",
+      "1 lb chicken breast, sliced",
+      "Marinade: 1/4 cup lime juice, 1/4 cup olive oil, 4 cloves garlic, 1 tsp cumin, 1 tsp chili powder, 1 tsp salt, 1/2 tsp smoked paprika",
+      "3 bell peppers (mixed colors), sliced",
+      "2 large onions, sliced",
+      "12 flour tortillas",
+      "Toppings: guacamole, sour cream, pico de gallo, lime wedges, shredded cheese"
+    ],
+    steps: [
+      "Mix marinade. Divide between two bags. Marinate steak and chicken separately 30 min - 4 hours.",
+      "Heat large cast iron over high heat.",
+      "Cook chicken first, 6-7 minutes until cooked through. Remove.",
+      "Cook steak 3-4 minutes per side for medium-rare. Rest, slice against grain.",
+      "In same pan, cook peppers and onions 8-10 minutes until charred and soft.",
+      "Warm tortillas.",
+      "Serve everything family-style with toppings."
+    ]
+  },
+
+  "Three-Cheese Chicken Alfredo": {
+    servings: "Serves 4",
+    ingredients: [
+      "1 lb fettuccine",
+      "2 large chicken breasts, seasoned with salt, pepper, Italian seasoning",
+      "4 tbsp butter",
+      "4 cloves garlic, minced",
+      "2.5 cups heavy cream",
+      "1 cup parmesan, grated",
+      "1/2 cup romano, grated",
+      "1/2 cup asiago, grated",
+      "Salt, pepper, pinch nutmeg",
+      "Fresh parsley",
+      "Olive oil"
+    ],
+    steps: [
+      "Boil fettuccine in salted water until al dente. Reserve 1 cup pasta water.",
+      "Heat olive oil in skillet. Cook chicken 6-7 minutes per side. Rest, slice.",
+      "In same pan, melt butter, cook garlic 30 seconds.",
+      "Add cream, simmer 4 minutes until slightly thickened.",
+      "Reduce heat to low. Whisk in cheeses gradually until melted and smooth.",
+      "Season with salt, pepper, nutmeg.",
+      "Toss pasta in sauce, adding pasta water to loosen as needed.",
+      "Top with chicken and parsley."
+    ]
+  },
+
+  "Fish Tacos": {
+    servings: "Serves 4",
+    ingredients: [
+      "1.5 lbs cod or white fish fillets, cut into strips",
+      "Beer batter: 1 cup flour, 1 tsp baking powder, 1 tsp salt, 1 tsp paprika, 1 cup cold beer",
+      "Vegetable oil for frying",
+      "8 corn tortillas",
+      "Cabbage slaw: 3 cups shredded cabbage, 2 tbsp lime juice, 1 tbsp olive oil, salt",
+      "Chipotle crema: 1/2 cup sour cream, 1 chipotle in adobo minced, 1 tbsp lime juice, salt",
+      "Pickled red onions (see Day 9 recipe)"
+    ],
+    steps: [
+      "Make pickled onions ahead. Mix slaw ingredients. Mix crema ingredients.",
+      "Heat 2 inches of oil to 375F in heavy pot.",
+      "Whisk batter ingredients until smooth.",
+      "Pat fish dry. Dip in batter, let excess drip.",
+      "Fry fish in batches 3-4 minutes until golden and crispy. Drain on rack.",
+      "Warm tortillas. Build: tortilla, slaw, fish, crema drizzle, pickled onion."
+    ]
+  },
+
+  "French Dip Sandwiches": {
+    servings: "Serves 4",
+    ingredients: [
+      "1 lb thinly sliced deli roast beef",
+      "4 hoagie rolls",
+      "8 slices provolone",
+      "Au jus: 4 cups beef broth, 2 tbsp Worcestershire, 1 tsp onion powder, 1 tsp garlic powder, 1 bay leaf, salt, pepper",
+      "2 tbsp butter for the rolls",
+      "Seasoned oven fries (see Day 7 recipe)"
+    ],
+    steps: [
+      "Make oven fries (see Day 7 recipe).",
+      "Simmer au jus ingredients in saucepan 15 minutes. Discard bay leaf.",
+      "Preheat oven to 400F. Slice rolls open, butter cut sides, toast on baking sheet 5 minutes.",
+      "Dip roast beef briefly in hot au jus to warm.",
+      "Pile beef on rolls, top with provolone.",
+      "Return to oven 3-5 minutes until cheese melts.",
+      "Serve with small bowls of au jus for dipping, fries on the side."
+    ]
+  },
+
+  "Ground Beef Enchiladas": {
+    servings: "Serves 6",
+    ingredients: [
+      "1.5 lbs lean ground beef",
+      "1 onion, diced",
+      "3 cloves garlic, minced",
+      "Taco seasoning (see Day 2 recipe)",
+      "12 flour tortillas",
+      "3 cups shredded cheddar",
+      "Red enchilada sauce (see Day 21 recipe)",
+      "Toppings: sour cream, chopped green onion, cilantro"
+    ],
+    steps: [
+      "Preheat oven to 375F. Make enchilada sauce (Day 21).",
+      "Brown beef with onion in skillet over medium-high. Drain fat.",
+      "Add garlic and taco seasoning, cook 1 minute. Add 1/3 cup water, simmer 3 minutes.",
+      "Spread 1/2 cup sauce in 9x13 baking dish.",
+      "Fill each tortilla with beef and sprinkle of cheese, roll up, place seam-down.",
+      "Top with remaining sauce and cheese.",
+      "Bake 20-25 minutes until bubbly. Top with sour cream, onion, cilantro."
+    ]
+  },
+
+  "Build-Your-Own Burger Bar": {
+    servings: "Serves 6",
+    ingredients: [
+      "1.5 lbs 80/20 ground beef, formed into 6 patties (4 oz each)",
+      "Salt, pepper",
+      "6 brioche buns",
+      "Cheese options: cheddar, American, pepper jack, blue cheese crumbles",
+      "Cooked bacon (one strip per person)",
+      "Toppings bar: lettuce, sliced tomato, sliced onion, pickles, sauteed mushrooms, caramelized onions",
+      "Sauces: ketchup, mustard, mayo, BBQ, ranch, special sauce (see Day 1)",
+      "Loaded oven fries (see Day 7 recipe, top with cheese and bacon)"
+    ],
+    steps: [
+      "Set out all toppings in small bowls. Make oven fries.",
+      "Cook bacon in oven at 400F on rack for 18 minutes.",
+      "Season patties generously with salt and pepper.",
+      "Heat grill or cast iron to high. Cook patties 3-4 minutes per side for medium.",
+      "Add cheese in last minute to melt.",
+      "Toast buns. Let everyone build their own at the bar.",
+      "Top fries with shredded cheese and crumbled bacon, broil 2 minutes."
+    ]
+  },
+
+  "Malibu Chicken Sandwich": {
+    servings: "Serves 4",
+    ingredients: [
+      "4 chicken breasts, butterflied and pounded thin",
+      "Breading: 1 cup flour, 2 eggs beaten, 2 cups panko",
+      "Salt, pepper, garlic powder",
+      "Vegetable oil for frying",
+      "4 brioche buns",
+      "8 slices Swiss cheese",
+      "1/2 lb shaved ham",
+      "Honey mustard: 1/3 cup mayo + 1/4 cup honey + 3 tbsp dijon + 1 tbsp yellow mustard",
+      "Seasoned oven fries (see Day 7 recipe)"
+    ],
+    steps: [
+      "Make oven fries. Mix honey mustard.",
+      "Season chicken with salt, pepper, garlic powder.",
+      "Set up breading station: flour, egg, panko. Bread each cutlet.",
+      "Heat 1/2 inch oil in skillet to 350F. Fry chicken 3-4 minutes per side until golden and 165F internal.",
+      "Drain on rack. Top each cutlet with ham and 2 slices Swiss while still hot.",
+      "Toast buns. Spread with honey mustard.",
+      "Build: bottom bun, chicken with melted cheese and ham, top bun. Serve with fries."
+    ]
+  },
+
+  "Carne Asada Platter": {
+    servings: "Serves 4-6",
+    ingredients: [
+      "2 lbs flank steak",
+      "Carne asada marinade (see Day 4 recipe)",
+      "Mexican rice: 2 cups long-grain rice, 3 tbsp oil, 1/2 onion diced, 2 cloves garlic, 1 can (8 oz) tomato sauce, 3.5 cups chicken broth, 1 tsp cumin, salt",
+      "Charro beans: 2 cans pinto beans (drained), 4 strips bacon chopped, 1/2 onion diced, 2 cloves garlic, 1 tomato diced, 1 jalapeno minced, 2 cups chicken broth, cilantro",
+      "2 large onions, sliced into rounds for grilling",
+      "12 flour tortillas",
+      "Guacamole: 3 avocados, 1/2 onion diced, 1 lime juiced, 1/4 cup cilantro, salt"
+    ],
+    steps: [
+      "Marinate steak (see Day 4) at least 2 hours.",
+      "Mexican rice: toast rice in oil 3 minutes. Add onion and garlic, cook 2 minutes. Stir in tomato sauce, broth, cumin, salt. Simmer covered 20 minutes.",
+      "Charro beans: cook bacon in pot until crispy. Add onion, cook 5 minutes. Add garlic, tomato, jalapeno, cook 2 minutes. Add beans and broth, simmer 15 minutes. Top with cilantro.",
+      "Mash guacamole ingredients together.",
+      "Grill steak over high heat 4-5 minutes per side. Grill onion rounds alongside.",
+      "Rest steak 10 minutes, slice against grain.",
+      "Warm tortillas. Serve everything platter-style."
+    ]
+  },
+
+  "Grilled Chicken Sandwich": {
+    servings: "Serves 4",
+    ingredients: [
+      "4 boneless skinless chicken breasts",
+      "Marinade: 1/4 cup olive oil, 2 tbsp lemon juice, 2 cloves garlic, 1 tsp Italian seasoning, salt, pepper",
+      "4 brioche buns",
+      "Lettuce, tomato slices, pickle chips",
+      "Honey mustard (see Day 30 recipe)",
+      "Seasoned oven fries (see Day 7 recipe)"
+    ],
+    steps: [
+      "Make oven fries. Mix honey mustard.",
+      "Pound chicken to even thickness. Marinate 30 min - 2 hours.",
+      "Heat grill or grill pan to medium-high.",
+      "Grill chicken 5-6 minutes per side until 165F internal.",
+      "Toast buns. Spread with honey mustard.",
+      "Build: bun, chicken, lettuce, tomato, pickles. Serve with fries."
+    ]
+  },
+
+  "Chicken Strip Wraps": {
+    servings: "Serves 4",
+    ingredients: [
+      "1.5 lbs chicken tenders",
+      "Breading: 1 cup flour, 2 eggs beaten, 2 cups panko",
+      "Salt, pepper, garlic powder, paprika",
+      "Vegetable oil for frying",
+      "4 large flour tortillas (burrito size)",
+      "Shredded lettuce",
+      "1.5 cups shredded cheddar",
+      "1 tomato, diced",
+      "Ranch dressing",
+      "Seasoned oven fries (see Day 7 recipe)"
+    ],
+    steps: [
+      "Make oven fries.",
+      "Season chicken tenders. Set up breading station: flour, egg, panko.",
+      "Bread each tender. Heat 1/2 inch oil to 350F.",
+      "Fry tenders 3-4 minutes per side until golden. Drain.",
+      "Warm tortillas. Layer: ranch, lettuce, cheese, tenders, tomato, more ranch.",
+      "Fold sides in, roll tight. Slice in half. Serve with fries."
+    ]
+  },
+
+  "Patty Melt": {
+    servings: "Serves 4",
+    ingredients: [
+      "1 lb 80/20 ground beef, formed into 4 thin oval patties",
+      "Salt, pepper",
+      "8 slices rye bread",
+      "8 slices Swiss cheese",
+      "2 large onions, thinly sliced",
+      "3 tbsp butter for onions",
+      "Butter for the bread (about 4 tbsp softened)",
+      "Seasoned oven fries (see Day 7 recipe)"
+    ],
+    steps: [
+      "Make oven fries.",
+      "Caramelize onions: melt butter, cook onions 25-30 minutes on medium-low until deep brown.",
+      "Season patties. Cook in cast iron over medium-high 3 minutes per side.",
+      "Butter outsides of rye bread.",
+      "Build sandwich: bread, Swiss, patty, onions, Swiss, bread.",
+      "Cook in skillet over medium heat 3-4 minutes per side until bread is golden and cheese melts.",
+      "Serve with fries."
+    ]
+  },
+
+  "Grilled Cheese & Tomato Soup": {
+    servings: "Serves 4",
+    ingredients: [
+      "8 slices thick white bread (Texas toast)",
+      "12 slices American or sharp cheddar",
+      "6 tbsp butter, softened",
+      "Tomato soup: 2 tbsp olive oil, 1 onion diced, 3 cloves garlic, 2 cans (28 oz each) crushed tomatoes, 2 cups chicken or vegetable broth, 1 tsp sugar, 1 tsp dried basil, 1 cup heavy cream, salt and pepper"
+    ],
+    steps: [
+      "Soup: heat oil in pot, cook onion 5 minutes. Add garlic, cook 30 seconds.",
+      "Add tomatoes, broth, sugar, basil. Simmer 20 minutes.",
+      "Blend with immersion blender until smooth. Stir in cream. Season.",
+      "Butter outsides of bread. Layer 3 slices cheese between two slices.",
+      "Cook in skillet over medium heat 3-4 minutes per side until golden and melty.",
+      "Slice diagonally. Serve with bowls of soup for dipping."
+    ]
+  },
+
+  "Pot Roast": {
+    servings: "Serves 6",
+    ingredients: [
+      "3-4 lb chuck roast",
+      "Salt, pepper, garlic powder",
+      "3 tbsp oil",
+      "1 large onion, quartered",
+      "6 cloves garlic, smashed",
+      "1.5 lbs baby carrots",
+      "2 lbs baby potatoes, halved",
+      "3 cups beef broth",
+      "1/4 cup Worcestershire sauce",
+      "2 tbsp tomato paste",
+      "2 sprigs fresh thyme, 2 bay leaves"
+    ],
+    steps: [
+      "Season roast generously. Heat oil in dutch oven over high heat.",
+      "Sear roast 4-5 minutes per side until deep brown. Remove.",
+      "Add onion and garlic, cook 3 minutes. Stir in tomato paste, cook 1 minute.",
+      "Add broth and Worcestershire, scrape browned bits.",
+      "Return roast. Add thyme and bay leaves. Cover, transfer to 325F oven.",
+      "Cook 2.5 hours. Add carrots and potatoes. Cook 1 more hour until everything is fork-tender.",
+      "Rest 15 minutes. Shred roast, serve with vegetables and pan gravy."
+    ]
+  },
+
+  "Carolina BBQ Chicken": {
+    servings: "Serves 6",
+    ingredients: [
+      "3 lbs boneless chicken thighs",
+      "Salt, pepper, smoked paprika",
+      "Carolina BBQ sauce: 1 cup apple cider vinegar, 1/2 cup ketchup, 1/4 cup brown sugar, 2 tbsp Worcestershire, 1 tbsp dijon, 1 tsp red pepper flakes, 1 tsp salt, 1/2 tsp pepper",
+      "6 brioche buns",
+      "Coleslaw (see Day 14 recipe)"
+    ],
+    steps: [
+      "Make coleslaw, refrigerate.",
+      "Whisk all BBQ sauce ingredients in saucepan. Simmer 10 minutes.",
+      "Season chicken thighs. Place in slow cooker.",
+      "Pour 2/3 of sauce over chicken. Cook on low 6 hours.",
+      "Shred chicken in cooking liquid.",
+      "Toast buns. Pile chicken on bottom, top with coleslaw and extra sauce."
+    ]
+  },
+
+  "Chicken Fried Steak": {
+    servings: "Serves 4",
+    ingredients: [
+      "4 cube steaks (about 1.5 lbs total)",
+      "Breading: 2 cups flour + 1 tbsp salt + 2 tsp pepper + 1 tsp paprika + 1 tsp garlic powder",
+      "Egg wash: 2 eggs + 1 cup buttermilk + 1 tbsp hot sauce",
+      "Vegetable oil for frying",
+      "White pepper gravy: 1/4 cup pan drippings, 1/4 cup flour, 3 cups whole milk, 1 tsp white pepper, salt",
+      "Mashed potatoes (your favorite recipe)",
+      "Green beans, sauteed in butter with garlic"
+    ],
+    steps: [
+      "Make mashed potatoes and green beans.",
+      "Set up dredging: seasoned flour, egg wash, seasoned flour again.",
+      "Dredge each cube steak: flour, egg, flour. Press to coat well.",
+      "Heat 1/2 inch oil to 350F in cast iron.",
+      "Fry steaks 3-4 minutes per side until deep golden. Drain on rack.",
+      "Make gravy: pour off oil leaving 1/4 cup drippings. Whisk in flour, cook 2 minutes. Gradually whisk in milk. Simmer until thick. Season heavily with white pepper.",
+      "Serve steaks smothered in gravy with potatoes and beans."
+    ]
+  },
+
+  "BLT Club Sandwich": {
+    servings: "Serves 4",
+    ingredients: [
+      "12 slices white bread, toasted",
+      "12 strips bacon",
+      "1/2 lb sliced deli turkey",
+      "Iceberg lettuce leaves",
+      "2 large tomatoes, sliced",
+      "Mayo",
+      "Salt, pepper",
+      "Toothpicks for holding together",
+      "Chips or seasoned oven fries (see Day 7)"
+    ],
+    steps: [
+      "Cook bacon in oven at 400F on rack for 18-20 minutes until crispy.",
+      "Toast bread slices.",
+      "Build each sandwich: spread mayo on one side of all 3 toast slices.",
+      "Layer 1: bottom toast, lettuce, tomato (salt and pepper), bacon.",
+      "Middle toast (mayo down).",
+      "Layer 2: turkey, more lettuce, more tomato.",
+      "Top toast (mayo down). Secure with 4 toothpicks.",
+      "Slice diagonally into quarters. Serve with chips or fries."
+    ]
+  },
+
+  "Smothered Chicken Thighs": {
+    servings: "Serves 4",
+    ingredients: [
+      "8 boneless skinless chicken thighs",
+      "Salt, pepper, garlic powder, paprika",
+      "3 tbsp oil",
+      "2 large onions, sliced",
+      "8 oz cremini mushrooms, sliced",
+      "4 cloves garlic, minced",
+      "3 tbsp flour",
+      "2 cups chicken broth",
+      "1 cup heavy cream",
+      "1 tsp fresh thyme",
+      "Mashed potatoes for serving"
+    ],
+    steps: [
+      "Make mashed potatoes.",
+      "Season chicken. Heat oil in large skillet over medium-high.",
+      "Sear chicken 4 minutes per side until golden. Remove.",
+      "Add onions, cook 6-7 minutes until soft. Add mushrooms, cook 5 more minutes.",
+      "Add garlic, cook 30 seconds. Sprinkle in flour, stir 1 minute.",
+      "Whisk in broth and cream. Add thyme. Simmer 3 minutes.",
+      "Return chicken to pan, spooning gravy over top. Simmer covered 15 minutes.",
+      "Serve over mashed potatoes."
+    ]
+  },
+
+  "Honey Mustard Chicken Thighs": {
+    servings: "Serves 4",
+    ingredients: [
+      "8 bone-in skin-on chicken thighs",
+      "Salt, pepper",
+      "Glaze: 1/2 cup honey, 1/3 cup dijon mustard, 2 tbsp whole grain mustard, 3 cloves garlic minced, 1 tbsp olive oil, 1 tsp fresh thyme, salt and pepper",
+      "1.5 lbs baby potatoes, halved, tossed with oil and seasoning",
+      "1 lb green beans, trimmed"
+    ],
+    steps: [
+      "Preheat oven to 400F.",
+      "Season chicken thighs. Whisk glaze ingredients.",
+      "Toss potatoes with oil, salt, pepper. Spread on one side of large baking sheet.",
+      "Place chicken thighs on other side. Brush generously with glaze.",
+      "Roast 25 minutes. Brush with more glaze.",
+      "Add green beans tossed with a little oil to the pan. Roast 15 more minutes until chicken is 175F.",
+      "Brush with final glaze. Serve."
+    ]
+  },
+
+  "Pizza Night": {
+    servings: "Serves 4-6",
+    ingredients: [
+      "Pizza dough (homemade or store-bought, enough for 2 large pizzas)",
+      "Pizza sauce: 1 can (28 oz) crushed tomatoes, 2 cloves garlic minced, 1 tbsp olive oil, 1 tsp salt, 1 tsp dried oregano, 1 tsp dried basil, pinch sugar",
+      "16 oz mozzarella, shredded",
+      "Toppings of choice: pepperoni, sausage, mushrooms, peppers, onions, olives, basil",
+      "Olive oil and cornmeal for the pan",
+      "Or: just call your favorite pizza place"
+    ],
+    steps: [
+      "Preheat oven to 500F (or as high as it goes) with a baking sheet inside.",
+      "Mix sauce ingredients (no cooking needed - it cooks on the pizza).",
+      "Roll out dough on cornmeal-dusted surface.",
+      "Transfer to hot baking sheet. Top with sauce, cheese, toppings.",
+      "Bake 10-12 minutes until crust is golden and cheese is bubbly.",
+      "Top with fresh basil. Slice and serve.",
+      "Or skip all that and order delivery. No shame."
+    ]
+  },
+
+  "Takeout Night": {
+    servings: "Serves your whole family",
+    ingredients: [
+      "Your phone",
+      "Your favorite takeout menu",
+      "Cash or card"
+    ],
+    steps: [
+      "Take a deep breath. You don't have to cook tonight.",
+      "Call or order online from a place the family loves.",
+      "Set the table while you wait. Or don't.",
+      "Enjoy."
+    ]
+  }
+};
+const meals = [
+  { day:1,  name:"Classic Smash Burgers", cuisine:"american", seafood:false,
+    desc:"Double smash patties, American cheese, pickles, special sauce on brioche buns. Piled with lettuce, tomato, and onion.",
+    gout:"Keep patties to 4 oz each. Load the toppings to fill the plate." },
+
+  { day:2,  name:"Seasoned Beef Tacos", cuisine:"mexican", seafood:false,
+    desc:"Lean ground beef with homemade taco seasoning, shredded cheddar, lettuce, tomato, sour cream in crunchy shells.",
+    gout:"Use lean ground beef or mix in ground turkey. Skip store-bought seasoning packets with additives." },
+
+  { day:3,  name:"Chicken Alfredo", cuisine:"italian", seafood:false,
+    desc:"Grilled chicken breast over fettuccine in a rich parmesan cream sauce.",
+    gout:"Cream and parmesan are gout-neutral. Chicken is the best protein pick here." },
+
+  { day:4,  name:"Carne Asada Tacos", cuisine:"mexican", seafood:false,
+    desc:"Marinated skirt steak, grilled with char, cilantro, white onion, and lime on warm corn tortillas.",
+    gout:"4–5 oz of steak per person. Pair with rice and black beans to round out the plate." },
+
+  { day:5,  name:"Stuffed Chicken Breast", cuisine:"american", seafood:false,
+    desc:"Chicken breasts filled with spinach and cream cheese, baked golden with a garlic butter drizzle.",
+    gout:"One of the best gout-friendly dinners on the plan. Chicken and dairy all the way." },
+
+  { day:6,  name:"Shrimp Tacos", cuisine:"mexican", seafood:true,
+    desc:"Spiced pan-seared shrimp, chipotle slaw, sliced avocado, and fresh lime on warm flour tortillas.",
+    gout:"Keep shrimp to about 4 oz per person. Load up on slaw and avocado to fill the plate." },
+
+  { day:7,  name:"Grilled Hotdogs & Oven Fries", cuisine:"american", seafood:false,
+    desc:"Grilled all-beef dogs with a full toppings bar — mustard, relish, onion, kraut — and seasoned crispy oven fries.",
+    gout:"1–2 dogs per person. Choose lower-sodium options when available." },
+
+  { day:8,  name:"Buttermilk Fried Chicken", cuisine:"american", seafood:false,
+    desc:"Buttermilk-brined, double-dredged, cast iron fried — served with mashed potatoes and homemade gravy.",
+    gout:"Use homemade gravy to control sodium and skip the additives in jarred versions." },
+
+  { day:9,  name:"Grilled Chicken Tacos", cuisine:"mexican", seafood:false,
+    desc:"Juicy grilled chicken thighs, pickled red onion, avocado crema, and cotija on flour tortillas.",
+    gout:null },
+
+  { day:10, name:"Chicken Piccata", cuisine:"italian", seafood:false,
+    desc:"Pan-seared chicken cutlets in a bright lemon-caper butter sauce over angel hair pasta.",
+    gout:"Lemon and capers are gout-neutral. Great lower-purine Italian dinner." },
+
+  { day:11, name:"Herb-Grilled Chicken Thighs", cuisine:"american", seafood:false,
+    desc:"Herb-marinated chicken thighs grilled until golden, with charred corn and a crisp green salad.",
+    gout:null },
+
+  { day:12, name:"Garlic Butter Shrimp & Rice", cuisine:"american", seafood:true,
+    desc:"Shrimp sautéed in garlic herb butter over fluffy white rice with roasted vegetables on the side.",
+    gout:"4 oz shrimp per person. The rice and roasted veg help balance the purine load." },
+
+  { day:13, name:"Chicken Marsala", cuisine:"italian", seafood:false,
+    desc:"Tender chicken cutlets in a savory mushroom and Marsala wine sauce over buttered egg noodles.",
+    gout:"Chicken-based — solid choice. Mushrooms are fine for gout." },
+
+  { day:14, name:"BBQ Pulled Chicken Sandwiches", cuisine:"american", seafood:false,
+    desc:"Slow-cooked pulled chicken with homemade BBQ sauce, creamy coleslaw on toasted brioche.",
+    gout:"Homemade BBQ sauce avoids the high-fructose corn syrup in most store-bought versions." },
+
+  { day:15, name:"Chicken Birria Tacos", cuisine:"mexican", seafood:false,
+    desc:"Braised chicken in rich red chile consommé, dipped tortillas pan-crisped with Oaxacan cheese. Served with dipping broth.",
+    gout:"Red chile birria sauce is totally different from tomato-based pasta sauce — and it's gout-friendly." },
+
+  { day:16, name:"Cuban Sandwiches", cuisine:"american", seafood:false,
+    desc:"Roasted pork, shaved ham, Swiss cheese, pickles, and yellow mustard pressed on Cuban bread until golden and crispy. Served with seasoned fries.",
+    gout:"Keep the pork and ham portions moderate. Load up on pickles and mustard — they're gout-neutral." },
+
+  { day:17, name:"Classic Meatloaf", cuisine:"american", seafood:false,
+    desc:"Brown sugar glazed meatloaf with creamy mashed potatoes and buttered green beans.",
+    gout:"One good slice — about 4–5 oz. Fill the rest of the plate with potatoes and beans." },
+
+  { day:18, name:"Pork Carnitas Tacos", cuisine:"mexican", seafood:false,
+    desc:"Slow-braised crispy pork carnitas, pineapple salsa, pickled jalapeño, and cilantro on corn tortillas.",
+    gout:"Moderate the carnitas. Fresh pineapple salsa and toppings keep it balanced." },
+
+  { day:19, name:"Stuffed Shells", cuisine:"italian", seafood:false,
+    desc:"Jumbo pasta shells filled with ricotta and spinach, baked in a creamy white garlic sauce.",
+    gout:"All gout-friendly — ricotta, spinach, pasta, cream. One of the cleanest meals on the plan." },
+
+  { day:20, name:"Bacon Smash Burgers", cuisine:"american", seafood:false,
+    desc:"Crispy bacon, caramelized onions, pepper jack, and chipotle mayo on a toasted brioche bun.",
+    gout:"4 oz patties. One or two strips of bacon is fine — just don't overdo it." },
+
+  { day:21, name:"Red Sauce Chicken Enchiladas", cuisine:"mexican", seafood:false,
+    desc:"Shredded roasted chicken in corn tortillas, smothered in homemade red chile enchilada sauce and melted cheese.",
+    gout:"Chicken and homemade chile sauce — solid, gout-friendly combo." },
+
+  { day:22, name:"Garlic Shrimp Fettuccine", cuisine:"italian", seafood:true,
+    desc:"Shrimp tossed with fettuccine in a white wine garlic butter sauce with parsley and lemon zest.",
+    gout:"4 oz shrimp per person. Serve with a big side salad to keep the meal balanced." },
+
+  { day:23, name:"Pan-Fried Pork Chops", cuisine:"american", seafood:false,
+    desc:"Thick-cut bone-in chops with a golden crust, served with skillet corn and roasted potatoes.",
+    gout:"One good chop per person. Load up on the corn and potatoes to round it out." },
+
+  { day:24, name:"Steak & Chicken Fajitas", cuisine:"mexican", seafood:false,
+    desc:"Sizzling skirt steak and chicken with peppers and onions — flour tortillas, guac, sour cream, and pico de gallo.",
+    gout:"Go heavier on the chicken, lighter on the steak. All the toppings are gout-neutral." },
+
+  { day:25, name:"Three-Cheese Chicken Alfredo", cuisine:"italian", seafood:false,
+    desc:"Parmesan, romano, and asiago cream sauce over fettuccine with pan-seared chicken breast.",
+    gout:"Chicken and cream sauce — one of the best gout-friendly Italian meals on this plan." },
+
+  { day:26, name:"Fish Tacos", cuisine:"mexican", seafood:true,
+    desc:"Crispy beer-battered cod, cabbage slaw, chipotle crema, and pickled red onion on warm corn tortillas.",
+    gout:"White fish like cod is lower in purines than shrimp. Great seafood option." },
+
+  { day:27, name:"French Dip Sandwiches", cuisine:"american", seafood:false,
+    desc:"Thinly sliced roast beef on a toasted hoagie roll with melted provolone, served with a rich au jus for dipping. Seasoned oven fries on the side.",
+    gout:"Use thinly sliced roast beef and keep it to one sandwich." },
+
+  { day:28, name:"Ground Beef Enchiladas", cuisine:"mexican", seafood:false,
+    desc:"Seasoned lean ground beef and cheddar rolled in flour tortillas with red chile enchilada sauce.",
+    gout:"Use lean ground beef. Red chile enchilada sauce is fine — not the same as tomato pasta sauce." },
+
+  { day:29, name:"Build-Your-Own Burger Bar", cuisine:"american", seafood:false,
+    desc:"Full toppings spread — lettuce, tomato, pickles, onion, bacon, multiple cheeses, loaded oven fries. Everyone builds their own.",
+    gout:"4 oz patties. The fun is in the toppings, not the size of the burger." },
+
+  { day:30, name:"Malibu Chicken Sandwich", cuisine:"american", seafood:false,
+    desc:"Crispy fried chicken breast topped with shaved ham, melted Swiss cheese, and honey mustard on a toasted brioche bun. Seasoned oven fries on the side.",
+    gout:"Chicken keeps it gout-friendly. Go easy on the ham portion — processed meat in moderation." },
+
+  { day:31, name:"Carne Asada Platter", cuisine:"mexican", seafood:false,
+    desc:"Marinated flank steak with Mexican rice, charro beans, grilled onions, guacamole, and warm tortillas.",
+    gout:"End the month right — 5 oz of steak, then fill the plate with rice, beans, and guac." },
+];
+
+// Swap pool — alternative meals to swap in for any day
+const swapPool = [
+  { name:"Grilled Chicken Sandwich", cuisine:"american", seafood:false,
+    desc:"Juicy grilled chicken breast, lettuce, tomato, pickles, and honey mustard on a toasted brioche bun. Seasoned oven fries on the side.",
+    gout:"Grilled over fried keeps purines lower. Great swap any night." },
+
+  { name:"Chicken Strip Wraps", cuisine:"american", seafood:false,
+    desc:"Crispy chicken strips, shredded lettuce, cheddar, tomato, and ranch in a large flour tortilla. Served with fries.",
+    gout:"Chicken is gout-friendly. Watch the portion size on the wrap — one is plenty." },
+
+  { name:"Patty Melt", cuisine:"american", seafood:false,
+    desc:"Seasoned beef patty with caramelized onions and melted Swiss on buttered toasted rye bread. Served with fries.",
+    gout:"Keep the patty to 4 oz. Caramelized onions are gout-neutral." },
+
+  { name:"Grilled Cheese & Tomato Soup", cuisine:"american", seafood:false,
+    desc:"Buttery golden grilled cheese on thick white bread with a warm creamy tomato soup for dipping.",
+    gout:"Low purine, easy on the stomach. One of the most gout-friendly swaps on the list." },
+
+  { name:"Pot Roast", cuisine:"american", seafood:false,
+    desc:"Slow-braised chuck roast with carrots, potatoes, and onions in a rich beef broth gravy.",
+    gout:"Keep beef to 4-5 oz. Load up on the carrots and potatoes to fill the plate." },
+
+  { name:"Carolina BBQ Chicken", cuisine:"american", seafood:false,
+    desc:"Pulled chicken thighs in a tangy vinegar-based Carolina BBQ sauce, served on brioche with coleslaw.",
+    gout:"Chicken and vinegar sauce — lower purine than red meat BBQ. Great swap." },
+
+  { name:"Chicken Fried Steak", cuisine:"american", seafood:false,
+    desc:"Tenderized beef cutlet breaded and fried golden, smothered in creamy white pepper gravy. Served with mashed potatoes and green beans.",
+    gout:"Keep the cutlet to one moderate portion. Fill the plate with mashed potatoes and beans." },
+
+  { name:"BLT Club Sandwich", cuisine:"american", seafood:false,
+    desc:"Triple-decker with bacon, lettuce, tomato, turkey, and mayo on toasted white bread. Served with chips or fries.",
+    gout:"Go easy on the bacon — one or two strips. Turkey keeps the purine load reasonable." },
+
+  { name:"Smothered Chicken Thighs", cuisine:"american", seafood:false,
+    desc:"Pan-seared chicken thighs in a creamy onion and mushroom gravy, served over mashed potatoes.",
+    gout:"Chicken thighs and mushrooms are both gout-friendly. One of the best swaps on the list." },
+
+  { name:"Honey Mustard Chicken Thighs", cuisine:"american", seafood:false,
+    desc:"Oven-baked chicken thighs glazed with honey mustard, served with roasted potatoes and green beans.",
+    gout:"Chicken and honey mustard are both gout-neutral. Easy weeknight swap." },
+
+  { name:"Pizza Night", cuisine:"american", seafood:false,
+    desc:"Homemade or order out — your call. Load it up however the family wants it.",
+    gout:"Watch sodium on delivery pizza. Homemade lets you control the toppings and portions." },
+
+  { name:"Takeout Night", cuisine:"american", seafood:false,
+    desc:"Your choice — pick up whatever sounds good tonight.",
+    gout:"Watch sodium and portion sizes. Avoid organ meat dishes and high-purine soups." },
+];
+
+const weekLabels = ["Week One", "Week Two", "Week Three", "Week Four", "Week Five"];
+const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+// Anchor Day 1 to first day of current month
+const today = new Date();
+const planStartDate = new Date(today.getFullYear(), today.getMonth(), 1);
+const planMonthName = planStartDate.toLocaleString('default', { month: 'long', year: 'numeric' });
+
+// Storage keys
+const STORAGE_KEY = 'mealplan_checked';
+const SWAP_KEY = 'mealplan_swaps';
+const MONTH_KEY = 'mealplan_month';
+
+// Auto-reset checkmarks AND swaps when the month changes
+const currentMonth = `${today.getFullYear()}-${today.getMonth()}`;
+const savedMonth = localStorage.getItem(MONTH_KEY);
+if (savedMonth !== currentMonth) {
+  localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(SWAP_KEY);
+  localStorage.setItem(MONTH_KEY, currentMonth);
+}
+
+let currentFilter = 'all';
+
+function getDayName(dayNum) {
+  const date = new Date(planStartDate);
+  date.setDate(dayNum);
+  return dayNames[date.getDay()];
+}
+
+// Checkmark storage
+function getChecked() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+  catch { return []; }
+}
+
+function saveChecked(arr) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); } catch {}
+}
+
+// Swap storage
+function getSwaps() {
+  try { return JSON.parse(localStorage.getItem(SWAP_KEY)) || {}; }
+  catch { return {}; }
+}
+
+function saveSwaps(obj) {
+  try { localStorage.setItem(SWAP_KEY, JSON.stringify(obj)); } catch {}
+}
+
+// Get the meal currently shown for a given day (original or swapped)
+// Swap storage format: { source: 'pool'|'menu', index: N }
+// Legacy format (just a number) is treated as 'pool' for backward compat
+function getMealForDay(day) {
+  const swaps = getSwaps();
+  const swap = swaps[day];
+  if (swap !== undefined) {
+    // Legacy format: bare number means swapPool index
+    if (typeof swap === 'number') {
+      return { ...swapPool[swap], day, _swapped: true };
+    }
+    // New format: { source, index }
+    if (swap.source === 'menu') {
+      const menuMeal = meals[swap.index];
+      return { ...menuMeal, day, _swapped: true };
+    }
+    return { ...swapPool[swap.index], day, _swapped: true };
+  }
+  const original = meals.find(m => m.day === day);
+  return { ...original, _swapped: false };
+}
+
+// Check if a meal matches the current filter
+function matchesFilter(meal, filter) {
+  if (filter === 'all') return true;
+  if (filter === 'seafood') return meal.seafood;
+  return meal.cuisine === filter;
+}
+
+// Build a single card's HTML content (used by both initial render and rebuild)
+function buildCardHTML(meal, day) {
+  const checked = getChecked();
+  const isChecked = checked.includes(day);
+
+  let tagsHTML = '';
+  if (meal.seafood) tagsHTML += `<span class="cuisine-tag tag-seafood">Seafood</span>`;
+  tagsHTML += `<span class="cuisine-tag tag-${meal.cuisine}">${meal.cuisine.charAt(0).toUpperCase()+meal.cuisine.slice(1)}</span>`;
+  if (meal._swapped) tagsHTML += `<span class="cuisine-tag tag-swap">Swapped</span>`;
+
+  const goutHTML = meal.gout ? `<div class="gout-tip">💧 ${meal.gout}</div>` : '';
+
+  return `
+    <div class="day-label">${getDayName(day)} · Day ${day}</div>
+    <div class="day-num">${day}</div>
+    <div class="meal-name" onclick="openRecipe('${meal.name.replace(/'/g, "\\'")}')">${meal.name}</div>
+    <div class="meal-desc">${meal.desc}</div>
+    ${goutHTML}
+    <div class="tags">${tagsHTML}</div>
+    <div class="card-actions">
+      <button class="check-btn" onclick="toggleDay(${day})">
+        <span class="check-icon">${isChecked ? '✓' : ''}</span>
+        <span class="check-label">${isChecked ? 'Done!' : 'Mark as made'}</span>
+      </button>
+      <button class="swap-btn" onclick="openSwapMenu(${day})">⇄ Swap</button>
+    </div>
+  `;
+}
+
+// Apply correct CSS classes to a card based on its state
+function applyCardState(card, meal, day) {
+  const isChecked = getChecked().includes(day);
+  card.className = 'day-card' +
+    (isChecked ? ' done' : '') +
+    (meal._swapped ? ' swapped' : '') +
+    (matchesFilter(meal, currentFilter) ? '' : ' hidden');
+}
+
+// Build the entire weeks grid
+function buildUI(filter) {
+  currentFilter = filter;
+  const container = document.getElementById('weeksContainer');
+  container.innerHTML = '';
+
+  const weeks = [[], [], [], [], []];
+  meals.forEach(m => {
+    const wi = m.day <= 7 ? 0 : m.day <= 14 ? 1 : m.day <= 21 ? 2 : m.day <= 28 ? 3 : 4;
+    weeks[wi].push(m);
+  });
+
+  weeks.forEach((week, wi) => {
+    // Count visible meals using the actual displayed meal (which may be swapped)
+    const visibleCount = week.filter(m => matchesFilter(getMealForDay(m.day), filter)).length;
+
+    if (visibleCount === 0) return;
+
+    const block = document.createElement('div');
+    block.className = 'week-block';
+    block.innerHTML = `
+      <div class="week-header">
+        <div class="week-num">0${wi+1}</div>
+        <div>
+          <div class="week-title">${weekLabels[wi]}</div>
+        </div>
+      </div>
+    `;
+
+    const grid = document.createElement('div');
+    grid.className = 'days-grid';
+
+    week.forEach(originalMeal => {
+      const meal = getMealForDay(originalMeal.day);
+      const card = document.createElement('div');
+      card.dataset.day = originalMeal.day;
+      applyCardState(card, meal, originalMeal.day);
+      card.innerHTML = buildCardHTML(meal, originalMeal.day);
+      grid.appendChild(card);
+    });
+
+    block.appendChild(grid);
+    container.appendChild(block);
+  });
+}
+
+// Rebuild a single card in place (after swap or restore)
+function rebuildCard(day) {
+  const card = document.querySelector(`.day-card[data-day="${day}"]`);
+  if (!card) return;
+  const meal = getMealForDay(day);
+  applyCardState(card, meal, day);
+  card.innerHTML = buildCardHTML(meal, day);
+
+  // Recalculate week count in case filter visibility changed
+  refreshWeekCounts();
+}
+
+// Update the "X dinners" subtitle on each week header to reflect filter + swaps
+function refreshWeekCounts() {
+  const blocks = document.querySelectorAll('.week-block');
+  const weeks = [[], [], [], [], []];
+  meals.forEach(m => {
+    const wi = m.day <= 7 ? 0 : m.day <= 14 ? 1 : m.day <= 21 ? 2 : m.day <= 28 ? 3 : 4;
+    weeks[wi].push(m);
+  });
+
+  let blockIndex = 0;
+  weeks.forEach((week) => {
+    const visibleCount = week.filter(m => matchesFilter(getMealForDay(m.day), currentFilter)).length;
+    if (visibleCount === 0) return;
+    const block = blocks[blockIndex];
+    if (block) {
+      const sub = block.querySelector('.week-sub');
+      if (sub) sub.textContent = `${visibleCount} dinner${visibleCount !== 1 ? 's' : ''}`;
+    }
+    blockIndex++;
+  });
+}
+
+function filterMeals(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  buildUI(type);
+}
+
+// Checkmark toggling
+function toggleDay(day) {
+  let checked = getChecked();
+  checked = checked.includes(day)
+    ? checked.filter(d => d !== day)
+    : [...checked, day];
+  saveChecked(checked);
+
+  const card = document.querySelector(`.day-card[data-day="${day}"]`);
+  if (card) {
+    const meal = getMealForDay(day);
+    applyCardState(card, meal, day);
+    const icon = card.querySelector('.check-icon');
+    const label = card.querySelector('.check-label');
+    const isDone = checked.includes(day);
+    if (icon) icon.textContent = isDone ? '✓' : '';
+    if (label) label.textContent = isDone ? 'Done!' : 'Mark as made';
+  }
+  updateProgress();
+}
+
+function updateProgress() {
+  const count = getChecked().length;
+  document.getElementById('progressText').textContent = `${count} of 31`;
+  document.getElementById('progressBar').style.width = (count / 31 * 100) + '%';
+}
+
+function resetAll() {
+  if (!confirm('Clear all checkmarks and start fresh?')) return;
+  saveChecked([]);
+  document.querySelectorAll('.day-card.done').forEach(card => {
+    const day = parseInt(card.dataset.day, 10);
+    const meal = getMealForDay(day);
+    applyCardState(card, meal, day);
+    const icon = card.querySelector('.check-icon');
+    const label = card.querySelector('.check-label');
+    if (icon) icon.textContent = '';
+    if (label) label.textContent = 'Mark as made';
+  });
+  updateProgress();
+}
+
+// Swap menu
+let activeSwapDay = null;
+
+function openSwapMenu(day) {
+  activeSwapDay = day;
+  const menu = document.getElementById('swapMenu');
+  const list = document.getElementById('swapList');
+  list.innerHTML = '';
+
+  const swaps = getSwaps();
+  if (swaps[day] !== undefined) {
+    const restoreBtn = document.createElement('button');
+    restoreBtn.className = 'swap-option restore-option';
+    restoreBtn.innerHTML = `<span class="swap-option-name">↩ Restore Original Meal</span>`;
+    restoreBtn.onclick = () => { restoreOriginal(day); closeSwapMenu(); };
+    list.appendChild(restoreBtn);
+  }
+
+  // Build unified option list: main menu meals + swap pool
+  // Tag each with its source so we know where to pull from on apply
+  const allOptions = [];
+  meals.forEach((meal, i) => {
+    // Skip the current day's own original meal from the swap list
+    if (meal.day !== day) {
+      allOptions.push({ meal, source: 'menu', index: i });
+    }
+  });
+  swapPool.forEach((meal, i) => {
+    allOptions.push({ meal, source: 'pool', index: i });
+  });
+
+  // Group by cuisine
+  const groups = {
+    american: { label: 'American', items: [] },
+    mexican: { label: 'Mexican', items: [] },
+    italian: { label: 'Italian', items: [] },
+  };
+  allOptions.forEach(opt => {
+    const cuisine = opt.meal.cuisine;
+    if (groups[cuisine]) groups[cuisine].items.push(opt);
+  });
+
+  // Sort each group alphabetically and dedupe by name (so a meal doesn't
+  // show up twice if it's in both meals[] and swapPool)
+  Object.values(groups).forEach(g => {
+    const seen = new Set();
+    g.items = g.items
+      .filter(opt => {
+        if (seen.has(opt.meal.name)) return false;
+        seen.add(opt.meal.name);
+        return true;
+      })
+      .sort((a, b) => a.meal.name.localeCompare(b.meal.name));
+  });
+
+  // Render each cuisine group
+  ['american', 'mexican', 'italian'].forEach(cuisine => {
+    const group = groups[cuisine];
+    if (group.items.length === 0) return;
+
+    const heading = document.createElement('div');
+    heading.className = 'swap-group-heading';
+    heading.innerHTML = `<span>${group.label}</span><span class="swap-group-count">${group.items.length}</span>`;
+    list.appendChild(heading);
+
+    group.items.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'swap-option';
+      const tagColor = `tag-${opt.meal.cuisine}`;
+      const seafoodTag = opt.meal.seafood
+        ? `<span class="cuisine-tag tag-seafood">Seafood</span>`
+        : '';
+      btn.innerHTML = `
+        <span class="swap-option-name">${opt.meal.name}</span>
+        <span class="swap-option-tags">
+          ${seafoodTag}
+          <span class="cuisine-tag ${tagColor}">${opt.meal.cuisine.charAt(0).toUpperCase()+opt.meal.cuisine.slice(1)}</span>
+        </span>
+      `;
+      btn.onclick = () => { applySwap(day, opt.source, opt.index); closeSwapMenu(); };
+      list.appendChild(btn);
+    });
+  });
+
+  menu.classList.add('open');
+  // Scroll the menu back to top so the restore button / first group is visible
+  const menuScroller = menu.querySelector('.swap-menu');
+  if (menuScroller) menuScroller.scrollTop = 0;
+}
+
+function closeSwapMenu() {
+  document.getElementById('swapMenu').classList.remove('open');
+  activeSwapDay = null;
+}
+
+function applySwap(day, source, index) {
+  const swaps = getSwaps();
+  swaps[day] = { source, index };
+  saveSwaps(swaps);
+  rebuildCard(day);
+}
+
+function restoreOriginal(day) {
+  const swaps = getSwaps();
+  delete swaps[day];
+  saveSwaps(swaps);
+  rebuildCard(day);
+}
+
+// Close swap menu when clicking the dark overlay
+document.getElementById('swapMenu').addEventListener('click', (e) => {
+  if (e.target.id === 'swapMenu') closeSwapMenu();
+});
+
+// Recipe modal
+function openRecipe(mealName) {
+  const recipe = recipes[mealName];
+  const modal = document.getElementById('recipeModal');
+  const title = document.getElementById('recipeTitle');
+  const tag = document.getElementById('recipeTag');
+  const servings = document.getElementById('recipeServings');
+  const body = document.getElementById('recipeBody');
+
+  title.textContent = mealName;
+
+  if (!recipe) {
+    tag.textContent = 'Recipe';
+    servings.textContent = '';
+    body.innerHTML = `<div class="recipe-missing">Recipe coming soon for this meal.</div>`;
+  } else {
+    tag.textContent = 'Recipe';
+    servings.textContent = recipe.servings || '';
+    const ingredientsHTML = recipe.ingredients.map(i => `<li>${i}</li>`).join('');
+    const stepsHTML = recipe.steps.map(s => `<li>${s}</li>`).join('');
+    body.innerHTML = `
+      <div class="recipe-section ingredients">
+        <h5>Ingredients</h5>
+        <ul class="recipe-ingredients">${ingredientsHTML}</ul>
+      </div>
+      <div class="recipe-section steps">
+        <h5>Instructions</h5>
+        <ol class="recipe-steps">${stepsHTML}</ol>
+      </div>
+    `;
+  }
+
+  modal.classList.add('open');
+  modal.scrollTop = 0;
+}
+
+function closeRecipe() {
+  document.getElementById('recipeModal').classList.remove('open');
+}
+
+document.getElementById('recipeModal').addEventListener('click', (e) => {
+  if (e.target.id === 'recipeModal') closeRecipe();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeRecipe();
+    closeSwapMenu();
+  }
+});
+
+// Initialize
+document.getElementById('monthLabel').textContent = planMonthName;
+buildUI('all');
+updateProgress();
+
+// ── Supabase cross-device sync ──────────────────────────────────────────────
+const SUPABASE_URL  = "https://sdkihobprbgbkrqgurqh.supabase.co";
+const SUPABASE_KEY  = "sb_publishable_XHvk0yy9qfuVSfRhwPh-aA_zPNRULww";
+const SYNC_TABLE    = "mealplan_data";
+const SHARED_ROW_ID = "family_mealplan";
+
+async function sbFetch(path, opts) {
+  opts = opts || {};
+  return fetch(SUPABASE_URL + "/rest/v1/" + path, {
+    method: opts.method || "GET",
+    headers: Object.assign({
+      "apikey": SUPABASE_KEY,
+      "Authorization": "Bearer " + SUPABASE_KEY,
+      "Content-Type": "application/json",
+      "Prefer": opts.prefer || "return=minimal"
+    }, opts.headers || {}),
+    body: opts.body ? JSON.stringify(opts.body) : undefined
+  });
+}
+
+async function pushToCloud() {
+  try {
+    const payload = {
+      id: SHARED_ROW_ID,
+      checked: getChecked(),
+      swaps: getSwaps(),
+      updated_at: new Date().toISOString()
+    };
+    // Try PATCH first; if row missing, INSERT
+    const patch = await sbFetch(SYNC_TABLE + "?id=eq." + SHARED_ROW_ID, {
+      method: "PATCH", prefer: "return=representation",
+      headers: { "Accept": "application/json" }, body: payload
+    });
+    const patched = await patch.json();
+    if (!patched || patched.length === 0) {
+      await sbFetch(SYNC_TABLE, { method: "POST", prefer: "return=minimal", body: payload });
+    }
+  } catch (e) { console.warn("Sync push failed:", e); }
+}
+
+async function pullFromCloud() {
+  try {
+    const res = await sbFetch(SYNC_TABLE + "?id=eq." + SHARED_ROW_ID, {
+      headers: { "Accept": "application/json" }
+    });
+    const rows = await res.json();
+    if (!rows || rows.length === 0) return;
+    const row = rows[0];
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(row.checked || [])); } catch(e) {}
+    try { localStorage.setItem(SWAP_KEY, JSON.stringify(row.swaps || {})); } catch(e) {}
+    buildUI(currentFilter);
+    updateProgress();
+  } catch (e) { console.warn("Sync pull failed:", e); }
+}
+
+// Override save functions to also push after every local save
+const _origSaveChecked = window.saveChecked || saveChecked;
+window.saveChecked = function(arr) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); } catch(e) {}
+  pushToCloud();
+};
+
+const _origSaveSwaps = window.saveSwaps || saveSwaps;
+window.saveSwaps = function(obj) {
+  try { localStorage.setItem(SWAP_KEY, JSON.stringify(obj)); } catch(e) {}
+  pushToCloud();
+};
+
+// Pull fresh data from cloud on load
+pullFromCloud();
+
+// ── Service Worker (enables PWA install to home screen) ────────────────────
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js').catch(function() {});
+}
+</script>
+</body>
+</html>
