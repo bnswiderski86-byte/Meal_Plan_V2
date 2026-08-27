@@ -145,9 +145,38 @@
 
   .gout-note strong { color: rgba(238,240,240,0.9); font-weight: 600; }
 
-  .controls {
+  .view-tabs {
     max-width: 960px;
     margin: 28px auto 0;
+    padding: 0 24px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .view-tab {
+    flex: 1;
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    background: var(--paper);
+    font-family: 'Karla', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--muted);
+    text-align: center;
+    transition: all 0.18s;
+  }
+
+  .view-tab.active {
+    background: var(--ink);
+    color: #ffffff;
+    border-color: var(--ink);
+  }
+
+  .controls {
+    max-width: 960px;
+    margin: 16px auto 0;
     padding: 0 24px;
     display: flex;
     gap: 8px;
@@ -198,6 +227,159 @@
     overflow: hidden;
   }
 
+  .grocery-view {
+    max-width: 960px;
+    margin: 20px auto 60px;
+    padding: 0 24px;
+  }
+
+  .grocery-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+
+  .grocery-intro {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 620px;
+  }
+
+  .grocery-topbar-btns {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .email-btn {
+    font-family: 'Karla', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent2);
+    background: var(--tag-italian);
+    border: 1px solid var(--accent2);
+    padding: 7px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .email-btn:hover { opacity: 0.85; }
+
+  .grocery-week-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .email-btn-small {
+    font-family: 'Karla', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #ffffff;
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.32);
+    padding: 5px 11px;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .email-btn-small:hover { background: rgba(255,255,255,0.26); }
+
+  .grocery-week {
+    background: var(--paper);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    scroll-margin-top: 90px;
+  }
+
+  .grocery-week-header {
+    background: var(--ink);
+    color: #ffffff;
+    padding: 16px 22px;
+  }
+
+  .grocery-week-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  .grocery-week-meals {
+    font-size: 13px;
+    font-weight: 300;
+    opacity: 0.8;
+    line-height: 1.5;
+  }
+
+  .grocery-week-body {
+    padding: 18px 22px 6px;
+  }
+
+  .grocery-category {
+    margin-bottom: 18px;
+  }
+
+  .grocery-category h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .grocery-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    line-height: 1.4;
+    cursor: pointer;
+  }
+
+  .grocery-item:last-child { border-bottom: none; }
+
+  .grocery-item input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: var(--accent);
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  .grocery-item.checked .grocery-item-text { opacity: 0.4; text-decoration: line-through; }
+
+  .grocery-item-text { flex: 1; }
+
+  .grocery-item-source {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 12.5px;
+  }
+
+  .grocery-takeout-note {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    padding: 8px 0 16px;
+  }
+
   .week-header {
     background: var(--ink);
     color: var(--bg);
@@ -230,6 +412,38 @@
     opacity: 0.55;
     color: #ffffff;
   }
+
+  .week-grocery-btn {
+    margin-left: auto;
+    font-family: 'Karla', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.32);
+    padding: 7px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.18s;
+  }
+
+  .week-grocery-btn:hover { background: rgba(255,255,255,0.26); }
+
+  .shuffle-btn {
+    font-family: 'Karla', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--tag-italian);
+    border: 1px solid var(--accent);
+    padding: 7px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .shuffle-btn:hover { opacity: 0.85; }
 
   .days-grid {
     display: grid;
@@ -868,6 +1082,12 @@
   </div>
 </header>
 
+<div class="view-tabs">
+  <button class="view-tab active" data-view="plan" onclick="location.hash=''">🍽️ Meal Plan</button>
+  <button class="view-tab" data-view="grocery" onclick="location.hash='groceries'">🛒 Grocery List</button>
+</div>
+
+<div id="planView">
 <div class="controls">
   <button class="filter-btn active" onclick="filterMeals('all', this)">All Meals</button>
   <button class="filter-btn" onclick="filterMeals('american', this)">American</button>
@@ -890,6 +1110,9 @@
 </div>
 
 <div class="weeks" id="weeksContainer"></div>
+</div>
+
+<div id="groceryView" style="display:none;"></div>
 
 <footer>
 </footer>
@@ -2067,13 +2290,17 @@ const planMonthName = planStartDate.toLocaleString('default', { month: 'long', y
 const STORAGE_KEY = 'mealplan_checked';
 const SWAP_KEY = 'mealplan_swaps';
 const MONTH_KEY = 'mealplan_month';
+const SHUFFLE_KEY = 'mealplan_shuffle';
+const GROCERY_CHECKED_KEY = 'mealplan_grocery_checked';
 
-// Auto-reset checkmarks AND swaps when the month changes
+// Auto-reset checkmarks, swaps, AND the auto-shuffle when the month changes
 const currentMonth = `${today.getFullYear()}-${today.getMonth()}`;
 const savedMonth = localStorage.getItem(MONTH_KEY);
 if (savedMonth !== currentMonth) {
   localStorage.removeItem(STORAGE_KEY);
   localStorage.removeItem(SWAP_KEY);
+  localStorage.removeItem(SHUFFLE_KEY);
+  localStorage.removeItem(GROCERY_CHECKED_KEY);
   localStorage.setItem(MONTH_KEY, currentMonth);
 }
 
@@ -2105,7 +2332,62 @@ function saveSwaps(obj) {
   try { localStorage.setItem(SWAP_KEY, JSON.stringify(obj)); } catch {}
 }
 
-// Get the meal currently shown for a given day (original or swapped)
+// ── Monthly auto-shuffle ─────────────────────────────────────────────────
+// Randomly assigns 31 unique meals (drawn from all 31 main-menu meals + all
+// 12 swap-pool meals = 43 total) to the 31 days, guaranteeing no repeats.
+// Runs automatically once per calendar month — no manual action needed.
+function generateShuffle() {
+  const pool = [];
+  meals.forEach((m, i) => pool.push({ source: 'menu', index: i }));
+  swapPool.forEach((m, i) => pool.push({ source: 'pool', index: i }));
+
+  // Fisher-Yates shuffle
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+
+  const chosen = pool.slice(0, 31);
+  const assignment = {};
+  chosen.forEach((opt, idx) => {
+    assignment[idx + 1] = { source: opt.source, index: opt.index };
+  });
+  return assignment;
+}
+
+function getShuffleState() {
+  try { return JSON.parse(localStorage.getItem(SHUFFLE_KEY)) || null; }
+  catch { return null; }
+}
+
+function saveShuffleState(state) {
+  try { localStorage.setItem(SHUFFLE_KEY, JSON.stringify(state)); } catch {}
+}
+
+// Generate a shuffle for the current month if one doesn't already exist locally
+function ensureShuffleForMonth() {
+  let state = getShuffleState();
+  if (!state || state.month !== currentMonth) {
+    state = { month: currentMonth, assignment: generateShuffle() };
+    saveShuffleState(state);
+  }
+  return state;
+}
+
+// Get the base (pre-manual-swap) meal for a day from the current shuffle
+function getShuffledMeal(day) {
+  const state = getShuffleState();
+  if (state && state.month === currentMonth && state.assignment[day]) {
+    const a = state.assignment[day];
+    const base = a.source === 'menu' ? meals[a.index] : swapPool[a.index];
+    if (base) return { ...base, day, _swapped: false };
+  }
+  return null;
+}
+
+// Get the meal currently shown for a given day.
+// Priority: manual per-day swap (via the Swap button) > this month's
+// auto-shuffle assignment > static fallback (only if shuffle is missing).
 // Swap storage format: { source: 'pool'|'menu', index: N }
 // Legacy format (just a number) is treated as 'pool' for backward compat
 function getMealForDay(day) {
@@ -2123,9 +2405,12 @@ function getMealForDay(day) {
     }
     return { ...swapPool[swap.index], day, _swapped: true };
   }
+  const shuffled = getShuffledMeal(day);
+  if (shuffled) return shuffled;
   const original = meals.find(m => m.day === day);
   return { ...original, _swapped: false };
 }
+
 
 // Check if a meal matches the current filter
 function matchesFilter(meal, filter) {
@@ -2198,6 +2483,7 @@ function buildUI(filter) {
         <div>
           <div class="week-title">${weekLabels[wi]}</div>
         </div>
+        <button class="week-grocery-btn" onclick="location.hash='groceries-week-${wi+1}'">🛒 Grocery List</button>
       </div>
     `;
 
@@ -2228,6 +2514,16 @@ function rebuildCard(day) {
 
   // Recalculate week count in case filter visibility changed
   refreshWeekCounts();
+  refreshGroceryIfVisible();
+}
+
+// Re-render the grocery list if it's the currently visible view, so it
+// always reflects the latest swaps/shuffle without the person having to ask
+function refreshGroceryIfVisible() {
+  const groceryView = document.getElementById('groceryView');
+  if (groceryView && groceryView.style.display !== 'none') {
+    renderGroceryList();
+  }
 }
 
 // Update the "X dinners" subtitle on each week header to reflect filter + swaps
@@ -2313,22 +2609,24 @@ function openSwapMenu(day) {
   if (swaps[day] !== undefined) {
     const restoreBtn = document.createElement('button');
     restoreBtn.className = 'swap-option restore-option';
-    restoreBtn.innerHTML = `<span class="swap-option-name">↩ Restore Original Meal</span>`;
+    restoreBtn.innerHTML = `<span class="swap-option-name">↩ Undo Swap</span>`;
     restoreBtn.onclick = () => { restoreOriginal(day); closeSwapMenu(); };
     list.appendChild(restoreBtn);
   }
 
-  // Build unified option list: main menu meals + swap pool
-  // Tag each with its source so we know where to pull from on apply
+  // Build unified option list: all 43 meals (main menu + swap pool),
+  // minus whatever meal is currently showing for this day
+  const currentMeal = getMealForDay(day);
   const allOptions = [];
   meals.forEach((meal, i) => {
-    // Skip the current day's own original meal from the swap list
-    if (meal.day !== day) {
+    if (meal.name !== currentMeal.name) {
       allOptions.push({ meal, source: 'menu', index: i });
     }
   });
   swapPool.forEach((meal, i) => {
-    allOptions.push({ meal, source: 'pool', index: i });
+    if (meal.name !== currentMeal.name) {
+      allOptions.push({ meal, source: 'pool', index: i });
+    }
   });
 
   // Group by cuisine
@@ -2465,15 +2763,288 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// ── Grocery List ─────────────────────────────────────────────────────────
+const GROCERY_CATEGORY_KEYWORDS = [
+  ['Meat & Seafood', ['beef','chicken','pork','steak','bacon','shrimp','fish','turkey','sausage','ham','patties','patty','ground','skirt','brisket','ribs','tenderloin','cutlet','thigh','breast','wing','loin','hot dog','hotdog',' dogs','roast','chuck']],
+  ['Dairy & Eggs', ['cheese','cheddar','mozzarella','parmesan','cream','milk','butter','sour cream','yogurt','egg','swiss','cotija','ricotta','provolone','mayo']],
+  ['Produce', ['lettuce','tomato','onion','garlic','cilantro','lime','lemon','avocado','pepper','corn','potato','carrot','celery','cabbage','spinach','herb','parsley','jalape','mushroom','scallion','green onion','basil','zucchini','thyme','bay leaf','bay leaves','orange','rosemary']],
+  ['Bakery & Bread', ['bun','bread','tortilla','roll','baguette','shell','rye','brioche','dough']],
+  ['Pantry & Dry Goods', ['rice','pasta','fettuccine','angel hair','flour','sugar','olive oil','vegetable oil','vinegar','sauce','broth','stock','seasoning','spice','can ','beans','salsa','ketchup','mustard','relish','pickle','bbq','honey','soy','worcestershire','panko','breadcrumbs','stuffing','gravy','jam','pineapple','cornmeal','oregano','paprika','caper']],
+  ['Frozen', ['frozen','fries']]
+];
+const GROCERY_CATEGORY_ORDER = ['Meat & Seafood','Dairy & Eggs','Produce','Bakery & Bread','Pantry & Dry Goods','Frozen','Other'];
+const GROCERY_EXCLUDE = ['your phone','takeout menu','cash or card','call your favorite pizza place','order delivery'];
+
+function categorizeIngredient(ing) {
+  const low = ing.toLowerCase();
+  for (const [cat, kws] of GROCERY_CATEGORY_KEYWORDS) {
+    for (const kw of kws) {
+      if (low.includes(kw)) return cat;
+    }
+  }
+  return 'Other';
+}
+
+function weekOfDay(day) {
+  if (day <= 7) return 1;
+  if (day <= 14) return 2;
+  if (day <= 21) return 3;
+  if (day <= 28) return 4;
+  return 5;
+}
+
+function getGroceryChecked() {
+  try { return JSON.parse(localStorage.getItem(GROCERY_CHECKED_KEY)) || {}; }
+  catch { return {}; }
+}
+
+function toggleGroceryItem(id) {
+  const state = getGroceryChecked();
+  state[id] = !state[id];
+  try { localStorage.setItem(GROCERY_CHECKED_KEY, JSON.stringify(state)); } catch {}
+  const el = document.querySelector(`.grocery-item[data-id="${id}"]`);
+  if (el) el.classList.toggle('checked', !!state[id]);
+}
+
+// Builds the grocery list fresh from whatever meals are currently assigned
+// (auto-shuffle + any manual swaps) — always live, never stale.
+// Build categorized grocery data for every week (days 1-31), from whatever
+// meals are currently assigned (shuffle + manual swaps). Shared by the
+// on-screen list and the email export so they never drift out of sync.
+function buildWeeksGroceryData() {
+  const weeksData = { 1: [], 2: [], 3: [], 4: [], 5: [] };
+  for (let day = 1; day <= 31; day++) {
+    const meal = getMealForDay(day);
+    weeksData[weekOfDay(day)].push({ day, meal });
+  }
+
+  const result = {};
+  [1,2,3,4,5].forEach(wk => {
+    const dayMeals = weeksData[wk];
+    if (dayMeals.length === 0) return;
+
+    const uniqueMealNames = [...new Set(dayMeals.map(dm => dm.meal.name))];
+    const nonTakeout = dayMeals.filter(dm => dm.meal.name !== 'Takeout Night');
+    const catItems = {};
+
+    if (nonTakeout.length > 0) {
+      dayMeals.forEach(dm => {
+        if (dm.meal.name === 'Takeout Night') return;
+        const recipe = recipes[dm.meal.name];
+        if (!recipe) return;
+        recipe.ingredients.forEach(ing => {
+          const low = ing.toLowerCase();
+          if (GROCERY_EXCLUDE.some(x => low.includes(x))) return;
+          const cat = categorizeIngredient(ing);
+          if (!catItems[cat]) catItems[cat] = [];
+          catItems[cat].push({ ing, mealName: dm.meal.name });
+        });
+      });
+    }
+
+    result[wk] = {
+      label: weekLabels[wk-1],
+      mealNames: uniqueMealNames,
+      hasTakeout: dayMeals.length !== nonTakeout.length,
+      allTakeout: nonTakeout.length === 0,
+      catItems
+    };
+  });
+  return result;
+}
+
+function renderGroceryList() {
+  const container = document.getElementById('groceryView');
+  if (!container) return;
+  const groceryChecked = getGroceryChecked();
+  const weeksData = buildWeeksGroceryData();
+
+  let html = `
+    <div class="grocery-topbar">
+      <div class="grocery-intro">Grouped by week and grocery aisle — built from this month's shuffled plan plus any swaps, and updates automatically whenever either changes.</div>
+      <div class="grocery-topbar-btns">
+        <button class="shuffle-btn" onclick="reshuffleNow()">🔀 Shuffle Again</button>
+        <button class="email-btn" onclick="emailGroceryList()">📤 Share Full List</button>
+      </div>
+    </div>
+  `;
+
+  Object.keys(weeksData).forEach(wkKey => {
+    const wk = Number(wkKey);
+    const wd = weeksData[wk];
+
+    html += `<div class="grocery-week" id="grocery-week-${wk}">
+      <div class="grocery-week-header">
+        <div class="grocery-week-header-top">
+          <div class="grocery-week-title">${wd.label}</div>
+          <button class="email-btn-small" onclick="emailGroceryList(${wk})">📤 Share This Week</button>
+        </div>
+        <div class="grocery-week-meals">${wd.mealNames.join(', ')}</div>
+      </div>
+      <div class="grocery-week-body">`;
+
+    if (wd.allTakeout) {
+      html += `<div class="grocery-takeout-note">No groceries needed — takeout night!</div>`;
+    } else {
+      GROCERY_CATEGORY_ORDER.forEach(cat => {
+        if (!wd.catItems[cat]) return;
+        html += `<div class="grocery-category"><h4>${cat}</h4>`;
+        wd.catItems[cat].forEach((item, idx) => {
+          const id = `w${wk}_${cat.replace(/[^a-zA-Z0-9]/g,'')}_${idx}`;
+          const isChecked = !!groceryChecked[id];
+          html += `
+            <label class="grocery-item${isChecked ? ' checked' : ''}" data-id="${id}">
+              <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleGroceryItem('${id}')">
+              <span class="grocery-item-text">${item.ing} <span class="grocery-item-source">— ${item.mealName}</span></span>
+            </label>`;
+        });
+        html += `</div>`;
+      });
+
+      if (wd.hasTakeout) {
+        html += `<div class="grocery-takeout-note">Plus a Takeout Night this week — no shopping needed for that one.</div>`;
+      }
+    }
+
+    html += `</div></div>`;
+  });
+
+  container.innerHTML = html;
+}
+
+// Build a plain-text version of the grocery list for emailing.
+// weekNum omitted = whole month; a number 1-5 = just that week.
+function buildGroceryText(weekNum) {
+  const weeksData = buildWeeksGroceryData();
+  const weekKeys = weekNum ? [weekNum] : Object.keys(weeksData).map(Number);
+  let lines = [];
+
+  if (!weekNum) {
+    lines.push(`MONTHLY MEAL PLAN — GROCERY LIST (${planMonthName})`);
+    lines.push('');
+  }
+
+  weekKeys.forEach(wk => {
+    const wd = weeksData[wk];
+    if (!wd) return;
+    lines.push(`${wd.label.toUpperCase()} — ${wd.mealNames.join(', ')}`);
+    lines.push('');
+
+    if (wd.allTakeout) {
+      lines.push('No groceries needed — takeout night!');
+    } else {
+      GROCERY_CATEGORY_ORDER.forEach(cat => {
+        if (!wd.catItems[cat]) return;
+        lines.push(cat.toUpperCase());
+        wd.catItems[cat].forEach(item => {
+          lines.push(`- ${item.ing} (${item.mealName})`);
+        });
+        lines.push('');
+      });
+      if (wd.hasTakeout) {
+        lines.push('Plus a Takeout Night this week — no shopping needed for that one.');
+        lines.push('');
+      }
+    }
+    lines.push('');
+  });
+
+  return lines.join('\n').trim();
+}
+
+// Send the grocery list via the phone/browser's native share sheet
+// (Mail, Messages, Notes, etc.) when available — this has no real length
+// limit, unlike mailto: links, which cap out around ~2000 characters and
+// silently fail to open once a list gets long.
+// weekNum omitted = whole month; a number 1-5 = just that week.
+async function emailGroceryList(weekNum) {
+  const weeksData = buildWeeksGroceryData();
+  const subject = weekNum
+    ? `Grocery List — ${weeksData[weekNum] ? weeksData[weekNum].label : 'Week ' + weekNum} (${planMonthName})`
+    : `Grocery List — ${planMonthName}`;
+  const body = buildGroceryText(weekNum);
+
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: subject, text: body });
+      return;
+    } catch (e) {
+      if (e && e.name === 'AbortError') return; // person cancelled the share sheet — do nothing
+      // any other error: fall through to the mailto fallback below
+    }
+  }
+
+  // Fallback for browsers without share support (mostly desktop).
+  // mailto: links break above ~2000 chars in many clients, so trim hard.
+  const MAX_BODY_CHARS = 1200;
+  let finalBody = body;
+  if (finalBody.length > MAX_BODY_CHARS) {
+    finalBody = finalBody.slice(0, MAX_BODY_CHARS) + '\n\n…list truncated — open the app for the full version.';
+  }
+
+  const mailto = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(finalBody)}`;
+  window.location.href = mailto;
+}
+
+
+
+// Force a fresh random shuffle for the current month right now
+function reshuffleNow() {
+  const state = { month: currentMonth, assignment: generateShuffle() };
+  saveShuffleState(state);
+  buildUI(currentFilter);
+  updateProgress();
+  refreshGroceryIfVisible();
+  pushToCloud();
+}
+
+// ── View routing (Meal Plan <-> Grocery List) ───────────────────────────
+function showView(view) {
+  const planView = document.getElementById('planView');
+  const groceryView = document.getElementById('groceryView');
+  const tabs = document.querySelectorAll('.view-tab');
+
+  if (view === 'grocery') {
+    planView.style.display = 'none';
+    groceryView.style.display = 'block';
+    renderGroceryList();
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.view === 'grocery'));
+  } else {
+    planView.style.display = '';
+    groceryView.style.display = 'none';
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.view === 'plan'));
+  }
+}
+
+function handleHashRoute() {
+  const hash = location.hash.replace('#', '');
+  if (hash.startsWith('groceries')) {
+    showView('grocery');
+    const match = hash.match(/groceries-week-(\d)/);
+    if (match) {
+      setTimeout(() => {
+        const el = document.getElementById(`grocery-week-${match[1]}`);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
+    }
+  } else {
+    showView('plan');
+  }
+}
+
+window.addEventListener('hashchange', handleHashRoute);
+
 // Initialize
 document.getElementById('monthLabel').textContent = planMonthName;
+ensureShuffleForMonth();
 buildUI('all');
 updateProgress();
+handleHashRoute();
 
 // ── Supabase cross-device sync ──────────────────────────────────────────────
 const SUPABASE_URL  = "https://sdkihobprbgbkrqgurqh.supabase.co";
 const SUPABASE_KEY  = "sb_publishable_XHvk0yy9qfuVSfRhwPh-aA_zPNRULww";
-const SYNC_TABLE    = "mealplan_data";
+const SYNC_TABLE    = "monthly_mealplan_data";
 const SHARED_ROW_ID = "family_mealplan";
 
 async function sbFetch(path, opts) {
@@ -2496,6 +3067,7 @@ async function pushToCloud() {
       id: SHARED_ROW_ID,
       checked: getChecked(),
       swaps: getSwaps(),
+      shuffle: getShuffleState(),
       updated_at: new Date().toISOString()
     };
     // Try PATCH first; if row missing, INSERT
@@ -2516,12 +3088,25 @@ async function pullFromCloud() {
       headers: { "Accept": "application/json" }
     });
     const rows = await res.json();
-    if (!rows || rows.length === 0) return;
+    if (!rows || rows.length === 0) {
+      // No cloud row yet — publish what we have locally (including this
+      // device's shuffle) so other devices can pick it up.
+      pushToCloud();
+      return;
+    }
     const row = rows[0];
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(row.checked || [])); } catch(e) {}
     try { localStorage.setItem(SWAP_KEY, JSON.stringify(row.swaps || {})); } catch(e) {}
+    if (row.shuffle && row.shuffle.month === currentMonth && row.shuffle.assignment) {
+      // Cloud has a valid shuffle for this month — adopt it so both devices match
+      saveShuffleState(row.shuffle);
+    } else {
+      // Cloud doesn't have this month's shuffle yet — publish ours up
+      pushToCloud();
+    }
     buildUI(currentFilter);
     updateProgress();
+    refreshGroceryIfVisible();
   } catch (e) { console.warn("Sync pull failed:", e); }
 }
 
