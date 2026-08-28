@@ -75,6 +75,7 @@
     margin: 0 auto;
     position: relative;
     z-index: 1;
+    text-align: center;
   }
 
   .header-tag {
@@ -1087,6 +1088,9 @@ html {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+html {
+  font-size: 18px;
+}  
 </style>
 </head>
 <body>
@@ -2882,6 +2886,7 @@ function renderGroceryList() {
       <div class="grocery-topbar-btns">
         <button class="shuffle-btn" onclick="reshuffleNow()">🔀 Shuffle Again</button>
         <button class="email-btn" onclick="emailGroceryList()">📤 Share Full List</button>
+        <button class="email-btn" onclick="window.print()">🖨️ Print</button>
       </div>
     </div>
   `;
