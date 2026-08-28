@@ -1085,6 +1085,7 @@
 
 <header>
   <div class="header-inner">
+    <h1 id="monthHeading"></h1>
   </div>
 </header>
 
@@ -1144,6 +1145,8 @@
 </div>
 
 <script>
+  document.getElementById('monthHeading').textContent =
+  new Date().toLocaleString('default', { month: 'long' }) + ' Meal Plan';
 // Recipes for all 31 main meals + 12 swap meals
 // Keyed by meal name (exact match to meal.name in meals[] and swapPool[])
 const recipes = {
