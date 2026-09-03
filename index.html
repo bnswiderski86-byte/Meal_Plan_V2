@@ -33,9 +33,9 @@
     --tag-gout: #eceef0;
     --tag-gout-text: #4a555e;
   }
-
+ 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   body {
     font-family: 'Karla', sans-serif;
     background: var(--bg);
@@ -43,7 +43,7 @@
     min-height: 100vh;
     padding: 0 0 60px;
   }
-
+ 
   header {
     background: var(--ink);
     color: var(--bg);
@@ -51,7 +51,7 @@
     position: relative;
     overflow: hidden;
   }
-
+ 
   header::before {
     content: '';
     position: absolute;
@@ -60,7 +60,7 @@
     border-radius: 50%;
     background: rgba(61,124,120,0.14);
   }
-
+ 
   header::after {
     content: '';
     position: absolute;
@@ -69,7 +69,7 @@
     border-radius: 50%;
     background: rgba(74,111,165,0.10);
   }
-
+ 
   .header-inner {
     max-width: 960px;
     margin: 0 auto;
@@ -77,7 +77,7 @@
     z-index: 1;
     text-align: center;
   }
-
+ 
   .header-tag {
     font-size: 11px;
     font-weight: 600;
@@ -86,7 +86,7 @@
     color: var(--accent3);
     margin-bottom: 10px;
   }
-
+ 
   header h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2.2rem, 6vw, 3.8rem);
@@ -94,7 +94,7 @@
     line-height: 1.05;
     margin-bottom: 14px;
   }
-
+ 
   header p {
     font-size: 15px;
     font-weight: 300;
@@ -102,7 +102,7 @@
     max-width: 540px;
     line-height: 1.6;
   }
-
+ 
   .legend {
     display: flex;
     gap: 16px;
@@ -110,7 +110,7 @@
     margin-top: 22px;
     align-items: center;
   }
-
+ 
   .legend-item {
     display: flex;
     align-items: center;
@@ -119,18 +119,18 @@
     font-weight: 500;
     color: rgba(238,240,240,0.75);
   }
-
+ 
   .legend-dot {
     width: 10px; height: 10px;
     border-radius: 50%;
     flex-shrink: 0;
   }
-
+ 
   .dot-american { background: var(--accent); }
   .dot-mexican  { background: var(--accent3); }
   .dot-italian  { background: var(--accent2); }
   .dot-seafood  { background: #1a6a9a; }
-
+ 
   .gout-note {
     margin-top: 18px;
     background: rgba(255,255,255,0.06);
@@ -143,9 +143,9 @@
     max-width: 580px;
     line-height: 1.65;
   }
-
+ 
   .gout-note strong { color: rgba(238,240,240,0.9); font-weight: 600; }
-
+ 
   .view-tabs {
     max-width: 960px;
     margin: 28px auto 0;
@@ -153,7 +153,7 @@
     display: flex;
     gap: 8px;
   }
-
+ 
   .view-tab {
     flex: 1;
     padding: 12px 18px;
@@ -168,13 +168,13 @@
     text-align: center;
     transition: all 0.18s;
   }
-
+ 
   .view-tab.active {
     background: var(--ink);
     color: #ffffff;
     border-color: var(--ink);
   }
-
+ 
   .controls {
     max-width: 960px;
     margin: 16px auto 0;
@@ -183,7 +183,7 @@
     gap: 8px;
     flex-wrap: wrap;
   }
-
+ 
   .filter-btn {
     padding: 7px 18px;
     border-radius: 20px;
@@ -196,22 +196,22 @@
     transition: all 0.18s;
     color: var(--ink);
   }
-
+ 
   .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
   .filter-btn.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-
+ 
   .filter-btn[onclick*="'american'"] { background: var(--tag-american); color: var(--tag-american-text); border-color: var(--tag-american); }
   .filter-btn[onclick*="'american'"].active { background: var(--tag-american-text); color: #ffffff; border-color: var(--tag-american-text); }
-
+ 
   .filter-btn[onclick*="'mexican'"] { background: var(--tag-mexican); color: var(--tag-mexican-text); border-color: var(--tag-mexican); }
   .filter-btn[onclick*="'mexican'"].active { background: var(--tag-mexican-text); color: #ffffff; border-color: var(--tag-mexican-text); }
-
+ 
   .filter-btn[onclick*="'italian'"] { background: var(--tag-italian); color: var(--tag-italian-text); border-color: var(--tag-italian); }
   .filter-btn[onclick*="'italian'"].active { background: var(--tag-italian-text); color: #ffffff; border-color: var(--tag-italian-text); }
-
+ 
   .filter-btn[onclick*="'seafood'"] { background: var(--tag-seafood); color: var(--tag-seafood-text); border-color: var(--tag-seafood); }
   .filter-btn[onclick*="'seafood'"].active { background: var(--tag-seafood-text); color: #ffffff; border-color: var(--tag-seafood-text); }
-
+ 
   .weeks {
     max-width: 960px;
     margin: 32px auto 0;
@@ -220,20 +220,20 @@
     flex-direction: column;
     gap: 32px;
   }
-
+ 
   .week-block {
     background: var(--paper);
     border: 1.5px solid var(--border);
     border-radius: 16px;
     overflow: hidden;
   }
-
+ 
   .grocery-view {
     max-width: 960px;
     margin: 20px auto 60px;
     padding: 0 24px;
   }
-
+ 
   .grocery-topbar {
     display: flex;
     align-items: center;
@@ -242,7 +242,7 @@
     margin-bottom: 18px;
     flex-wrap: wrap;
   }
-
+ 
   .grocery-intro {
     font-size: 14px;
     color: var(--muted);
@@ -250,13 +250,13 @@
     line-height: 1.6;
     max-width: 620px;
   }
-
+ 
   .grocery-topbar-btns {
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
   }
-
+ 
   .email-btn {
     font-family: 'Karla', sans-serif;
     font-size: 12px;
@@ -269,16 +269,16 @@
     cursor: pointer;
     white-space: nowrap;
   }
-
+ 
   .email-btn:hover { opacity: 0.85; }
-
+ 
   .grocery-week-header-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
   }
-
+ 
   .email-btn-small {
     font-family: 'Karla', sans-serif;
     font-size: 11px;
@@ -292,9 +292,9 @@
     white-space: nowrap;
     flex-shrink: 0;
   }
-
+ 
   .email-btn-small:hover { background: rgba(255,255,255,0.26); }
-
+ 
   .grocery-week {
     background: var(--paper);
     border: 1.5px solid var(--border);
@@ -303,13 +303,13 @@
     margin-bottom: 24px;
     scroll-margin-top: 90px;
   }
-
+ 
   .grocery-week-header {
     background: var(--ink);
     color: #ffffff;
     padding: 16px 22px;
   }
-
+ 
   .grocery-week-title {
     font-size: 12px;
     font-weight: 600;
@@ -317,22 +317,22 @@
     text-transform: uppercase;
     margin-bottom: 5px;
   }
-
+ 
   .grocery-week-meals {
     font-size: 13px;
     font-weight: 300;
     opacity: 0.8;
     line-height: 1.5;
   }
-
+ 
   .grocery-week-body {
     padding: 18px 22px 6px;
   }
-
+ 
   .grocery-category {
     margin-bottom: 18px;
   }
-
+ 
   .grocery-category h4 {
     font-size: 11px;
     font-weight: 700;
@@ -341,7 +341,7 @@
     color: var(--accent);
     margin-bottom: 8px;
   }
-
+ 
   .grocery-item {
     display: flex;
     align-items: flex-start;
@@ -352,9 +352,9 @@
     line-height: 1.4;
     cursor: pointer;
   }
-
+ 
   .grocery-item:last-child { border-bottom: none; }
-
+ 
   .grocery-item input[type="checkbox"] {
     margin-top: 3px;
     accent-color: var(--accent);
@@ -363,24 +363,24 @@
     flex-shrink: 0;
     cursor: pointer;
   }
-
+ 
   .grocery-item.checked .grocery-item-text { opacity: 0.4; text-decoration: line-through; }
-
+ 
   .grocery-item-text { flex: 1; }
-
+ 
   .grocery-item-source {
     color: var(--muted);
     font-style: italic;
     font-size: 12.5px;
   }
-
+ 
   .grocery-takeout-note {
     font-size: 13px;
     color: var(--muted);
     font-style: italic;
     padding: 8px 0 16px;
   }
-
+ 
   .week-header {
     background: var(--ink);
     color: var(--bg);
@@ -389,7 +389,7 @@
     align-items: center;
     gap: 14px;
   }
-
+ 
   .week-num {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
@@ -398,7 +398,7 @@
     line-height: 1;
     color: #ffffff;
   }
-
+ 
   .week-title {
     font-size: 12px;
     font-weight: 600;
@@ -406,14 +406,14 @@
     text-transform: uppercase;
     color: #ffffff;
   }
-
+ 
   .week-sub {
     font-size: 13px;
     font-weight: 300;
     opacity: 0.55;
     color: #ffffff;
   }
-
+ 
   .week-grocery-btn {
     margin-left: auto;
     font-family: 'Karla', sans-serif;
@@ -428,9 +428,9 @@
     white-space: nowrap;
     transition: background 0.18s;
   }
-
+ 
   .week-grocery-btn:hover { background: rgba(255,255,255,0.26); }
-
+ 
   .shuffle-btn {
     font-family: 'Karla', sans-serif;
     font-size: 12px;
@@ -443,14 +443,14 @@
     cursor: pointer;
     white-space: nowrap;
   }
-
+ 
   .shuffle-btn:hover { opacity: 0.85; }
-
+ 
   .days-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
-
+ 
   .day-card {
     padding: 18px 20px;
     border-bottom: 1px solid var(--border);
@@ -459,10 +459,10 @@
     display: flex;
     flex-direction: column;
   }
-
+ 
   .day-card:hover { background: #fdf0e4; }
   .day-card.hidden { display: none; }
-
+ 
   .day-label {
     font-size: 10px;
     font-weight: 700;
@@ -471,7 +471,7 @@
     color: var(--muted);
     margin-bottom: 5px;
   }
-
+ 
   .day-num {
     font-family: 'Playfair Display', serif;
     font-size: 1.35rem;
@@ -479,7 +479,7 @@
     color: var(--ink);
     margin-bottom: 10px;
   }
-
+ 
   .meal-name {
     font-size: 14.5px;
     font-weight: 600;
@@ -487,7 +487,7 @@
     line-height: 1.3;
     margin-bottom: 7px;
   }
-
+ 
   .meal-desc {
     font-size: 12px;
     font-weight: 300;
@@ -496,7 +496,7 @@
     margin-bottom: 10px;
     flex: 1;
   }
-
+ 
   .gout-tip {
     font-size: 11px;
     font-weight: 400;
@@ -507,14 +507,14 @@
     margin-bottom: 8px;
     line-height: 1.45;
   }
-
+ 
   .tags {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
     margin-top: auto;
   }
-
+ 
   .cuisine-tag {
     display: inline-block;
     font-size: 10px;
@@ -524,37 +524,136 @@
     padding: 3px 9px;
     border-radius: 20px;
   }
-
+ 
   .tag-american { background: var(--tag-american); color: var(--tag-american-text); }
   .tag-mexican  { background: var(--tag-mexican);  color: var(--tag-mexican-text);  }
   .tag-italian  { background: var(--tag-italian);  color: var(--tag-italian-text);  }
   .tag-seafood  { background: var(--tag-seafood);  color: var(--tag-seafood-text);  }
-
+ 
+  /* ── Breakfast & Lunch view ─────────────────────────────────────────── */
+  .bflunch-topbar {
+    max-width: 960px;
+    margin: 20px auto 0;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+ 
+  .bflunch-intro {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 620px;
+  }
+ 
+  .bflunch-wrap {
+    max-width: 960px;
+    margin: 20px auto 60px;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+ 
+  .prep-card {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    transition: background 0.15s;
+    display: flex;
+    flex-direction: column;
+  }
+ 
+  .prep-card:hover { background: #fdf0e4; }
+ 
+  .prep-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--tag-american);
+    border-radius: 20px;
+    padding: 3px 9px;
+    margin-bottom: 9px;
+    align-self: flex-start;
+  }
+ 
+  .prep-note {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--accent2);
+    background: var(--tag-italian);
+    border-radius: 6px;
+    padding: 5px 8px;
+    margin-bottom: 8px;
+    line-height: 1.45;
+  }
+ 
+  .recipe-prep-ahead {
+    font-size: 11.5px;
+    font-weight: 400;
+    color: var(--accent2);
+    background: var(--tag-italian);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 14px;
+    line-height: 1.55;
+  }
+ 
+  .recipe-prep-ahead strong { color: var(--ink); }
+ 
+  .grocery-add-btn {
+    font-family: 'Karla', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--paper);
+    border: 1.5px solid var(--accent);
+    padding: 7px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    flex: 1;
+    white-space: nowrap;
+  }
+ 
+  .grocery-add-btn:hover { background: var(--tag-american); }
+ 
+  .grocery-add-btn.added {
+    background: var(--accent);
+    color: #ffffff;
+  }
+ 
   .guide-wrap {
     max-width: 960px;
     margin: 32px auto 0;
     padding: 0 24px;
   }
-
+ 
   .guide-inner {
     background: var(--paper);
     border: 1.5px solid var(--border);
     border-radius: 16px;
     padding: 26px 28px;
   }
-
+ 
   .guide-inner h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.2rem;
     margin-bottom: 18px;
   }
-
+ 
   .guide-cols {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
   }
-
+ 
   .guide-col h4 {
     font-size: 11px;
     font-weight: 700;
@@ -562,17 +661,17 @@
     text-transform: uppercase;
     margin-bottom: 10px;
   }
-
+ 
   .guide-col.good h4  { color: var(--accent2); }
   .guide-col.limit h4 { color: var(--accent3); }
-
+ 
   .guide-col ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 6px;
   }
-
+ 
   .guide-col ul li {
     font-size: 13px;
     font-weight: 300;
@@ -581,17 +680,17 @@
     position: relative;
     line-height: 1.45;
   }
-
+ 
   .guide-col ul li::before {
     content: '·';
     position: absolute;
     left: 0;
     font-weight: 900;
   }
-
+ 
   .guide-col.good ul li::before  { color: var(--accent2); }
   .guide-col.limit ul li::before { color: var(--accent3); }
-
+ 
   footer {
     max-width: 960px;
     margin: 36px auto 0;
@@ -602,29 +701,29 @@
     font-weight: 300;
     line-height: 1.7;
   }
-
+ 
   @media (max-width: 540px) {
     header { padding: 36px 18px 32px; }
     .controls, .weeks, .guide-wrap { padding: 0 14px; }
     .days-grid { grid-template-columns: 1fr 1fr; }
     .guide-cols { grid-template-columns: 1fr; }
   }
-
+ 
   /* Checked / done state */
   .day-card.done {
     background: #f0f7f0;
     opacity: 0.75;
   }
-
+ 
   .day-card.done .meal-name {
     text-decoration: line-through;
     color: var(--muted);
   }
-
+ 
   .day-card.done .day-num {
     opacity: 0.4;
   }
-
+ 
   .check-btn {
     display: flex;
     align-items: center;
@@ -640,13 +739,13 @@
     cursor: pointer;
     transition: all 0.18s;
   }
-
+ 
   .check-btn:hover {
     border-color: var(--accent2);
     color: var(--accent2);
     background: #f0f7f0;
   }
-
+ 
   .check-icon {
     width: 16px;
     height: 16px;
@@ -659,26 +758,26 @@
     background: white;
     flex-shrink: 0;
   }
-
+ 
   .day-card.done .check-btn {
     border-color: var(--accent2);
     color: var(--accent2);
     background: #e4f0e4;
   }
-
+ 
   .day-card.done .check-btn .check-icon {
     background: var(--accent2);
     border-color: var(--accent2);
     color: white;
   }
-
+ 
   /* Progress bar */
   .progress-wrap {
     max-width: 960px;
     margin: 20px auto 0;
     padding: 0 24px;
   }
-
+ 
   .progress-label {
     display: flex;
     justify-content: space-between;
@@ -688,16 +787,16 @@
     font-weight: 600;
     color: var(--muted);
   }
-
+ 
   .progress-label strong { color: var(--accent2); font-size: 13px; }
-
+ 
   .progress-bar-outer {
     background: var(--border);
     border-radius: 20px;
     height: 8px;
     overflow: hidden;
   }
-
+ 
   .progress-bar-inner {
     height: 100%;
     background: var(--accent2);
@@ -705,7 +804,7 @@
     transition: width 0.4s ease;
     width: 0%;
   }
-
+ 
   .reset-btn {
     font-family: 'Karla', sans-serif;
     font-size: 11px;
@@ -719,9 +818,9 @@
     letter-spacing: 0.05em;
     transition: color 0.15s;
   }
-
+ 
   .reset-btn:hover { color: var(--accent); }
-
+ 
   /* Swap button & menu */
   .card-actions {
     display: flex;
@@ -729,7 +828,7 @@
     margin-top: 10px;
     flex-wrap: wrap;
   }
-
+ 
   .swap-btn {
     display: flex;
     align-items: center;
@@ -745,23 +844,23 @@
     cursor: pointer;
     transition: all 0.18s;
   }
-
+ 
   .swap-btn:hover {
     border-color: var(--accent3);
     color: var(--accent3);
     background: #fff8e6;
   }
-
+ 
   .day-card.swapped {
     border-right-color: var(--accent3);
     border-bottom-color: var(--accent3);
   }
-
+ 
   .tag-swap {
     background: #fff8e6;
     color: var(--accent3);
   }
-
+ 
   /* Swap menu overlay */
   .swap-overlay {
     display: none;
@@ -772,11 +871,11 @@
     align-items: flex-end;
     justify-content: center;
   }
-
+ 
   .swap-overlay.open {
     display: flex;
   }
-
+ 
   .swap-menu {
     background: var(--paper);
     border-radius: 20px 20px 0 0;
@@ -786,14 +885,14 @@
     max-height: 75vh;
     overflow-y: auto;
   }
-
+ 
   .swap-menu h4 {
     font-family: 'Playfair Display', serif;
     font-size: 1.1rem;
     margin-bottom: 16px;
     color: var(--ink);
   }
-
+ 
   .swap-option {
     display: flex;
     align-items: center;
@@ -810,13 +909,13 @@
     transition: all 0.15s;
     gap: 10px;
   }
-
+ 
   .swap-option-tags {
     display: flex;
     gap: 4px;
     flex-shrink: 0;
   }
-
+ 
   .swap-group-heading {
     display: flex;
     align-items: center;
@@ -830,11 +929,11 @@
     padding-bottom: 6px;
     border-bottom: 1px solid var(--border);
   }
-
+ 
   .swap-group-heading:first-child {
     margin-top: 4px;
   }
-
+ 
   .swap-group-count {
     font-size: 10px;
     font-weight: 600;
@@ -844,28 +943,28 @@
     padding: 2px 8px;
     border-radius: 20px;
   }
-
+ 
   .swap-option:hover {
     border-color: var(--accent3);
     background: #fff8e6;
   }
-
+ 
   .restore-option {
     border-color: var(--accent2);
     color: var(--accent2);
     margin-bottom: 12px;
   }
-
+ 
   .restore-option:hover {
     background: #f0f7f0;
   }
-
+ 
   .swap-option-name {
     font-size: 13px;
     font-weight: 600;
     color: var(--ink);
   }
-
+ 
   .swap-close {
     width: 100%;
     margin-top: 10px;
@@ -879,28 +978,28 @@
     font-weight: 600;
     cursor: pointer;
   }
-
+ 
   /* Recipe modal */
   .meal-name {
     cursor: pointer;
     transition: color 0.15s;
   }
-
+ 
   .meal-name:hover {
     color: var(--accent);
   }
-
+ 
   .meal-name::after {
     content: ' →';
     opacity: 0;
     transition: opacity 0.15s;
     font-weight: 400;
   }
-
+ 
   .meal-name:hover::after {
     opacity: 0.5;
   }
-
+ 
   .recipe-overlay {
     display: none;
     position: fixed;
@@ -911,11 +1010,11 @@
     justify-content: center;
     padding: 20px;
   }
-
+ 
   .recipe-overlay.open {
     display: flex;
   }
-
+ 
   .recipe-modal {
     background: var(--paper);
     border-radius: 16px;
@@ -925,7 +1024,7 @@
     overflow-y: auto;
     position: relative;
   }
-
+ 
   .recipe-header {
     background: var(--ink);
     color: var(--bg);
@@ -935,7 +1034,7 @@
     top: 0;
     z-index: 2;
   }
-
+ 
   .recipe-tag {
     font-size: 11px;
     font-weight: 600;
@@ -944,7 +1043,7 @@
     color: var(--accent3);
     margin-bottom: 6px;
   }
-
+ 
   .recipe-title {
     font-family: 'Playfair Display', serif;
     font-size: 1.7rem;
@@ -952,13 +1051,13 @@
     line-height: 1.15;
     margin-bottom: 8px;
   }
-
+ 
   .recipe-servings {
     font-size: 12px;
     font-weight: 400;
     opacity: 0.7;
   }
-
+ 
   .recipe-close-x {
     position: absolute;
     top: 18px;
@@ -974,15 +1073,15 @@
     line-height: 1;
     transition: background 0.15s;
   }
-
+ 
   .recipe-close-x:hover {
     background: rgba(255,255,255,0.25);
   }
-
+ 
   .recipe-body {
     padding: 24px 32px 28px;
   }
-
+ 
   .recipe-section h5 {
     font-size: 11px;
     font-weight: 700;
@@ -993,19 +1092,19 @@
     padding-bottom: 8px;
     border-bottom: 1.5px solid var(--border);
   }
-
+ 
   .recipe-section.steps h5 {
     color: var(--accent);
     margin-top: 24px;
   }
-
+ 
   .recipe-ingredients {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 7px;
   }
-
+ 
   .recipe-ingredients li {
     font-size: 13.5px;
     font-weight: 300;
@@ -1014,7 +1113,7 @@
     padding-left: 18px;
     position: relative;
   }
-
+ 
   .recipe-ingredients li::before {
     content: '○';
     position: absolute;
@@ -1022,7 +1121,7 @@
     color: var(--accent2);
     font-weight: 700;
   }
-
+ 
   .recipe-steps {
     list-style: none;
     counter-reset: step-counter;
@@ -1030,7 +1129,7 @@
     flex-direction: column;
     gap: 12px;
   }
-
+ 
   .recipe-steps li {
     font-size: 14px;
     font-weight: 300;
@@ -1040,7 +1139,7 @@
     position: relative;
     counter-increment: step-counter;
   }
-
+ 
   .recipe-steps li::before {
     content: counter(step-counter);
     position: absolute;
@@ -1058,7 +1157,7 @@
     font-weight: 700;
     font-family: 'Karla', sans-serif;
   }
-
+ 
   .recipe-missing {
     text-align: center;
     padding: 40px 20px;
@@ -1066,7 +1165,7 @@
     font-size: 14px;
     font-weight: 300;
   }
-
+ 
   @media (max-width: 540px) {
     .recipe-overlay { padding: 0; align-items: flex-end; }
     .recipe-modal { max-height: 92vh; border-radius: 16px 16px 0 0; }
@@ -1074,13 +1173,13 @@
     .recipe-body { padding: 20px 22px 24px; }
     .recipe-title { font-size: 1.4rem; }
   }
-
+ 
   @media (min-width: 1200px) and (max-width: 1366px) {
   body {
     zoom: 1.15;
   }
 }
-
+ 
   ::-webkit-scrollbar {
   display: none;
 }
@@ -1094,18 +1193,19 @@ html {
 </style>
 </head>
 <body>
-
+ 
 <header>
   <div class="header-inner">
     <h1 id="monthHeading"></h1>
   </div>
 </header>
-
+ 
 <div class="view-tabs">
   <button class="view-tab active" data-view="plan" onclick="location.hash=''">🍽️ Meal Plan</button>
   <button class="view-tab" data-view="grocery" onclick="location.hash='groceries'">🛒 Grocery List</button>
+  <button class="view-tab" data-view="bflunch" onclick="location.hash='breakfast-lunch'">🥣 Breakfast &amp; Lunch</button>
 </div>
-
+ 
 <div id="planView">
 <div class="controls">
   <button class="filter-btn active" onclick="filterMeals('all', this)">All Meals</button>
@@ -1114,7 +1214,7 @@ html {
   <button class="filter-btn" onclick="filterMeals('italian', this)">Italian</button>
   <button class="filter-btn" onclick="filterMeals('seafood', this)">Seafood</button>
 </div>
-
+ 
 <div class="progress-wrap">
   <div class="progress-label">
     <span>Meals completed — <strong id="monthLabel"></strong></span>
@@ -1127,15 +1227,23 @@ html {
     <div class="progress-bar-inner" id="progressBar"></div>
   </div>
 </div>
-
+ 
 <div class="weeks" id="weeksContainer"></div>
 </div>
-
+ 
 <div id="groceryView" style="display:none;"></div>
-
+ 
+<div id="bfLunchView" style="display:none;">
+  <div class="bflunch-topbar">
+    <div class="bflunch-intro">Grab-and-go breakfasts and handheld lunches you can batch-prep in one sitting. Tap "Add to grocery list" on whatever you're making this week — ingredients show up on the grocery tab.</div>
+    <button class="email-btn" onclick="location.hash='groceries-week-bflunch'">🛒 View Grocery List</button>
+  </div>
+  <div class="bflunch-wrap" id="bfLunchContainer"></div>
+</div>
+ 
 <footer>
 </footer>
-
+ 
 <div class="swap-overlay" id="swapMenu">
   <div class="swap-menu">
     <h4>Pick a swap for tonight</h4>
@@ -1143,7 +1251,7 @@ html {
     <button class="swap-close" onclick="closeSwapMenu()">Cancel</button>
   </div>
 </div>
-
+ 
 <div class="recipe-overlay" id="recipeModal">
   <div class="recipe-modal">
     <div class="recipe-header">
@@ -1155,13 +1263,824 @@ html {
     <div class="recipe-body" id="recipeBody"></div>
   </div>
 </div>
-
+ 
 <script>
   document.getElementById('monthHeading').textContent =
   new Date().toLocaleString('default', { month: 'long' }) + ' Meal Plan';
 // Recipes for all 31 main meals + 12 swap meals
 // Keyed by meal name (exact match to meal.name in meals[] and swapPool[])
 const recipes = {
+  "Peanut Butter Banana Overnight Oats": {
+    servings: "Makes 4-5 jars",
+    prep: "Batch on Sunday. Keeps in the fridge up to 4 days. Eat cold or microwave 30 seconds.",
+    ingredients: [
+      "2 cups rolled oats",
+      "2 cups milk (dairy or oat milk)",
+      "1 cup plain or vanilla Greek yogurt",
+      "1/3 cup peanut butter, warmed slightly",
+      "2 ripe bananas, mashed",
+      "2 tbsp honey or maple syrup",
+      "Pinch of salt"
+    ],
+    steps: [
+      "In a large bowl or measuring cup, whisk together milk, yogurt, peanut butter, honey, and salt until smooth.",
+      "Stir in oats and mashed banana until fully combined.",
+      "Divide evenly among 4-5 jars with lids.",
+      "Refrigerate overnight (at least 4 hours). Keeps up to 4 days — grab one on your way out."
+    ]
+  },
+ 
+  "Berry Almond Protein Oats": {
+    servings: "Makes 4-5 jars",
+    prep: "Batch on Sunday. Keeps in the fridge up to 4 days.",
+    ingredients: [
+      "2 cups rolled oats",
+      "2 cups almond milk",
+      "1 scoop (or 2 tbsp) vanilla protein powder",
+      "2 tbsp chia seeds",
+      "1 1/2 cups mixed berries (fresh or frozen, thawed)",
+      "2 tbsp sliced almonds",
+      "1 tbsp honey"
+    ],
+    steps: [
+      "Whisk almond milk and protein powder together until no clumps remain.",
+      "Stir in oats, chia seeds, and honey.",
+      "Divide into jars, layering in berries as you go.",
+      "Top each jar with sliced almonds, cover, and refrigerate overnight. Keeps up to 4 days."
+    ]
+  },
+ 
+  "Ham & Cheddar Egg Muffins": {
+    servings: "Makes 12 muffins",
+    prep: "Bake a full tray Sunday. Fridge up to 4 days, or freeze up to 2 months. Microwave from frozen 60-90 seconds.",
+    ingredients: [
+      "10 large eggs",
+      "1/4 cup milk",
+      "1 cup diced ham",
+      "1 cup shredded cheddar",
+      "1/2 cup diced bell pepper",
+      "2 green onions, sliced",
+      "Salt and pepper",
+      "Nonstick spray"
+    ],
+    steps: [
+      "Preheat oven to 350F. Generously grease a 12-cup muffin tin.",
+      "Whisk eggs, milk, salt, and pepper together in a large bowl.",
+      "Divide ham, cheddar, bell pepper, and green onion evenly among the muffin cups.",
+      "Pour egg mixture over each, filling about 3/4 full.",
+      "Bake 18-20 minutes until puffed and set. Cool 5 minutes before removing.",
+      "Cool completely, then refrigerate in an airtight container or freeze in a bag."
+    ]
+  },
+ 
+  "Bacon & Gruyère Egg Bites": {
+    servings: "Makes 12 egg bites",
+    prep: "Blend and bake Sunday using a steam bath in the oven. Fridge up to 3 days, or freeze up to 2 months. Microwave 45-60 seconds.",
+    ingredients: [
+      "9 large eggs",
+      "1 1/2 cups cottage cheese",
+      "1 tsp salt",
+      "1 tbsp cornstarch",
+      "6 strips bacon, cooked and chopped",
+      "2/3 cup shredded Gruyère cheese",
+      "Nonstick spray"
+    ],
+    steps: [
+      "Set one oven rack in the middle and another on the lowest position. Preheat oven to 300F.",
+      "Place a 9x13-inch baking dish on the lower rack and fill halfway with boiling water to create steam.",
+      "Spray a 12-cup muffin tin generously with nonstick spray.",
+      "Cook bacon in a skillet until crisp, then chop and set aside.",
+      "In a blender, combine eggs, cottage cheese, salt, and cornstarch. Blend until completely smooth, about 30 seconds.",
+      "Pour egg mixture evenly into the muffin tin, filling each well about 3/4 full. Divide bacon and Gruyère evenly over each.",
+      "Bake on the middle rack for 20-25 minutes, until just set and pulling slightly away from the edges.",
+      "Let rest 5 minutes, then loosen edges with a spoon and lift out. Cool completely before storing."
+    ]
+  },
+ 
+  "Broccoli Cheddar Egg Bites": {
+    servings: "Makes 12 egg bites",
+    prep: "Bake using the same steam-bath method as the bacon version. Fridge up to 3 days, or freeze up to 2 months.",
+    ingredients: [
+      "9 large eggs",
+      "1 1/2 cups cottage cheese",
+      "1 tsp salt",
+      "1 tbsp cornstarch",
+      "1 cup small-diced broccoli florets, steamed and cooled",
+      "2/3 cup shredded sharp cheddar",
+      "Nonstick spray"
+    ],
+    steps: [
+      "Set one oven rack in the middle and another on the lowest position. Preheat oven to 300F.",
+      "Place a 9x13-inch baking dish on the lower rack and fill halfway with boiling water to create steam.",
+      "Spray a 12-cup muffin tin generously with nonstick spray.",
+      "Steam broccoli 3-4 minutes until just tender, then chop small and let cool.",
+      "In a blender, combine eggs, cottage cheese, salt, and cornstarch. Blend until completely smooth.",
+      "Pour egg mixture evenly into the muffin tin, filling each well about 3/4 full. Divide broccoli and cheddar evenly over each.",
+      "Bake on the middle rack for 20-25 minutes, until just set and pulling slightly away from the edges.",
+      "Let rest 5 minutes, then loosen edges with a spoon and lift out. Cool completely before storing."
+    ]
+  },
+ 
+  "Greek Yogurt Parfait Jars": {
+    servings: "Makes 4 jars",
+    prep: "Assemble Sunday. Keep granola separate until eating so it stays crunchy. Fridge up to 3 days.",
+    ingredients: [
+      "3 cups plain or vanilla Greek yogurt",
+      "2 cups mixed berries",
+      "1 tbsp honey per jar",
+      "1 1/2 cups granola (kept separate)"
+    ],
+    steps: [
+      "Layer about 1/2 cup berries in the bottom of each jar.",
+      "Add a layer of yogurt, drizzle with honey, then repeat with another layer of berries and yogurt.",
+      "Seal jars and refrigerate.",
+      "Portion granola into small side bags or the jar lid — add just before eating to keep it crisp."
+    ]
+  },
+ 
+  "Vanilla Cinnamon Chia Pudding": {
+    servings: "Makes 5 jars",
+    prep: "Mix Sunday, stir once after 30 minutes, then refrigerate. Keeps up to 5 days.",
+    ingredients: [
+      "1/2 cup chia seeds",
+      "3 cups milk (dairy or plant-based)",
+      "3 tbsp maple syrup",
+      "1 1/2 tsp vanilla extract",
+      "1 tsp cinnamon",
+      "Fresh fruit, for topping"
+    ],
+    steps: [
+      "Whisk chia seeds, milk, maple syrup, vanilla, and cinnamon together in a large jar or bowl.",
+      "Let sit 5 minutes, then whisk again to break up any clumps.",
+      "Divide into 5 jars and refrigerate at least 4 hours, stirring once after the first 30 minutes.",
+      "Top with fresh fruit before eating."
+    ]
+  },
+ 
+  "Freezer Breakfast Burritos": {
+    servings: "Makes 6-8 burritos",
+    prep: "Assemble and freeze individually wrapped. Microwave from frozen 2-3 minutes, flipping halfway.",
+    ingredients: [
+      "10 large eggs, scrambled and cooled",
+      "1 can black beans, drained and rinsed",
+      "2 cups shredded cheese",
+      "1 cup salsa (plus more for serving)",
+      "6-8 large flour tortillas",
+      "Salt and pepper"
+    ],
+    steps: [
+      "Scramble eggs and season with salt and pepper. Let cool slightly.",
+      "Warm tortillas briefly so they're pliable.",
+      "Layer eggs, black beans, cheese, and a spoonful of salsa down the center of each tortilla.",
+      "Fold in the sides and roll tightly, burrito-style.",
+      "Wrap each burrito individually in parchment or foil, then place in a labeled freezer bag.",
+      "Freeze up to 2 months. Microwave from frozen 2-3 minutes, flipping halfway through."
+    ]
+  },
+ 
+  "Freezer Breakfast Sandwiches": {
+    servings: "Makes 6 sandwiches",
+    prep: "Assemble and freeze individually wrapped. Microwave from frozen on a paper towel for 90 seconds, flipping once.",
+    ingredients: [
+      "6 English muffins, split",
+      "6 large eggs",
+      "6 breakfast sausage patties, cooked",
+      "6 slices cheddar cheese",
+      "Butter, for the pan",
+      "Salt and pepper"
+    ],
+    steps: [
+      "Cook sausage patties according to package directions; set aside.",
+      "Fry eggs in a lightly buttered pan using a small ring mold (or just fry to fit the muffin) until set, seasoning with salt and pepper.",
+      "Toast English muffins lightly.",
+      "Layer each muffin bottom with a sausage patty, a slice of cheddar, and a fried egg. Top with the muffin top.",
+      "Let sandwiches cool completely, then wrap each individually in parchment paper, then foil.",
+      "Freeze up to 2 months. To reheat, unwrap and microwave on a paper towel for 90 seconds, flipping halfway."
+    ]
+  },
+ 
+  "Make-Ahead Avocado Toast Kit": {
+    servings: "Makes 4 servings",
+    prep: "Prep the components ahead — bread and toppings hold, but avocado is mashed fresh each morning since it browns and turns watery if prepped early.",
+    ingredients: [
+      "8 slices hearty whole-grain or sourdough bread",
+      "4 ripe avocados",
+      "1 lemon or lime, juiced",
+      "1 pint cherry tomatoes, diced (optional topping)",
+      "1/4 red onion, finely diced (optional topping)",
+      "Everything bagel seasoning or red pepper flakes",
+      "Salt and pepper"
+    ],
+    steps: [
+      "Slice bread ahead of time if needed and freeze in a bag — it toasts fine straight from frozen.",
+      "Pre-dice tomatoes and red onion and store together in a sealed container in the fridge, good for several days.",
+      "Each morning: toast 2 slices of bread.",
+      "Halve and pit one avocado, scoop into a bowl, and mash with a fork. Stir in a squeeze of lemon or lime juice and a pinch of salt.",
+      "Spread mashed avocado over toast, top with pre-chopped tomato and onion, and finish with everything bagel seasoning or red pepper flakes."
+    ]
+  },
+ 
+  "Apple Cinnamon Baked Oatmeal Cups": {
+    servings: "Makes 12 cups",
+    prep: "Bake a full tray Sunday. Fridge up to 5 days, or freeze in a bag. Microwave 30-45 seconds, or eat cold.",
+    ingredients: [
+      "2 1/2 cups rolled oats",
+      "1 tsp baking powder",
+      "1 1/2 tsp cinnamon",
+      "1/2 tsp salt",
+      "2 eggs",
+      "1 1/2 cups milk",
+      "1/3 cup maple syrup",
+      "1 tsp vanilla extract",
+      "1 apple, grated or finely diced",
+      "Nonstick spray"
+    ],
+    steps: [
+      "Preheat oven to 350F. Grease a 12-cup muffin tin.",
+      "In a large bowl, whisk oats, baking powder, cinnamon, and salt together.",
+      "In another bowl, whisk eggs, milk, maple syrup, and vanilla.",
+      "Combine wet and dry ingredients, then fold in the grated apple.",
+      "Divide batter evenly among muffin cups.",
+      "Bake 20-22 minutes until set and lightly golden. Cool before removing.",
+      "Store in an airtight container in the fridge or freeze individually."
+    ]
+  },
+ 
+  "Chocolate Peanut Butter Overnight Oats": {
+    servings: "Makes 4-5 jars",
+    prep: "Batch on Sunday. Keeps in the fridge up to 4 days. Stir well before sealing so the cocoa distributes.",
+    ingredients: [
+      "2 cups rolled oats",
+      "2 cups milk",
+      "1/3 cup peanut butter, warmed slightly",
+      "3 tbsp cocoa powder",
+      "3 tbsp maple syrup or honey",
+      "Pinch of salt",
+      "Chocolate chips or banana slices, for topping (optional)"
+    ],
+    steps: [
+      "Whisk milk, peanut butter, cocoa powder, maple syrup, and salt together until smooth.",
+      "Stir in oats until fully combined.",
+      "Divide evenly among 4-5 jars with lids.",
+      "Refrigerate overnight. Top with chocolate chips or banana just before eating if desired."
+    ]
+  },
+ 
+  "Mango Coconut Chia Pudding": {
+    servings: "Makes 5 jars",
+    prep: "Mix Sunday, stir once after 30 minutes, then refrigerate. Add mango fresh the morning of for best texture.",
+    ingredients: [
+      "1/2 cup chia seeds",
+      "3 cups coconut milk (canned or carton)",
+      "3 tbsp honey or maple syrup",
+      "1 tsp vanilla extract",
+      "2 ripe mangoes, diced"
+    ],
+    steps: [
+      "Whisk chia seeds, coconut milk, honey, and vanilla together in a large jar or bowl.",
+      "Let sit 5 minutes, then whisk again to break up clumps.",
+      "Divide into 5 jars and refrigerate at least 4 hours, stirring once after the first 30 minutes.",
+      "Top with fresh diced mango just before eating."
+    ]
+  },
+ 
+  "Spinach & Feta Egg Muffins": {
+    servings: "Makes 12 muffins",
+    prep: "Bake a full tray Sunday. Fridge up to 4 days, or freeze up to 2 months.",
+    ingredients: [
+      "10 large eggs",
+      "1/4 cup milk",
+      "2 cups fresh spinach, roughly chopped",
+      "3/4 cup crumbled feta",
+      "1 tbsp fresh dill, chopped (or 1 tsp dried)",
+      "Salt and pepper",
+      "Nonstick spray"
+    ],
+    steps: [
+      "Preheat oven to 350F. Generously grease a 12-cup muffin tin.",
+      "Wilt spinach briefly in a dry skillet over medium heat, then let cool and squeeze out excess water.",
+      "Whisk eggs, milk, salt, and pepper together in a large bowl.",
+      "Divide spinach, feta, and dill evenly among the muffin cups.",
+      "Pour egg mixture over each, filling about 3/4 full.",
+      "Bake 18-20 minutes until puffed and set. Cool before removing and storing."
+    ]
+  },
+ 
+  "Sausage & Cheddar Egg Bites": {
+    servings: "Makes 12 egg bites",
+    prep: "Bake using the same steam-bath method as the other egg bites. Fridge up to 3 days, or freeze up to 2 months.",
+    ingredients: [
+      "9 large eggs",
+      "1 1/2 cups cottage cheese",
+      "1 tsp salt",
+      "1 tbsp cornstarch",
+      "1 cup cooked and crumbled breakfast sausage",
+      "2/3 cup shredded sharp cheddar",
+      "Nonstick spray"
+    ],
+    steps: [
+      "Set one oven rack in the middle and another on the lowest position. Preheat oven to 300F.",
+      "Place a 9x13-inch baking dish on the lower rack and fill halfway with boiling water to create steam.",
+      "Spray a 12-cup muffin tin generously with nonstick spray.",
+      "Cook and crumble sausage in a skillet; let cool.",
+      "In a blender, combine eggs, cottage cheese, salt, and cornstarch. Blend until completely smooth.",
+      "Pour egg mixture evenly into the muffin tin, filling each well about 3/4 full. Divide sausage and cheddar evenly over each.",
+      "Bake on the middle rack 20-25 minutes until just set. Cool 5 minutes before removing."
+    ]
+  },
+ 
+  "Banana Nut Baked Oatmeal Bars": {
+    servings: "Makes 12 bars",
+    prep: "Bake a 9x13 pan Sunday, cool, and slice. Fridge up to 5 days, or freeze bars individually wrapped.",
+    ingredients: [
+      "3 cups rolled oats",
+      "1 tsp baking powder",
+      "1 tsp cinnamon",
+      "1/2 tsp salt",
+      "3 ripe bananas, mashed",
+      "2 eggs",
+      "1/3 cup honey",
+      "1/4 cup melted butter or oil",
+      "1 tsp vanilla extract",
+      "3/4 cup chopped walnuts"
+    ],
+    steps: [
+      "Preheat oven to 350F. Line a 9x13-inch baking dish with parchment paper.",
+      "In a large bowl, whisk oats, baking powder, cinnamon, and salt together.",
+      "In another bowl, mix mashed banana, eggs, honey, melted butter, and vanilla.",
+      "Combine wet and dry ingredients, then fold in walnuts.",
+      "Spread batter evenly into the prepared pan.",
+      "Bake 22-25 minutes until set and golden. Cool completely before slicing into 12 bars."
+    ]
+  },
+ 
+  "Cottage Cheese Berry Bowls": {
+    servings: "Makes 4 bowls",
+    prep: "Portion cottage cheese Sunday. Keep berries and granola separate, adding both fresh each morning.",
+    ingredients: [
+      "3 cups cottage cheese",
+      "2 cups mixed berries",
+      "2 tbsp honey",
+      "1 cup granola (kept separate)"
+    ],
+    steps: [
+      "Portion cottage cheese into 4 containers and refrigerate.",
+      "Store berries in a separate container.",
+      "Keep granola in small side bags to add just before eating.",
+      "Each morning, top cottage cheese with berries, a drizzle of honey, and granola."
+    ]
+  },
+ 
+  "Soft-Baked Banana Oat Breakfast Cookies": {
+    servings: "Makes 12 cookies",
+    prep: "Bake Sunday, cool completely, and store in an airtight container. Freezes well.",
+    ingredients: [
+      "3 ripe bananas, mashed",
+      "1/3 cup peanut butter",
+      "2 1/2 cups rolled oats",
+      "1/3 cup honey",
+      "1 tsp vanilla extract",
+      "1 tsp cinnamon",
+      "1/2 cup chocolate chips or raisins (optional)"
+    ],
+    steps: [
+      "Preheat oven to 350F. Line a baking sheet with parchment paper.",
+      "In a large bowl, mix mashed banana, peanut butter, honey, vanilla, and cinnamon.",
+      "Stir in oats until fully combined, then fold in chocolate chips or raisins if using.",
+      "Scoop into 12 mounds on the baking sheet and flatten slightly with the back of a spoon.",
+      "Bake 14-16 minutes until lightly golden. Cool completely before storing."
+    ]
+  },
+ 
+  "Freezer Breakfast Quesadillas": {
+    servings: "Makes 6-8 quesadillas",
+    prep: "Griddle and cool, then freeze flat with parchment between layers. Reheat in a skillet or microwave.",
+    ingredients: [
+      "10 large eggs, scrambled",
+      "2 cups shredded cheddar or Mexican blend",
+      "1 cup diced ham",
+      "6-8 large flour tortillas",
+      "Butter, for the pan",
+      "Salt and pepper",
+      "Salsa or hot sauce, for serving"
+    ],
+    steps: [
+      "Scramble eggs and season with salt and pepper; let cool slightly.",
+      "Lay a tortilla flat, sprinkle cheese, scrambled egg, and diced ham over half of it, then fold over.",
+      "Griddle in a lightly buttered pan over medium heat until golden and cheese is melted, flipping once.",
+      "Let quesadillas cool completely, then stack with a piece of parchment between each.",
+      "Freeze in a labeled bag up to 2 months. Reheat in a dry skillet or microwave until warmed through."
+    ]
+  },
+ 
+  "Pumpkin Spice Overnight Oats": {
+    servings: "Makes 4-5 jars",
+    prep: "Batch on Sunday. Stir well since pumpkin purée is thick. Keeps in the fridge up to 4 days.",
+    ingredients: [
+      "2 cups rolled oats",
+      "2 cups milk",
+      "3/4 cup pumpkin purée",
+      "3 tbsp maple syrup",
+      "1 1/2 tsp pumpkin pie spice",
+      "1 tsp vanilla extract",
+      "Pinch of salt",
+      "Chopped pecans, for topping (optional)"
+    ],
+    steps: [
+      "Whisk milk, pumpkin purée, maple syrup, pumpkin pie spice, vanilla, and salt together until smooth.",
+      "Stir in oats until fully combined.",
+      "Divide evenly among 4-5 jars with lids.",
+      "Refrigerate overnight. Top with chopped pecans just before eating if desired."
+    ]
+  },
+ 
+  "Turkey & Swiss Wraps": {
+    servings: "Makes 4 wraps",
+    prep: "Assemble the night before or morning of. Wrap tightly and refrigerate. Best within 2 days.",
+    ingredients: [
+      "4 spinach or plain flour tortillas",
+      "1 lb sliced deli turkey",
+      "8 slices Swiss cheese",
+      "2 cups shredded lettuce",
+      "1 tomato, thinly sliced",
+      "Honey mustard, to taste"
+    ],
+    steps: [
+      "Lay a tortilla flat and spread a thin layer of honey mustard across the center.",
+      "Layer turkey, Swiss cheese, lettuce, and tomato.",
+      "Fold in the sides and roll tightly.",
+      "Wrap each in parchment paper or foil and refrigerate. Slice in half before packing for lunch."
+    ]
+  },
+ 
+  "Chicken Caesar Wraps": {
+    servings: "Makes 4 wraps",
+    prep: "Store chicken and dressing separately from lettuce; assemble the morning of for the best texture.",
+    ingredients: [
+      "3 cups shredded rotisserie chicken",
+      "1/3 cup Caesar dressing",
+      "1/3 cup shaved parmesan",
+      "4 cups chopped romaine",
+      "4 large flour tortillas"
+    ],
+    steps: [
+      "Toss shredded chicken with Caesar dressing and parmesan in a container; refrigerate.",
+      "Keep chopped romaine dry in a separate container or bag.",
+      "The morning of, lay out a tortilla, add romaine and dressed chicken, and roll tightly.",
+      "Wrap in parchment or foil to pack."
+    ]
+  },
+ 
+  "Chickpea Salad Sandwiches": {
+    servings: "Makes 4 sandwiches",
+    prep: "Mix the filling Sunday and store separately. Spread onto bread fresh each morning so it doesn't get soggy.",
+    ingredients: [
+      "2 cans chickpeas, drained and rinsed",
+      "1/3 cup mayonnaise",
+      "1 tbsp dijon mustard",
+      "2 celery stalks, finely diced",
+      "1/4 red onion, finely diced",
+      "1 tbsp lemon juice",
+      "Salt and pepper",
+      "8 slices hearty bread or 4 rolls"
+    ],
+    steps: [
+      "Mash chickpeas with a fork or potato masher in a large bowl, leaving some texture.",
+      "Stir in mayonnaise, dijon, celery, red onion, lemon juice, salt, and pepper.",
+      "Store the filling in an airtight container in the fridge, up to 4 days.",
+      "Each morning, spread filling onto bread and pack — or pack the filling and bread separately to assemble at lunchtime."
+    ]
+  },
+ 
+  "Greek Chicken Pita Pockets": {
+    servings: "Makes 4 pita pockets",
+    prep: "Cook chicken and chop veggies Sunday, storing separately from the pita. Stuff fresh each morning.",
+    ingredients: [
+      "1 lb boneless chicken breast, grilled and sliced",
+      "4 pita pockets",
+      "1 cucumber, diced",
+      "1 cup cherry tomatoes, halved",
+      "1/2 cup crumbled feta",
+      "1/2 cup tzatziki sauce",
+      "Salt, pepper, and oregano"
+    ],
+    steps: [
+      "Season chicken with salt, pepper, and oregano, then grill or pan-sear until cooked through. Slice once cooled.",
+      "Store sliced chicken, diced cucumber and tomato, and feta in separate containers in the fridge.",
+      "Keep tzatziki in a small container and pita pockets sealed at room temp or the fridge.",
+      "Each morning, warm the pita slightly, stuff with chicken, veggies, and feta, and drizzle with tzatziki."
+    ]
+  },
+ 
+  "Ham & Swiss Croissant Sandwiches": {
+    servings: "Makes 4 sandwiches",
+    prep: "Assemble Sunday, wrap individually, and refrigerate. Croissants hold up better than soft bread for a few days.",
+    ingredients: [
+      "4 croissants, split",
+      "12 oz sliced deli ham",
+      "8 slices Swiss cheese",
+      "Dijon mustard, to taste",
+      "Butter, softened (optional)"
+    ],
+    steps: [
+      "Split croissants and lightly butter the inside if desired.",
+      "Spread a thin layer of dijon mustard on both cut sides.",
+      "Layer ham and Swiss cheese, then close the croissant.",
+      "Wrap each sandwich individually in parchment paper and refrigerate.",
+      "Pack straight from the fridge — no reheating needed, though a quick warm in a toaster oven is nice."
+    ]
+  },
+ 
+  "BBQ Chicken Sliders": {
+    servings: "Makes 12 sliders",
+    prep: "Assemble a full tray and freeze whole or in individual packs. Reheat from frozen at 350F for 15-20 minutes, or microwave 90 seconds.",
+    ingredients: [
+      "12 Hawaiian rolls, sliced in half as a full sheet",
+      "3 cups shredded cooked chicken breast",
+      "3/4 cup BBQ sauce",
+      "1 1/2 cups shredded cheddar",
+      "2 tbsp melted butter",
+      "1 tsp garlic powder",
+      "1 tsp poppy seeds (optional)"
+    ],
+    steps: [
+      "Preheat oven to 350F. Toss shredded chicken with BBQ sauce.",
+      "Place the bottom half of the rolls (as a full connected sheet) in a foil-lined baking dish.",
+      "Spread BBQ chicken evenly over the rolls, then top with shredded cheddar.",
+      "Place the top half of the rolls over the cheese.",
+      "Whisk melted butter with garlic powder and poppy seeds; brush over the tops.",
+      "Cover with foil and bake 15 minutes, then uncover and bake 5 more minutes until cheese is melted.",
+      "Cool, slice into individual sliders, wrap in foil, and freeze."
+    ]
+  },
+ 
+  "Egg Salad Sandwiches": {
+    servings: "Makes 4 sandwiches",
+    prep: "Hard-boil eggs and mix the filling Sunday; store separately and spread onto bread fresh each morning.",
+    ingredients: [
+      "12 large eggs",
+      "1/2 cup mayonnaise",
+      "1 tbsp dijon mustard",
+      "2 tbsp chives, chopped",
+      "Salt and pepper",
+      "8 slices soft white or wheat bread"
+    ],
+    steps: [
+      "Place eggs in a pot, cover with cold water, and bring to a boil. Cover, remove from heat, and let sit 10-12 minutes.",
+      "Cool eggs in an ice bath, then peel and chop.",
+      "Mix chopped eggs with mayonnaise, dijon, chives, salt, and pepper.",
+      "Store the filling in an airtight container in the fridge, up to 3 days.",
+      "Each morning, spread filling onto bread and pack, or pack separately to assemble at lunchtime."
+    ]
+  },
+ 
+  "Southwest Turkey Wraps": {
+    servings: "Makes 4 wraps",
+    prep: "Mix the corn-black bean filling and portion turkey and cheese Sunday; assemble wraps the morning of.",
+    ingredients: [
+      "1 lb sliced deli turkey",
+      "1 cup black beans, drained and rinsed",
+      "1 cup corn kernels",
+      "1 cup shredded pepper jack cheese",
+      "1/4 cup mayonnaise",
+      "1 tbsp chipotle sauce or adobo sauce",
+      "4 large flour tortillas"
+    ],
+    steps: [
+      "Mix black beans and corn together in a container; store in the fridge.",
+      "Stir mayonnaise and chipotle sauce together for the chipotle mayo; store separately.",
+      "Keep sliced turkey and shredded cheese in separate containers.",
+      "Each morning, spread chipotle mayo on a tortilla, layer turkey, cheese, and the corn-bean mix, and roll tightly."
+    ]
+  },
+ 
+  "Classic Tuna Salad Sandwiches": {
+    servings: "Makes 4 sandwiches",
+    prep: "Mix the filling Sunday and store separately. Spread onto bread fresh each morning.",
+    ingredients: [
+      "2 cans tuna, drained",
+      "1/3 cup mayonnaise",
+      "2 celery stalks, finely diced",
+      "1 tbsp lemon juice",
+      "1 tbsp red onion, finely diced (optional)",
+      "Salt and pepper",
+      "8 slices hearty bread"
+    ],
+    steps: [
+      "Flake tuna into a bowl and mix with mayonnaise, celery, lemon juice, and red onion if using.",
+      "Season with salt and pepper.",
+      "Store the filling in an airtight container in the fridge, up to 3 days.",
+      "Each morning, spread filling onto bread and pack, or pack separately to assemble at lunchtime."
+    ]
+  },
+ 
+  "Chicken Salad Croissant Sandwiches": {
+    servings: "Makes 4 sandwiches",
+    prep: "Cook, shred, and mix Sunday; store separately from the croissants and assemble the morning of.",
+    ingredients: [
+      "3 cups cooked, shredded chicken breast",
+      "1/2 cup halved red grapes",
+      "2 celery stalks, diced",
+      "1/3 cup mayonnaise",
+      "1 tsp dijon mustard",
+      "Salt and pepper",
+      "4 croissants, split"
+    ],
+    steps: [
+      "Mix shredded chicken, grapes, celery, mayonnaise, and dijon together in a bowl.",
+      "Season with salt and pepper.",
+      "Store the chicken salad in an airtight container in the fridge, up to 3 days.",
+      "Each morning, split a croissant and fill with chicken salad."
+    ]
+  },
+ 
+  "Turkey Club Sandwiches": {
+    servings: "Makes 4 sandwiches",
+    prep: "Cook bacon Sunday and store separately. Assemble the morning of so the toast stays crisp.",
+    ingredients: [
+      "12 slices bread, toasted",
+      "1 lb sliced deli turkey",
+      "8 strips bacon, cooked",
+      "Lettuce leaves",
+      "1 tomato, sliced",
+      "Mayonnaise, to taste"
+    ],
+    steps: [
+      "Cook bacon until crisp; store in the fridge.",
+      "Each morning, toast bread and spread with mayonnaise.",
+      "Layer turkey and lettuce on one slice, top with a second slice, then bacon, tomato, and lettuce again.",
+      "Top with the third slice, secure with toothpicks, and cut into triangles."
+    ]
+  },
+ 
+  "Caprese Pesto Sandwiches": {
+    servings: "Makes 4 sandwiches",
+    prep: "Assemble and wrap tightly Sunday or the night before; a brief press helps the flavors meld.",
+    ingredients: [
+      "4 crusty rolls or ciabatta, split",
+      "8 oz fresh mozzarella, sliced",
+      "2 tomatoes, sliced",
+      "1/2 cup fresh basil leaves",
+      "1/3 cup pesto",
+      "Salt and pepper"
+    ],
+    steps: [
+      "Spread pesto on both cut sides of each roll.",
+      "Layer mozzarella, tomato, and basil leaves on the bottom half.",
+      "Season with salt and pepper, then close the sandwich.",
+      "Wrap each sandwich tightly in parchment paper and refrigerate, ideally with something flat and heavy on top overnight."
+    ]
+  },
+ 
+  "Freezer Meatball Sub Sandwiches": {
+    servings: "Makes 4 subs",
+    prep: "Assemble and freeze individually wrapped. Reheat wrapped in foil at 350F, or unwrap and microwave.",
+    ingredients: [
+      "16 small cooked meatballs (beef or turkey)",
+      "2 cups marinara sauce",
+      "4 hoagie rolls, split",
+      "8 slices provolone"
+    ],
+    steps: [
+      "Warm meatballs in marinara sauce until heated through, then let cool slightly.",
+      "Fill each hoagie roll with 4 meatballs and sauce, then top with 2 slices of provolone.",
+      "Wrap each sub individually in foil.",
+      "Freeze up to 2 months. Reheat wrapped in foil at 350F for 20-25 minutes, or unwrap and microwave 2-3 minutes."
+    ]
+  },
+ 
+  "Philly Cheesesteak Wraps": {
+    servings: "Makes 4 wraps",
+    prep: "Cook the steak and veggies Sunday; warm and roll into a tortilla the morning of.",
+    ingredients: [
+      "1 lb thinly sliced steak (ribeye or sirloin)",
+      "1 green bell pepper, sliced",
+      "1 onion, sliced",
+      "1 cup shredded provolone",
+      "4 large flour tortillas",
+      "Salt, pepper, and garlic powder"
+    ],
+    steps: [
+      "Sauté peppers and onion in a hot skillet until softened; remove and set aside.",
+      "Sear the steak in the same skillet, seasoning with salt, pepper, and garlic powder, until just cooked through.",
+      "Combine steak with peppers and onions and let cool; store in the fridge.",
+      "Each morning, warm the steak mixture, sprinkle with provolone, and roll into a tortilla."
+    ]
+  },
+ 
+  "Chicken Bacon Ranch Wraps": {
+    servings: "Makes 4 wraps",
+    prep: "Cook chicken and bacon Sunday and store together. Keep lettuce and ranch separate.",
+    ingredients: [
+      "3 cups cooked, sliced chicken breast",
+      "6 strips bacon, cooked and crumbled",
+      "2 cups shredded lettuce",
+      "1/3 cup ranch dressing",
+      "4 large flour tortillas"
+    ],
+    steps: [
+      "Cook and slice chicken; cook and crumble bacon. Store together in the fridge.",
+      "Keep shredded lettuce dry in a separate container.",
+      "Each morning, spread ranch on a tortilla, layer chicken, bacon, and lettuce, and roll tightly."
+    ]
+  },
+ 
+  "Falafel Pita Wraps": {
+    servings: "Makes 4 wraps",
+    prep: "Bake falafel Sunday and store separately from veggies and pita. Warm briefly and stuff fresh each morning.",
+    ingredients: [
+      "1 lb prepared falafel mix or 16 store-bought falafel balls",
+      "4 pita pockets",
+      "1 cucumber, diced",
+      "1 cup cherry tomatoes, halved",
+      "1/3 cup tahini sauce",
+      "Salt and pepper"
+    ],
+    steps: [
+      "If making falafel from a mix, shape into balls and bake at 400F for 20-25 minutes, flipping halfway, until golden.",
+      "Let falafel cool, then store in the fridge.",
+      "Store diced cucumber and tomato in a separate container, and tahini sauce in a small container.",
+      "Each morning, warm falafel briefly, stuff into a pita with veggies, and drizzle with tahini sauce."
+    ]
+  },
+ 
+  "Freezer PB&J Pocket Sandwiches": {
+    servings: "Makes 8 pockets",
+    prep: "Flash-freeze on a sheet pan for 2 hours, then transfer to a freezer bag. Thaws by lunchtime straight from the freezer.",
+    ingredients: [
+      "16 slices soft sandwich bread",
+      "1/2 cup peanut butter",
+      "1/2 cup jelly or jam of choice"
+    ],
+    steps: [
+      "Spread a thin layer of peanut butter on all 16 bread slices (this helps prevent sogginess).",
+      "Spread jelly on top of the peanut butter on 8 of the slices, keeping it away from the edges.",
+      "Top each with a second peanut-butter slice, then press the edges together with a fork or a round cutter to seal.",
+      "Trim excess crust if using a round cutter.",
+      "Place sealed pockets on a parchment-lined sheet pan and freeze until solid, about 2 hours.",
+      "Transfer to a labeled freezer bag. Grab one straight from the freezer — it thaws in about 30-60 minutes at room temperature, or by lunchtime in a lunchbox."
+    ]
+  },
+ 
+  "Ham & Cheese Pinwheel Wraps": {
+    servings: "Makes about 20 pinwheels",
+    prep: "Assemble and roll tightly Sunday, then refrigerate whole. Slice into pinwheels the morning of for the freshest bite.",
+    ingredients: [
+      "4 large flour tortillas",
+      "8 oz cream cheese, softened",
+      "1 lb thinly sliced ham",
+      "1 cup shredded cheddar",
+      "2 tbsp chopped chives or green onion (optional)"
+    ],
+    steps: [
+      "Spread a thin, even layer of softened cream cheese over each tortilla.",
+      "Layer ham and shredded cheddar evenly over the cream cheese, sprinkling with chives if using.",
+      "Roll each tortilla up tightly into a log.",
+      "Wrap each roll tightly in plastic wrap and refrigerate at least 1 hour (or overnight) to help them hold their shape.",
+      "Slice each roll into 1-inch pinwheels just before packing."
+    ]
+  },
+ 
+  "Pressed Italian Sub Sandwiches": {
+    servings: "Makes 4 sandwiches",
+    prep: "Assemble, wrap tightly, and press with something heavy in the fridge overnight for the best flavor.",
+    ingredients: [
+      "4 hoagie rolls, split",
+      "8 oz sliced ham",
+      "8 oz sliced salami",
+      "8 slices provolone",
+      "1 cup shredded lettuce",
+      "1 tomato, sliced",
+      "Italian dressing, to taste"
+    ],
+    steps: [
+      "Drizzle both cut sides of each roll with Italian dressing.",
+      "Layer ham, salami, and provolone on the bottom half of each roll.",
+      "Top with lettuce and tomato, then close the sandwich.",
+      "Wrap each sandwich tightly in parchment, then foil.",
+      "Refrigerate overnight with something heavy (like a cutting board) on top to press. Slice in half before packing."
+    ]
+  },
+ 
+  "Buffalo Chicken Wraps": {
+    servings: "Makes 4 wraps",
+    prep: "Store buffalo chicken separately from the tortilla and crunchy veg; assemble the morning of.",
+    ingredients: [
+      "3 cups shredded rotisserie chicken",
+      "1/3 cup buffalo sauce",
+      "2 tbsp ranch dressing",
+      "1 carrot, shredded",
+      "2 celery stalks, thinly sliced",
+      "4 large flour tortillas"
+    ],
+    steps: [
+      "Toss shredded chicken with buffalo sauce in a container; refrigerate.",
+      "Keep shredded carrot and celery in a separate container.",
+      "The morning of, spread ranch on a tortilla, add buffalo chicken and crunchy veg, and roll tightly.",
+      "Wrap in parchment or foil to pack."
+    ]
+  },
+ 
   "Classic Smash Burgers": {
     servings: "Serves 4",
     ingredients: [
@@ -1185,7 +2104,7 @@ const recipes = {
       "Build: bottom bun, sauce, lettuce, tomato, two patties stacked, pickles, onion, top bun."
     ]
   },
-
+ 
   "Seasoned Beef Tacos": {
     servings: "Serves 4-6",
     ingredients: [
@@ -1205,7 +2124,7 @@ const recipes = {
       "Set up a taco bar with all the toppings and let everyone build their own."
     ]
   },
-
+ 
   "Chicken Alfredo": {
     servings: "Serves 4",
     ingredients: [
@@ -1229,7 +2148,7 @@ const recipes = {
       "Top with sliced chicken and parsley."
     ]
   },
-
+ 
   "Carne Asada Tacos": {
     servings: "Serves 4-6",
     ingredients: [
@@ -1249,7 +2168,7 @@ const recipes = {
       "Build tacos: double tortilla, steak, onion, cilantro, lime squeeze."
     ]
   },
-
+ 
   "Stuffed Chicken Breast": {
     servings: "Serves 4",
     ingredients: [
@@ -1272,7 +2191,7 @@ const recipes = {
       "Bake 30-35 minutes until 165F internal. Rest 5 minutes before serving."
     ]
   },
-
+ 
   "Shrimp Tacos": {
     servings: "Serves 4",
     ingredients: [
@@ -1292,7 +2211,7 @@ const recipes = {
       "Build: tortilla, slaw, shrimp, avocado, lime squeeze."
     ]
   },
-
+ 
   "Grilled Hotdogs & Oven Fries": {
     servings: "Serves 4",
     ingredients: [
@@ -1312,7 +2231,7 @@ const recipes = {
       "Set out toppings buffet style and let everyone build their own."
     ]
   },
-
+ 
   "Buttermilk Fried Chicken": {
     servings: "Serves 4-6",
     ingredients: [
@@ -1333,7 +2252,7 @@ const recipes = {
       "Serve chicken with mashed potatoes and gravy."
     ]
   },
-
+ 
   "Grilled Chicken Tacos": {
     servings: "Serves 4-6",
     ingredients: [
@@ -1352,7 +2271,7 @@ const recipes = {
       "Warm tortillas. Build tacos: chicken, pickled onion, crema drizzle, cotija."
     ]
   },
-
+ 
   "Chicken Piccata": {
     servings: "Serves 4",
     ingredients: [
@@ -1377,7 +2296,7 @@ const recipes = {
       "Toss with parsley. Serve over angel hair pasta with extra sauce."
     ]
   },
-
+ 
   "Herb-Grilled Chicken Thighs": {
     servings: "Serves 4",
     ingredients: [
@@ -1395,7 +2314,7 @@ const recipes = {
       "Toss salad with vinaigrette. Serve everything together."
     ]
   },
-
+ 
   "Garlic Butter Shrimp & Rice": {
     servings: "Serves 4",
     ingredients: [
@@ -1420,7 +2339,7 @@ const recipes = {
       "Serve shrimp and pan butter over rice with vegetables on the side."
     ]
   },
-
+ 
   "Chicken Marsala": {
     servings: "Serves 4",
     ingredients: [
@@ -1448,7 +2367,7 @@ const recipes = {
       "Top with parsley. Serve over egg noodles."
     ]
   },
-
+ 
   "BBQ Pulled Chicken Sandwiches": {
     servings: "Serves 6",
     ingredients: [
@@ -1467,7 +2386,7 @@ const recipes = {
       "Toast buns. Pile chicken on bottom, top with coleslaw and remaining BBQ sauce."
     ]
   },
-
+ 
   "Chicken Birria Tacos": {
     servings: "Serves 4-6",
     ingredients: [
@@ -1494,7 +2413,7 @@ const recipes = {
       "Serve with bowl of consommé for dipping, plus onion and cilantro."
     ]
   },
-
+ 
   "Cuban Sandwiches": {
     servings: "Serves 4",
     ingredients: [
@@ -1517,7 +2436,7 @@ const recipes = {
       "Slice diagonally. Serve with fries."
     ]
   },
-
+ 
   "Classic Meatloaf": {
     servings: "Serves 6",
     ingredients: [
@@ -1543,7 +2462,7 @@ const recipes = {
       "Rest 10 minutes. Slice and serve with mashed potatoes and green beans."
     ]
   },
-
+ 
   "Pork Carnitas Tacos": {
     servings: "Serves 6",
     ingredients: [
@@ -1566,7 +2485,7 @@ const recipes = {
       "Warm tortillas. Build: pork, pineapple salsa, pickled jalapeno, cilantro."
     ]
   },
-
+ 
   "Stuffed Shells": {
     servings: "Serves 6",
     ingredients: [
@@ -1586,7 +2505,7 @@ const recipes = {
       "Bake covered 25 minutes, uncover and bake 10 more until bubbly and golden."
     ]
   },
-
+ 
   "Bacon Smash Burgers": {
     servings: "Serves 4",
     ingredients: [
@@ -1608,7 +2527,7 @@ const recipes = {
       "Build: bun, mayo, patties stacked, bacon, caramelized onions, top bun."
     ]
   },
-
+ 
   "Red Sauce Chicken Enchiladas": {
     servings: "Serves 6",
     ingredients: [
@@ -1628,7 +2547,7 @@ const recipes = {
       "Top with sour cream, olives, cilantro, green onions."
     ]
   },
-
+ 
   "Garlic Shrimp Fettuccine": {
     servings: "Serves 4",
     ingredients: [
@@ -1654,7 +2573,7 @@ const recipes = {
       "Add pasta water as needed to loosen sauce. Serve with side salad."
     ]
   },
-
+ 
   "Pan-Fried Pork Chops": {
     servings: "Serves 4",
     ingredients: [
@@ -1678,7 +2597,7 @@ const recipes = {
       "Serve chops with corn and potatoes."
     ]
   },
-
+ 
   "Steak & Chicken Fajitas": {
     servings: "Serves 6",
     ingredients: [
@@ -1700,7 +2619,7 @@ const recipes = {
       "Serve everything family-style with toppings."
     ]
   },
-
+ 
   "Three-Cheese Chicken Alfredo": {
     servings: "Serves 4",
     ingredients: [
@@ -1727,7 +2646,7 @@ const recipes = {
       "Top with chicken and parsley."
     ]
   },
-
+ 
   "Fish Tacos": {
     servings: "Serves 4",
     ingredients: [
@@ -1748,7 +2667,7 @@ const recipes = {
       "Warm tortillas. Build: tortilla, slaw, fish, crema drizzle, pickled onion."
     ]
   },
-
+ 
   "French Dip Sandwiches": {
     servings: "Serves 4",
     ingredients: [
@@ -1769,7 +2688,7 @@ const recipes = {
       "Serve with small bowls of au jus for dipping, fries on the side."
     ]
   },
-
+ 
   "Ground Beef Enchiladas": {
     servings: "Serves 6",
     ingredients: [
@@ -1792,7 +2711,7 @@ const recipes = {
       "Bake 20-25 minutes until bubbly. Top with sour cream, onion, cilantro."
     ]
   },
-
+ 
   "Build-Your-Own Burger Bar": {
     servings: "Serves 6",
     ingredients: [
@@ -1815,7 +2734,7 @@ const recipes = {
       "Top fries with shredded cheese and crumbled bacon, broil 2 minutes."
     ]
   },
-
+ 
   "Malibu Chicken Sandwich": {
     servings: "Serves 4",
     ingredients: [
@@ -1839,7 +2758,7 @@ const recipes = {
       "Build: bottom bun, chicken with melted cheese and ham, top bun. Serve with fries."
     ]
   },
-
+ 
   "Carne Asada Platter": {
     servings: "Serves 4-6",
     ingredients: [
@@ -1861,7 +2780,7 @@ const recipes = {
       "Warm tortillas. Serve everything platter-style."
     ]
   },
-
+ 
   "Grilled Chicken Sandwich": {
     servings: "Serves 4",
     ingredients: [
@@ -1881,7 +2800,7 @@ const recipes = {
       "Build: bun, chicken, lettuce, tomato, pickles. Serve with fries."
     ]
   },
-
+ 
   "Chicken Strip Wraps": {
     servings: "Serves 4",
     ingredients: [
@@ -1905,7 +2824,7 @@ const recipes = {
       "Fold sides in, roll tight. Slice in half. Serve with fries."
     ]
   },
-
+ 
   "Patty Melt": {
     servings: "Serves 4",
     ingredients: [
@@ -1928,7 +2847,7 @@ const recipes = {
       "Serve with fries."
     ]
   },
-
+ 
   "Grilled Cheese & Tomato Soup": {
     servings: "Serves 4",
     ingredients: [
@@ -1946,7 +2865,7 @@ const recipes = {
       "Slice diagonally. Serve with bowls of soup for dipping."
     ]
   },
-
+ 
   "Pot Roast": {
     servings: "Serves 6",
     ingredients: [
@@ -1972,7 +2891,7 @@ const recipes = {
       "Rest 15 minutes. Shred roast, serve with vegetables and pan gravy."
     ]
   },
-
+ 
   "Carolina BBQ Chicken": {
     servings: "Serves 6",
     ingredients: [
@@ -1991,7 +2910,7 @@ const recipes = {
       "Toast buns. Pile chicken on bottom, top with coleslaw and extra sauce."
     ]
   },
-
+ 
   "Chicken Fried Steak": {
     servings: "Serves 4",
     ingredients: [
@@ -2013,7 +2932,7 @@ const recipes = {
       "Serve steaks smothered in gravy with potatoes and beans."
     ]
   },
-
+ 
   "BLT Club Sandwich": {
     servings: "Serves 4",
     ingredients: [
@@ -2038,7 +2957,7 @@ const recipes = {
       "Slice diagonally into quarters. Serve with chips or fries."
     ]
   },
-
+ 
   "Smothered Chicken Thighs": {
     servings: "Serves 4",
     ingredients: [
@@ -2065,7 +2984,7 @@ const recipes = {
       "Serve over mashed potatoes."
     ]
   },
-
+ 
   "Honey Mustard Chicken Thighs": {
     servings: "Serves 4",
     ingredients: [
@@ -2085,7 +3004,7 @@ const recipes = {
       "Brush with final glaze. Serve."
     ]
   },
-
+ 
   "Pizza Night": {
     servings: "Serves 4-6",
     ingredients: [
@@ -2106,7 +3025,7 @@ const recipes = {
       "Or skip all that and order delivery. No shame."
     ]
   },
-
+ 
   "Takeout Night": {
     servings: "Serves your whole family",
     ingredients: [
@@ -2126,194 +3045,194 @@ const meals = [
   { day:1,  name:"Classic Smash Burgers", cuisine:"american", seafood:false,
     desc:"Double smash patties, American cheese, pickles, special sauce on brioche buns. Piled with lettuce, tomato, and onion.",
     gout:"Keep patties to 4 oz each. Load the toppings to fill the plate." },
-
+ 
   { day:2,  name:"Seasoned Beef Tacos", cuisine:"mexican", seafood:false,
     desc:"Lean ground beef with homemade taco seasoning, shredded cheddar, lettuce, tomato, sour cream in crunchy shells.",
     gout:"Use lean ground beef or mix in ground turkey. Skip store-bought seasoning packets with additives." },
-
+ 
   { day:3,  name:"Chicken Alfredo", cuisine:"italian", seafood:false,
     desc:"Grilled chicken breast over fettuccine in a rich parmesan cream sauce.",
     gout:"Cream and parmesan are gout-neutral. Chicken is the best protein pick here." },
-
+ 
   { day:4,  name:"Carne Asada Tacos", cuisine:"mexican", seafood:false,
     desc:"Marinated skirt steak, grilled with char, cilantro, white onion, and lime on warm corn tortillas.",
     gout:"4–5 oz of steak per person. Pair with rice and black beans to round out the plate." },
-
+ 
   { day:5,  name:"Stuffed Chicken Breast", cuisine:"american", seafood:false,
     desc:"Chicken breasts filled with spinach and cream cheese, baked golden with a garlic butter drizzle.",
     gout:"One of the best gout-friendly dinners on the plan. Chicken and dairy all the way." },
-
+ 
   { day:6,  name:"Shrimp Tacos", cuisine:"mexican", seafood:true,
     desc:"Spiced pan-seared shrimp, chipotle slaw, sliced avocado, and fresh lime on warm flour tortillas.",
     gout:"Keep shrimp to about 4 oz per person. Load up on slaw and avocado to fill the plate." },
-
+ 
   { day:7,  name:"Grilled Hotdogs & Oven Fries", cuisine:"american", seafood:false,
     desc:"Grilled all-beef dogs with a full toppings bar — mustard, relish, onion, kraut — and seasoned crispy oven fries.",
     gout:"1–2 dogs per person. Choose lower-sodium options when available." },
-
+ 
   { day:8,  name:"Buttermilk Fried Chicken", cuisine:"american", seafood:false,
     desc:"Buttermilk-brined, double-dredged, cast iron fried — served with mashed potatoes and homemade gravy.",
     gout:"Use homemade gravy to control sodium and skip the additives in jarred versions." },
-
+ 
   { day:9,  name:"Grilled Chicken Tacos", cuisine:"mexican", seafood:false,
     desc:"Juicy grilled chicken thighs, pickled red onion, avocado crema, and cotija on flour tortillas.",
     gout:null },
-
+ 
   { day:10, name:"Chicken Piccata", cuisine:"italian", seafood:false,
     desc:"Pan-seared chicken cutlets in a bright lemon-caper butter sauce over angel hair pasta.",
     gout:"Lemon and capers are gout-neutral. Great lower-purine Italian dinner." },
-
+ 
   { day:11, name:"Herb-Grilled Chicken Thighs", cuisine:"american", seafood:false,
     desc:"Herb-marinated chicken thighs grilled until golden, with charred corn and a crisp green salad.",
     gout:null },
-
+ 
   { day:12, name:"Garlic Butter Shrimp & Rice", cuisine:"american", seafood:true,
     desc:"Shrimp sautéed in garlic herb butter over fluffy white rice with roasted vegetables on the side.",
     gout:"4 oz shrimp per person. The rice and roasted veg help balance the purine load." },
-
+ 
   { day:13, name:"Chicken Marsala", cuisine:"italian", seafood:false,
     desc:"Tender chicken cutlets in a savory mushroom and Marsala wine sauce over buttered egg noodles.",
     gout:"Chicken-based — solid choice. Mushrooms are fine for gout." },
-
+ 
   { day:14, name:"BBQ Pulled Chicken Sandwiches", cuisine:"american", seafood:false,
     desc:"Slow-cooked pulled chicken with homemade BBQ sauce, creamy coleslaw on toasted brioche.",
     gout:"Homemade BBQ sauce avoids the high-fructose corn syrup in most store-bought versions." },
-
+ 
   { day:15, name:"Chicken Birria Tacos", cuisine:"mexican", seafood:false,
     desc:"Braised chicken in rich red chile consommé, dipped tortillas pan-crisped with Oaxacan cheese. Served with dipping broth.",
     gout:"Red chile birria sauce is totally different from tomato-based pasta sauce — and it's gout-friendly." },
-
+ 
   { day:16, name:"Cuban Sandwiches", cuisine:"american", seafood:false,
     desc:"Roasted pork, shaved ham, Swiss cheese, pickles, and yellow mustard pressed on Cuban bread until golden and crispy. Served with seasoned fries.",
     gout:"Keep the pork and ham portions moderate. Load up on pickles and mustard — they're gout-neutral." },
-
+ 
   { day:17, name:"Classic Meatloaf", cuisine:"american", seafood:false,
     desc:"Brown sugar glazed meatloaf with creamy mashed potatoes and buttered green beans.",
     gout:"One good slice — about 4–5 oz. Fill the rest of the plate with potatoes and beans." },
-
+ 
   { day:18, name:"Pork Carnitas Tacos", cuisine:"mexican", seafood:false,
     desc:"Slow-braised crispy pork carnitas, pineapple salsa, pickled jalapeño, and cilantro on corn tortillas.",
     gout:"Moderate the carnitas. Fresh pineapple salsa and toppings keep it balanced." },
-
+ 
   { day:19, name:"Stuffed Shells", cuisine:"italian", seafood:false,
     desc:"Jumbo pasta shells filled with ricotta and spinach, baked in a creamy white garlic sauce.",
     gout:"All gout-friendly — ricotta, spinach, pasta, cream. One of the cleanest meals on the plan." },
-
+ 
   { day:20, name:"Bacon Smash Burgers", cuisine:"american", seafood:false,
     desc:"Crispy bacon, caramelized onions, pepper jack, and chipotle mayo on a toasted brioche bun.",
     gout:"4 oz patties. One or two strips of bacon is fine — just don't overdo it." },
-
+ 
   { day:21, name:"Red Sauce Chicken Enchiladas", cuisine:"mexican", seafood:false,
     desc:"Shredded roasted chicken in corn tortillas, smothered in homemade red chile enchilada sauce and melted cheese.",
     gout:"Chicken and homemade chile sauce — solid, gout-friendly combo." },
-
+ 
   { day:22, name:"Garlic Shrimp Fettuccine", cuisine:"italian", seafood:true,
     desc:"Shrimp tossed with fettuccine in a white wine garlic butter sauce with parsley and lemon zest.",
     gout:"4 oz shrimp per person. Serve with a big side salad to keep the meal balanced." },
-
+ 
   { day:23, name:"Pan-Fried Pork Chops", cuisine:"american", seafood:false,
     desc:"Thick-cut bone-in chops with a golden crust, served with skillet corn and roasted potatoes.",
     gout:"One good chop per person. Load up on the corn and potatoes to round it out." },
-
+ 
   { day:24, name:"Steak & Chicken Fajitas", cuisine:"mexican", seafood:false,
     desc:"Sizzling skirt steak and chicken with peppers and onions — flour tortillas, guac, sour cream, and pico de gallo.",
     gout:"Go heavier on the chicken, lighter on the steak. All the toppings are gout-neutral." },
-
+ 
   { day:25, name:"Three-Cheese Chicken Alfredo", cuisine:"italian", seafood:false,
     desc:"Parmesan, romano, and asiago cream sauce over fettuccine with pan-seared chicken breast.",
     gout:"Chicken and cream sauce — one of the best gout-friendly Italian meals on this plan." },
-
+ 
   { day:26, name:"Fish Tacos", cuisine:"mexican", seafood:true,
     desc:"Crispy beer-battered cod, cabbage slaw, chipotle crema, and pickled red onion on warm corn tortillas.",
     gout:"White fish like cod is lower in purines than shrimp. Great seafood option." },
-
+ 
   { day:27, name:"French Dip Sandwiches", cuisine:"american", seafood:false,
     desc:"Thinly sliced roast beef on a toasted hoagie roll with melted provolone, served with a rich au jus for dipping. Seasoned oven fries on the side.",
     gout:"Use thinly sliced roast beef and keep it to one sandwich." },
-
+ 
   { day:28, name:"Ground Beef Enchiladas", cuisine:"mexican", seafood:false,
     desc:"Seasoned lean ground beef and cheddar rolled in flour tortillas with red chile enchilada sauce.",
     gout:"Use lean ground beef. Red chile enchilada sauce is fine — not the same as tomato pasta sauce." },
-
+ 
   { day:29, name:"Build-Your-Own Burger Bar", cuisine:"american", seafood:false,
     desc:"Full toppings spread — lettuce, tomato, pickles, onion, bacon, multiple cheeses, loaded oven fries. Everyone builds their own.",
     gout:"4 oz patties. The fun is in the toppings, not the size of the burger." },
-
+ 
   { day:30, name:"Malibu Chicken Sandwich", cuisine:"american", seafood:false,
     desc:"Crispy fried chicken breast topped with shaved ham, melted Swiss cheese, and honey mustard on a toasted brioche bun. Seasoned oven fries on the side.",
     gout:"Chicken keeps it gout-friendly. Go easy on the ham portion — processed meat in moderation." },
-
+ 
   { day:31, name:"Carne Asada Platter", cuisine:"mexican", seafood:false,
     desc:"Marinated flank steak with Mexican rice, charro beans, grilled onions, guacamole, and warm tortillas.",
     gout:"End the month right — 5 oz of steak, then fill the plate with rice, beans, and guac." },
 ];
-
+ 
 // Swap pool — alternative meals to swap in for any day
 const swapPool = [
   { name:"Grilled Chicken Sandwich", cuisine:"american", seafood:false,
     desc:"Juicy grilled chicken breast, lettuce, tomato, pickles, and honey mustard on a toasted brioche bun. Seasoned oven fries on the side.",
     gout:"Grilled over fried keeps purines lower. Great swap any night." },
-
+ 
   { name:"Chicken Strip Wraps", cuisine:"american", seafood:false,
     desc:"Crispy chicken strips, shredded lettuce, cheddar, tomato, and ranch in a large flour tortilla. Served with fries.",
     gout:"Chicken is gout-friendly. Watch the portion size on the wrap — one is plenty." },
-
+ 
   { name:"Patty Melt", cuisine:"american", seafood:false,
     desc:"Seasoned beef patty with caramelized onions and melted Swiss on buttered toasted rye bread. Served with fries.",
     gout:"Keep the patty to 4 oz. Caramelized onions are gout-neutral." },
-
+ 
   { name:"Grilled Cheese & Tomato Soup", cuisine:"american", seafood:false,
     desc:"Buttery golden grilled cheese on thick white bread with a warm creamy tomato soup for dipping.",
     gout:"Low purine, easy on the stomach. One of the most gout-friendly swaps on the list." },
-
+ 
   { name:"Pot Roast", cuisine:"american", seafood:false,
     desc:"Slow-braised chuck roast with carrots, potatoes, and onions in a rich beef broth gravy.",
     gout:"Keep beef to 4-5 oz. Load up on the carrots and potatoes to fill the plate." },
-
+ 
   { name:"Carolina BBQ Chicken", cuisine:"american", seafood:false,
     desc:"Pulled chicken thighs in a tangy vinegar-based Carolina BBQ sauce, served on brioche with coleslaw.",
     gout:"Chicken and vinegar sauce — lower purine than red meat BBQ. Great swap." },
-
+ 
   { name:"Chicken Fried Steak", cuisine:"american", seafood:false,
     desc:"Tenderized beef cutlet breaded and fried golden, smothered in creamy white pepper gravy. Served with mashed potatoes and green beans.",
     gout:"Keep the cutlet to one moderate portion. Fill the plate with mashed potatoes and beans." },
-
+ 
   { name:"BLT Club Sandwich", cuisine:"american", seafood:false,
     desc:"Triple-decker with bacon, lettuce, tomato, turkey, and mayo on toasted white bread. Served with chips or fries.",
     gout:"Go easy on the bacon — one or two strips. Turkey keeps the purine load reasonable." },
-
+ 
   { name:"Smothered Chicken Thighs", cuisine:"american", seafood:false,
     desc:"Pan-seared chicken thighs in a creamy onion and mushroom gravy, served over mashed potatoes.",
     gout:"Chicken thighs and mushrooms are both gout-friendly. One of the best swaps on the list." },
-
+ 
   { name:"Honey Mustard Chicken Thighs", cuisine:"american", seafood:false,
     desc:"Oven-baked chicken thighs glazed with honey mustard, served with roasted potatoes and green beans.",
     gout:"Chicken and honey mustard are both gout-neutral. Easy weeknight swap." },
-
+ 
   { name:"Pizza Night", cuisine:"american", seafood:false,
     desc:"Homemade or order out — your call. Load it up however the family wants it.",
     gout:"Watch sodium on delivery pizza. Homemade lets you control the toppings and portions." },
-
+ 
   { name:"Takeout Night", cuisine:"american", seafood:false,
     desc:"Your choice — pick up whatever sounds good tonight.",
     gout:"Watch sodium and portion sizes. Avoid organ meat dishes and high-purine soups." },
 ];
-
+ 
 const weekLabels = ["Week One", "Week Two", "Week Three", "Week Four", "Week Five"];
 const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-
+ 
 // Anchor Day 1 to first day of current month
 const today = new Date();
 const planStartDate = new Date(today.getFullYear(), today.getMonth(), 1);
 const planMonthName = planStartDate.toLocaleString('default', { month: 'long', year: 'numeric' });
-
+ 
 // Storage keys
 const STORAGE_KEY = 'mealplan_checked';
 const SWAP_KEY = 'mealplan_swaps';
 const MONTH_KEY = 'mealplan_month';
 const SHUFFLE_KEY = 'mealplan_shuffle';
 const GROCERY_CHECKED_KEY = 'mealplan_grocery_checked';
-
+ 
 // Auto-reset checkmarks, swaps, AND the auto-shuffle when the month changes
 const currentMonth = `${today.getFullYear()}-${today.getMonth()}`;
 const savedMonth = localStorage.getItem(MONTH_KEY);
@@ -2324,35 +3243,240 @@ if (savedMonth !== currentMonth) {
   localStorage.removeItem(GROCERY_CHECKED_KEY);
   localStorage.setItem(MONTH_KEY, currentMonth);
 }
-
+ 
 let currentFilter = 'all';
-
+ 
+// ── Breakfast & Lunch (grab-and-go, prep-ahead) ─────────────────────────
+const breakfasts = [
+  { name:"Peanut Butter Banana Overnight Oats", badge:"Fridge · 4 days",
+    desc:"Rolled oats, milk, Greek yogurt, peanut butter, and mashed banana layered in a jar. No cooking required.",
+    prep:"Make 4-5 jars on Sunday. Stir peanut butter through while warm/soft so it blends, then portion into jars. Grab and eat cold, or warm 30 sec.",
+    gout:"Oats, dairy, and peanut butter are all gout-friendly — a safe grab-and-go pick." },
+ 
+  { name:"Berry Almond Protein Oats", badge:"Fridge · 4 days",
+    desc:"Overnight oats with vanilla protein powder, almond milk, chia seeds, and mixed berries stirred in.",
+    prep:"Batch 4-5 jars Sunday night. Add berries fresh the morning of if you prefer them less soft, or mix in ahead for a jammier texture.",
+    gout:"Berries and oats are gout-friendly. Choose a whey or plant protein powder without added purine-heavy fillers." },
+ 
+  { name:"Ham & Cheddar Egg Muffins", badge:"Freezer · 2 months",
+    desc:"Mini crustless quiches baked in a muffin tin with eggs, diced ham, cheddar, and bell pepper.",
+    prep:"Bake a full tray (12) on Sunday. Cool completely, then fridge for the week or freeze in a bag. Microwave from frozen 60-90 sec.",
+    gout:"Eggs and dairy are gout-neutral. Keep the ham portion light — two muffins is a solid grab-and-go breakfast." },
+ 
+  { name:"Bacon & Gruyère Egg Bites", badge:"Fridge · 3 days",
+    desc:"Starbucks-style custardy egg bites — blended eggs, cottage cheese, and Gruyère, baked over crisp bacon.",
+    prep:"Blend and bake a full tray Sunday using a steam bath in the oven for that silky texture. Fridge 3 days or freeze 2 months. Microwave 45-60 sec.",
+    gout:"Eggs and cheese are gout-neutral. Keep bacon to a light scatter rather than a full strip per bite." },
+ 
+  { name:"Broccoli Cheddar Egg Bites", badge:"Fridge · 3 days",
+    desc:"The same silky blended egg bite base, swapped vegetarian with steamed broccoli and sharp cheddar.",
+    prep:"Bake alongside the bacon batch (or on its own) Sunday using the same steam-bath method. Fridge 3 days or freeze 2 months.",
+    gout:"Fully gout-friendly — eggs, cheese, and broccoli are all safe. A good vegetarian rotation option." },
+ 
+  { name:"Greek Yogurt Parfait Jars", badge:"Fridge · 3 days",
+    desc:"Layered Greek yogurt, granola, and honey-drizzled berries in a mason jar — granola kept separate to stay crunchy.",
+    prep:"Layer yogurt and berries in jars Sunday; keep granola in a small side bag or the jar lid and add right before eating.",
+    gout:"Yogurt and berries are gout-friendly. A clean, high-protein grab-and-go option." },
+ 
+  { name:"Vanilla Cinnamon Chia Pudding", badge:"Fridge · 5 days",
+    desc:"Chia seeds soaked in milk with vanilla and cinnamon until thick and pudding-like, topped with fruit.",
+    prep:"Whisk chia, milk, vanilla, and cinnamon in a big jar or divide into 5 jars right away. Stir again after 30 min to prevent clumping, then refrigerate.",
+    gout:"Chia and dairy are gout-neutral — one of the lowest-fuss make-ahead breakfasts on this list." },
+ 
+  { name:"Freezer Breakfast Burritos", badge:"Freezer · 2 months",
+    desc:"Scrambled eggs, black beans, cheese, and salsa rolled into foil-wrapped tortillas for the microwave.",
+    prep:"Assemble 6-8 burritos, wrap individually in foil or parchment + freezer bag. Microwave from frozen 2-3 min, flipping halfway.",
+    gout:"Eggs, beans, and cheese are all fine. Go light on any breakfast sausage or bacon add-ins." },
+ 
+  { name:"Freezer Breakfast Sandwiches", badge:"Freezer · 2 months",
+    desc:"English muffins layered with fried egg, sausage patty, and cheddar — wrapped individually for the freezer.",
+    prep:"Assemble 6 sandwiches, wrap each in parchment + foil, and freeze. Unwrap, microwave 90 sec on a paper towel, flipping once.",
+    gout:"Keep the sausage patty on the smaller side. Eggs and cheddar are otherwise gout-neutral." },
+ 
+  { name:"Make-Ahead Avocado Toast Kit", badge:"Prep components · fresh mash",
+    desc:"Bread, toppings, and seasoning fully prepped ahead — you just toast and mash a fresh avocado each morning.",
+    prep:"Slice and freeze bread; pre-chop tomato, red onion, and any toppings into a container. Avocado doesn't hold well pre-mashed, so keep whole avocados on the counter and mash one fresh each morning — takes under 2 minutes.",
+    gout:"Avocado, whole-grain bread, and lemon are all gout-friendly. A light poached egg on top adds protein without issue." },
+ 
+  { name:"Apple Cinnamon Baked Oatmeal Cups", badge:"Fridge · 5 days",
+    desc:"Individual baked oatmeal cups with grated apple, cinnamon, and a touch of maple — like a healthy muffin.",
+    prep:"Bake a full tray on Sunday. Cool, then fridge in a container or freeze in a bag. Microwave 30-45 sec, or eat cold.",
+    gout:"Oats and apple are both gout-friendly — an easy handheld breakfast with no plate needed." },
+ 
+  { name:"Chocolate Peanut Butter Overnight Oats", badge:"Fridge · 4 days",
+    desc:"Cocoa powder and peanut butter stirred into classic overnight oats for a dessert-for-breakfast jar.",
+    prep:"Batch 4-5 jars Sunday night. Stir well before sealing so the cocoa doesn't clump at the bottom.",
+    gout:"Oats, cocoa, and peanut butter are all gout-friendly — a rich-tasting option that's still safe." },
+ 
+  { name:"Mango Coconut Chia Pudding", badge:"Fridge · 5 days",
+    desc:"Chia pudding made with coconut milk and topped with fresh diced mango for a tropical twist.",
+    prep:"Whisk chia and coconut milk Sunday, divide into jars, and stir once after 30 min. Top with mango the morning of so it stays fresh.",
+    gout:"Chia, coconut milk, and mango are all gout-neutral — a dairy-free option for the rotation." },
+ 
+  { name:"Spinach & Feta Egg Muffins", badge:"Freezer · 2 months",
+    desc:"A vegetarian egg muffin loaded with wilted spinach, feta, and a hint of dill.",
+    prep:"Bake a full tray Sunday alongside your other egg muffins. Cool completely, then fridge or freeze in a bag.",
+    gout:"Eggs, spinach, and feta are all gout-friendly. One of the lightest breakfasts on the whole list." },
+ 
+  { name:"Sausage & Cheddar Egg Bites", badge:"Fridge · 3 days",
+    desc:"The blended custardy egg bite base loaded with crumbled breakfast sausage and sharp cheddar.",
+    prep:"Bake using the same steam-bath method as the other egg bites — cook the sausage and let it cool before folding in.",
+    gout:"Keep the sausage portion modest; eggs and cheddar are otherwise gout-neutral." },
+ 
+  { name:"Banana Nut Baked Oatmeal Bars", badge:"Freezer · 2 months",
+    desc:"Dense baked oatmeal bars with mashed banana, walnuts, and a touch of honey — sliceable and portable.",
+    prep:"Bake a 9x13 pan Sunday, cool, and slice into bars. Fridge up to 5 days or freeze individually wrapped.",
+    gout:"Oats, banana, and walnuts are all gout-friendly. A filling, no-fork-needed breakfast." },
+ 
+  { name:"Cottage Cheese Berry Bowls", badge:"Fridge · 4 days",
+    desc:"High-protein cottage cheese topped with berries, a drizzle of honey, and a sprinkle of granola.",
+    prep:"Portion cottage cheese into containers Sunday. Keep berries and granola separate, adding both fresh each morning.",
+    gout:"Cottage cheese and berries are both gout-friendly — one of the highest-protein grab options here." },
+ 
+  { name:"Soft-Baked Banana Oat Breakfast Cookies", badge:"Fridge · 5 days",
+    desc:"No-added-sugar cookies made from mashed banana, oats, and peanut butter — a true handheld breakfast.",
+    prep:"Bake a batch Sunday, cool completely, and store in an airtight container. Freezes well for longer storage.",
+    gout:"Oats, banana, and peanut butter are gout-friendly — a genuinely portable, one-hand breakfast." },
+ 
+  { name:"Freezer Breakfast Quesadillas", badge:"Freezer · 2 months",
+    desc:"Scrambled eggs, cheese, and diced ham folded into a flour tortilla and griddled, then frozen flat.",
+    prep:"Assemble and lightly griddle 6-8 quesadillas, cool, then stack with parchment between and freeze in a bag. Reheat in a skillet or microwave.",
+    gout:"Eggs and cheese are gout-neutral. Keep the ham portion light." },
+ 
+  { name:"Pumpkin Spice Overnight Oats", badge:"Fridge · 4 days",
+    desc:"Oats soaked with pumpkin purée, milk, and warm spices for a cozy, no-cook fall-flavored breakfast.",
+    prep:"Batch 4-5 jars Sunday night. Stir well since pumpkin purée is thick and needs to distribute evenly.",
+    gout:"Oats and pumpkin are gout-friendly — a good seasonal rotation option any time of year." }
+];
+ 
+const lunches = [
+  { name:"Turkey & Swiss Wraps", badge:"Fridge · 2 days",
+    desc:"Sliced turkey, Swiss cheese, lettuce, and honey mustard rolled up in a spinach tortilla, sliced in half.",
+    prep:"Assemble Sunday or the night before, wrap tightly in parchment or foil, and refrigerate. Best eaten within 2 days so the tortilla stays fresh.",
+    gout:"Turkey is one of the gout-friendlier deli meats. Keep the portion to about 3-4 oz per wrap." },
+ 
+  { name:"Chicken Caesar Wraps", badge:"Fridge · 2 days",
+    desc:"Shredded rotisserie chicken, romaine, parmesan, and Caesar dressing wrapped in a flour tortilla.",
+    prep:"Toss chicken with dressing separately and store in a small container; keep lettuce dry. Assemble the wrap the morning you'll eat it so it doesn't get soggy.",
+    gout:"Chicken and parmesan are gout-friendly. Use a light hand with the dressing to keep it from sogging the wrap." },
+ 
+  { name:"Pressed Italian Sub Sandwiches", badge:"Fridge · 3 days",
+    desc:"Ham, salami, provolone, lettuce, tomato, and Italian dressing on a pressed hoagie roll — gets better as it sits.",
+    prep:"Assemble whole sandwiches, wrap tightly in parchment then foil, and refrigerate something heavy on top overnight to press. Slice in half before packing.",
+    gout:"Keep cured meats like salami to a smaller portion and lean more on veggies and provolone to fill it out." },
+ 
+  { name:"Buffalo Chicken Wraps", badge:"Fridge · 3 days",
+    desc:"Shredded chicken tossed in buffalo sauce with ranch, shredded carrot, and celery in a tortilla.",
+    prep:"Toss chicken with buffalo sauce and store separately from the tortilla and crunchy veg. Assemble the morning of for the best texture.",
+    gout:"Chicken is a safe protein pick here. Go easy on blue cheese if you add it — moderate dairy is fine, just don't overdo portions." },
+ 
+  { name:"Chickpea Salad Sandwiches", badge:"Fridge · 4 days",
+    desc:"Mashed chickpeas with celery, red onion, and a light mayo-mustard dressing on hearty bread — a handheld twist on chickpea salad.",
+    prep:"Mash and mix the filling Sunday and store in a container. Spread onto bread fresh each morning so it doesn't get soggy.",
+    gout:"Chickpeas are gout-friendly in moderate portions — one sandwich is a right-sized serving." },
+ 
+  { name:"Greek Chicken Pita Pockets", badge:"Fridge · 3 days",
+    desc:"Grilled chicken, cucumber, tomato, feta, and tzatziki stuffed into a warm pita pocket.",
+    prep:"Pre-cook and slice chicken and chop veggies Sunday, storing separately from the pita. Stuff the pita fresh each morning to avoid a soggy pocket.",
+    gout:"Chicken, feta, and cucumber are all gout-friendly — one of the lighter handheld lunches on this list." },
+ 
+  { name:"Ham & Swiss Croissant Sandwiches", badge:"Fridge · 3 days",
+    desc:"Sliced ham and Swiss cheese with a swipe of dijon on a flaky croissant — simple and office-friendly.",
+    prep:"Assemble Sunday, wrap individually in parchment, and refrigerate. Croissants hold up better than soft bread, so these keep well for a few days.",
+    gout:"Keep the ham portion moderate. Swiss cheese and croissant are otherwise gout-neutral." },
+ 
+  { name:"BBQ Chicken Sliders", badge:"Freezer · 1 month",
+    desc:"Shredded BBQ chicken and cheddar piled on Hawaiian rolls, baked in a foil pack — a handheld that reheats in one shot.",
+    prep:"Assemble a full tray of sliders, wrap in foil, and freeze whole or portion into 2-3 sliders per pack. Reheat from frozen at 350F for 15-20 min, or microwave 90 sec.",
+    gout:"Use a lean shredded chicken breast and homemade BBQ sauce to keep this gout-friendly." },
+ 
+  { name:"Egg Salad Sandwiches", badge:"Fridge · 3 days",
+    desc:"Classic chopped hard-boiled eggs with mayo, dijon, and chives on soft white or wheat bread.",
+    prep:"Hard-boil a dozen eggs and mix the filling Sunday; store the filling separately and spread onto bread fresh each morning.",
+    gout:"Eggs are gout-neutral, making this one of the safest handheld lunches on the list." },
+ 
+  { name:"Southwest Turkey Wraps", badge:"Fridge · 3 days",
+    desc:"Turkey, black beans, corn, pepper jack, and chipotle mayo rolled in a large flour tortilla.",
+    prep:"Mix the corn-black bean filling and portion the turkey and cheese Sunday; assemble wraps the morning of for the best texture.",
+    gout:"Turkey and black beans are both gout-friendly picks — keep pepper jack to a light layer." },
+ 
+  { name:"Classic Tuna Salad Sandwiches", badge:"Fridge · 3 days",
+    desc:"Flaked tuna with mayo, celery, and a squeeze of lemon on hearty bread — a lunchbox classic.",
+    prep:"Mix the filling Sunday and store in an airtight container. Spread onto bread fresh each morning to keep it from getting soggy.",
+    gout:"Tuna is higher in purines than chicken or turkey, so keep the portion moderate and enjoy this one less often than the others." },
+ 
+  { name:"Chicken Salad Croissant Sandwiches", badge:"Fridge · 3 days",
+    desc:"Shredded chicken with grapes, celery, and a light mayo dressing piled onto a flaky croissant.",
+    prep:"Cook and shred chicken and mix the salad Sunday. Store separately from the croissants and assemble the morning of.",
+    gout:"Chicken is a safe protein pick. Grapes add natural sweetness without any gout concerns." },
+ 
+  { name:"Turkey Club Sandwiches", badge:"Fridge · 2 days",
+    desc:"Turkey, bacon, lettuce, and tomato stacked on toasted bread with mayo — a triple-decker classic.",
+    prep:"Cook bacon Sunday and store separately. Assemble the sandwich the morning of so the toast stays crisp and the tomato doesn't make it soggy.",
+    gout:"Turkey is gout-friendly; keep the bacon to a couple of strips per sandwich." },
+ 
+  { name:"Caprese Pesto Sandwiches", badge:"Fridge · 2 days",
+    desc:"Fresh mozzarella, tomato, basil, and pesto pressed on a crusty roll — a vegetarian handheld with big flavor.",
+    prep:"Assemble and wrap tightly Sunday or the night before; pressing it briefly under something heavy helps the flavors meld.",
+    gout:"Mozzarella, tomato, and basil are all gout-friendly — a great vegetarian option for the rotation." },
+ 
+  { name:"Freezer Meatball Sub Sandwiches", badge:"Freezer · 2 months",
+    desc:"Mini meatballs in marinara with melted provolone, tucked into a hoagie roll and wrapped for the freezer.",
+    prep:"Assemble subs, wrap individually in foil, and freeze. Reheat wrapped in foil at 350F for 20-25 min, or unwrap and microwave 2-3 min.",
+    gout:"Use lean ground beef or turkey meatballs and keep the portion to 3-4 meatballs per sub." },
+ 
+  { name:"Philly Cheesesteak Wraps", badge:"Fridge · 3 days",
+    desc:"Thinly sliced steak, sautéed peppers and onions, and provolone rolled into a tortilla.",
+    prep:"Cook the steak and veggies Sunday and store together in a container. Warm briefly and roll into a tortilla the morning of.",
+    gout:"Keep the steak portion to about 3-4 oz. Peppers, onions, and provolone are otherwise gout-friendly." },
+ 
+  { name:"Chicken Bacon Ranch Wraps", badge:"Fridge · 3 days",
+    desc:"Grilled chicken, crispy bacon, lettuce, and ranch rolled up in a flour tortilla.",
+    prep:"Cook chicken and bacon Sunday and store together. Keep lettuce and ranch separate, assembling the wrap the morning of.",
+    gout:"Chicken is a safe base. Keep bacon to a light scatter rather than several full strips." },
+ 
+  { name:"Falafel Pita Wraps", badge:"Fridge · 3 days",
+    desc:"Baked falafel with cucumber, tomato, and tahini sauce stuffed into a warm pita — a vegetarian handheld.",
+    prep:"Bake a batch of falafel Sunday and store separately from the veggies and pita. Warm falafel briefly and stuff the pita fresh each morning.",
+    gout:"Chickpea-based falafel is fine in moderate portions — a solid vegetarian rotation option." },
+ 
+  { name:"Freezer PB&J Pocket Sandwiches", badge:"Freezer · 2 months",
+    desc:"Homemade crustless peanut butter and jelly pockets, sealed at the edges and frozen — a copycat of the grocery-store kind.",
+    prep:"Assemble a batch Sunday, flash-freeze on a sheet pan for 2 hours, then transfer to a freezer bag. Grab one straight from the freezer — it thaws by lunchtime.",
+    gout:"Peanut butter and jelly are both gout-friendly — an easy, kid-approved option to keep in rotation." },
+ 
+  { name:"Ham & Cheese Pinwheel Wraps", badge:"Fridge · 3 days",
+    desc:"Ham, cheddar, and cream cheese spread rolled into a tortilla and sliced into bite-sized pinwheels.",
+    prep:"Assemble and roll tightly Sunday, then refrigerate whole. Slice into pinwheels the morning of (or the night before) for the freshest bite.",
+    gout:"Keep the ham portion moderate. Cheddar and cream cheese are otherwise gout-neutral." }
+];
+ 
 function getDayName(dayNum) {
   const date = new Date(planStartDate);
   date.setDate(dayNum);
   return dayNames[date.getDay()];
 }
-
+ 
 // Checkmark storage
 function getChecked() {
   try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
   catch { return []; }
 }
-
+ 
 function saveChecked(arr) {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); } catch {}
 }
-
+ 
 // Swap storage
 function getSwaps() {
   try { return JSON.parse(localStorage.getItem(SWAP_KEY)) || {}; }
   catch { return {}; }
 }
-
+ 
 function saveSwaps(obj) {
   try { localStorage.setItem(SWAP_KEY, JSON.stringify(obj)); } catch {}
 }
-
+ 
 // ── Monthly auto-shuffle ─────────────────────────────────────────────────
 // Randomly assigns 31 unique meals (drawn from all 31 main-menu meals + all
 // 12 swap-pool meals = 43 total) to the 31 days, guaranteeing no repeats.
@@ -2361,13 +3485,13 @@ function generateShuffle() {
   const pool = [];
   meals.forEach((m, i) => pool.push({ source: 'menu', index: i }));
   swapPool.forEach((m, i) => pool.push({ source: 'pool', index: i }));
-
+ 
   // Fisher-Yates shuffle
   for (let i = pool.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [pool[i], pool[j]] = [pool[j], pool[i]];
   }
-
+ 
   const chosen = pool.slice(0, 31);
   const assignment = {};
   chosen.forEach((opt, idx) => {
@@ -2375,16 +3499,16 @@ function generateShuffle() {
   });
   return assignment;
 }
-
+ 
 function getShuffleState() {
   try { return JSON.parse(localStorage.getItem(SHUFFLE_KEY)) || null; }
   catch { return null; }
 }
-
+ 
 function saveShuffleState(state) {
   try { localStorage.setItem(SHUFFLE_KEY, JSON.stringify(state)); } catch {}
 }
-
+ 
 // Generate a shuffle for the current month if one doesn't already exist locally
 function ensureShuffleForMonth() {
   let state = getShuffleState();
@@ -2394,7 +3518,7 @@ function ensureShuffleForMonth() {
   }
   return state;
 }
-
+ 
 // Get the base (pre-manual-swap) meal for a day from the current shuffle
 function getShuffledMeal(day) {
   const state = getShuffleState();
@@ -2405,7 +3529,7 @@ function getShuffledMeal(day) {
   }
   return null;
 }
-
+ 
 // Get the meal currently shown for a given day.
 // Priority: manual per-day swap (via the Swap button) > this month's
 // auto-shuffle assignment > static fallback (only if shuffle is missing).
@@ -2431,27 +3555,27 @@ function getMealForDay(day) {
   const original = meals.find(m => m.day === day);
   return { ...original, _swapped: false };
 }
-
-
+ 
+ 
 // Check if a meal matches the current filter
 function matchesFilter(meal, filter) {
   if (filter === 'all') return true;
   if (filter === 'seafood') return meal.seafood;
   return meal.cuisine === filter;
 }
-
+ 
 // Build a single card's HTML content (used by both initial render and rebuild)
 function buildCardHTML(meal, day) {
   const checked = getChecked();
   const isChecked = checked.includes(day);
-
+ 
   let tagsHTML = '';
   if (meal.seafood) tagsHTML += `<span class="cuisine-tag tag-seafood">Seafood</span>`;
   tagsHTML += `<span class="cuisine-tag tag-${meal.cuisine}">${meal.cuisine.charAt(0).toUpperCase()+meal.cuisine.slice(1)}</span>`;
   if (meal._swapped) tagsHTML += `<span class="cuisine-tag tag-swap">Swapped</span>`;
-
+ 
   const goutHTML = meal.gout ? `<div class="gout-tip">💧 ${meal.gout}</div>` : '';
-
+ 
   return `
     <div class="day-label">${getDayName(day)} · Day ${day}</div>
     <div class="day-num">${day}</div>
@@ -2468,7 +3592,7 @@ function buildCardHTML(meal, day) {
     </div>
   `;
 }
-
+ 
 // Apply correct CSS classes to a card based on its state
 function applyCardState(card, meal, day) {
   const isChecked = getChecked().includes(day);
@@ -2477,25 +3601,25 @@ function applyCardState(card, meal, day) {
     (meal._swapped ? ' swapped' : '') +
     (matchesFilter(meal, currentFilter) ? '' : ' hidden');
 }
-
+ 
 // Build the entire weeks grid
 function buildUI(filter) {
   currentFilter = filter;
   const container = document.getElementById('weeksContainer');
   container.innerHTML = '';
-
+ 
   const weeks = [[], [], [], [], []];
   meals.forEach(m => {
     const wi = m.day <= 7 ? 0 : m.day <= 14 ? 1 : m.day <= 21 ? 2 : m.day <= 28 ? 3 : 4;
     weeks[wi].push(m);
   });
-
+ 
   weeks.forEach((week, wi) => {
     // Count visible meals using the actual displayed meal (which may be swapped)
     const visibleCount = week.filter(m => matchesFilter(getMealForDay(m.day), filter)).length;
-
+ 
     if (visibleCount === 0) return;
-
+ 
     const block = document.createElement('div');
     block.className = 'week-block';
     block.innerHTML = `
@@ -2507,10 +3631,10 @@ function buildUI(filter) {
         <button class="week-grocery-btn" onclick="location.hash='groceries-week-${wi+1}'">🛒 Grocery List</button>
       </div>
     `;
-
+ 
     const grid = document.createElement('div');
     grid.className = 'days-grid';
-
+ 
     week.forEach(originalMeal => {
       const meal = getMealForDay(originalMeal.day);
       const card = document.createElement('div');
@@ -2519,12 +3643,12 @@ function buildUI(filter) {
       card.innerHTML = buildCardHTML(meal, originalMeal.day);
       grid.appendChild(card);
     });
-
+ 
     block.appendChild(grid);
     container.appendChild(block);
   });
 }
-
+ 
 // Rebuild a single card in place (after swap or restore)
 function rebuildCard(day) {
   const card = document.querySelector(`.day-card[data-day="${day}"]`);
@@ -2532,12 +3656,12 @@ function rebuildCard(day) {
   const meal = getMealForDay(day);
   applyCardState(card, meal, day);
   card.innerHTML = buildCardHTML(meal, day);
-
+ 
   // Recalculate week count in case filter visibility changed
   refreshWeekCounts();
   refreshGroceryIfVisible();
 }
-
+ 
 // Re-render the grocery list if it's the currently visible view, so it
 // always reflects the latest swaps/shuffle without the person having to ask
 function refreshGroceryIfVisible() {
@@ -2546,7 +3670,7 @@ function refreshGroceryIfVisible() {
     renderGroceryList();
   }
 }
-
+ 
 // Update the "X dinners" subtitle on each week header to reflect filter + swaps
 function refreshWeekCounts() {
   const blocks = document.querySelectorAll('.week-block');
@@ -2555,7 +3679,7 @@ function refreshWeekCounts() {
     const wi = m.day <= 7 ? 0 : m.day <= 14 ? 1 : m.day <= 21 ? 2 : m.day <= 28 ? 3 : 4;
     weeks[wi].push(m);
   });
-
+ 
   let blockIndex = 0;
   weeks.forEach((week) => {
     const visibleCount = week.filter(m => matchesFilter(getMealForDay(m.day), currentFilter)).length;
@@ -2568,13 +3692,13 @@ function refreshWeekCounts() {
     blockIndex++;
   });
 }
-
+ 
 function filterMeals(type, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   buildUI(type);
 }
-
+ 
 // Checkmark toggling
 function toggleDay(day) {
   let checked = getChecked();
@@ -2582,7 +3706,7 @@ function toggleDay(day) {
     ? checked.filter(d => d !== day)
     : [...checked, day];
   saveChecked(checked);
-
+ 
   const card = document.querySelector(`.day-card[data-day="${day}"]`);
   if (card) {
     const meal = getMealForDay(day);
@@ -2595,13 +3719,13 @@ function toggleDay(day) {
   }
   updateProgress();
 }
-
+ 
 function updateProgress() {
   const count = getChecked().length;
   document.getElementById('progressText').textContent = `${count} of 31`;
   document.getElementById('progressBar').style.width = (count / 31 * 100) + '%';
 }
-
+ 
 function resetAll() {
   if (!confirm('Clear all checkmarks and start fresh?')) return;
   saveChecked([]);
@@ -2616,16 +3740,16 @@ function resetAll() {
   });
   updateProgress();
 }
-
+ 
 // Swap menu
 let activeSwapDay = null;
-
+ 
 function openSwapMenu(day) {
   activeSwapDay = day;
   const menu = document.getElementById('swapMenu');
   const list = document.getElementById('swapList');
   list.innerHTML = '';
-
+ 
   const swaps = getSwaps();
   if (swaps[day] !== undefined) {
     const restoreBtn = document.createElement('button');
@@ -2634,7 +3758,7 @@ function openSwapMenu(day) {
     restoreBtn.onclick = () => { restoreOriginal(day); closeSwapMenu(); };
     list.appendChild(restoreBtn);
   }
-
+ 
   // Build unified option list: all 43 meals (main menu + swap pool),
   // minus whatever meal is currently showing for this day
   const currentMeal = getMealForDay(day);
@@ -2649,7 +3773,7 @@ function openSwapMenu(day) {
       allOptions.push({ meal, source: 'pool', index: i });
     }
   });
-
+ 
   // Group by cuisine
   const groups = {
     american: { label: 'American', items: [] },
@@ -2660,7 +3784,7 @@ function openSwapMenu(day) {
     const cuisine = opt.meal.cuisine;
     if (groups[cuisine]) groups[cuisine].items.push(opt);
   });
-
+ 
   // Sort each group alphabetically and dedupe by name (so a meal doesn't
   // show up twice if it's in both meals[] and swapPool)
   Object.values(groups).forEach(g => {
@@ -2673,17 +3797,17 @@ function openSwapMenu(day) {
       })
       .sort((a, b) => a.meal.name.localeCompare(b.meal.name));
   });
-
+ 
   // Render each cuisine group
   ['american', 'mexican', 'italian'].forEach(cuisine => {
     const group = groups[cuisine];
     if (group.items.length === 0) return;
-
+ 
     const heading = document.createElement('div');
     heading.className = 'swap-group-heading';
     heading.innerHTML = `<span>${group.label}</span><span class="swap-group-count">${group.items.length}</span>`;
     list.appendChild(heading);
-
+ 
     group.items.forEach(opt => {
       const btn = document.createElement('button');
       btn.className = 'swap-option';
@@ -2702,37 +3826,37 @@ function openSwapMenu(day) {
       list.appendChild(btn);
     });
   });
-
+ 
   menu.classList.add('open');
   // Scroll the menu back to top so the restore button / first group is visible
   const menuScroller = menu.querySelector('.swap-menu');
   if (menuScroller) menuScroller.scrollTop = 0;
 }
-
+ 
 function closeSwapMenu() {
   document.getElementById('swapMenu').classList.remove('open');
   activeSwapDay = null;
 }
-
+ 
 function applySwap(day, source, index) {
   const swaps = getSwaps();
   swaps[day] = { source, index };
   saveSwaps(swaps);
   rebuildCard(day);
 }
-
+ 
 function restoreOriginal(day) {
   const swaps = getSwaps();
   delete swaps[day];
   saveSwaps(swaps);
   rebuildCard(day);
 }
-
+ 
 // Close swap menu when clicking the dark overlay
 document.getElementById('swapMenu').addEventListener('click', (e) => {
   if (e.target.id === 'swapMenu') closeSwapMenu();
 });
-
+ 
 // Recipe modal
 function openRecipe(mealName) {
   const recipe = recipes[mealName];
@@ -2741,9 +3865,9 @@ function openRecipe(mealName) {
   const tag = document.getElementById('recipeTag');
   const servings = document.getElementById('recipeServings');
   const body = document.getElementById('recipeBody');
-
+ 
   title.textContent = mealName;
-
+ 
   if (!recipe) {
     tag.textContent = 'Recipe';
     servings.textContent = '';
@@ -2751,9 +3875,11 @@ function openRecipe(mealName) {
   } else {
     tag.textContent = 'Recipe';
     servings.textContent = recipe.servings || '';
+    const prepHTML = recipe.prep ? `<div class="recipe-prep-ahead"><strong>Make ahead:</strong> ${recipe.prep}</div>` : '';
     const ingredientsHTML = recipe.ingredients.map(i => `<li>${i}</li>`).join('');
     const stepsHTML = recipe.steps.map(s => `<li>${s}</li>`).join('');
     body.innerHTML = `
+      ${prepHTML}
       <div class="recipe-section ingredients">
         <h5>Ingredients</h5>
         <ul class="recipe-ingredients">${ingredientsHTML}</ul>
@@ -2764,38 +3890,38 @@ function openRecipe(mealName) {
       </div>
     `;
   }
-
+ 
   modal.classList.add('open');
   modal.scrollTop = 0;
 }
-
+ 
 function closeRecipe() {
   document.getElementById('recipeModal').classList.remove('open');
 }
-
+ 
 document.getElementById('recipeModal').addEventListener('click', (e) => {
   if (e.target.id === 'recipeModal') closeRecipe();
 });
-
+ 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeRecipe();
     closeSwapMenu();
   }
 });
-
+ 
 // ── Grocery List ─────────────────────────────────────────────────────────
 const GROCERY_CATEGORY_KEYWORDS = [
   ['Meat & Seafood', ['beef','chicken','pork','steak','bacon','shrimp','fish','turkey','sausage','ham','patties','patty','ground','skirt','brisket','ribs','tenderloin','cutlet','thigh','breast','wing','loin','hot dog','hotdog',' dogs','roast','chuck']],
   ['Dairy & Eggs', ['cheese','cheddar','mozzarella','parmesan','cream','milk','butter','sour cream','yogurt','egg','swiss','cotija','ricotta','provolone','mayo']],
   ['Produce', ['lettuce','tomato','onion','garlic','cilantro','lime','lemon','avocado','pepper','corn','potato','carrot','celery','cabbage','spinach','herb','parsley','jalape','mushroom','scallion','green onion','basil','zucchini','thyme','bay leaf','bay leaves','orange','rosemary']],
-  ['Bakery & Bread', ['bun','bread','tortilla','roll','baguette','shell','rye','brioche','dough']],
+  ['Bakery & Bread', ['bun','bread','tortilla','roll','baguette','shell','rye','brioche','dough','muffin','croissant','pita','hoagie']],
   ['Pantry & Dry Goods', ['rice','pasta','fettuccine','angel hair','flour','sugar','olive oil','vegetable oil','vinegar','sauce','broth','stock','seasoning','spice','can ','beans','salsa','ketchup','mustard','relish','pickle','bbq','honey','soy','worcestershire','panko','breadcrumbs','stuffing','gravy','jam','pineapple','cornmeal','oregano','paprika','caper']],
   ['Frozen', ['frozen','fries']]
 ];
 const GROCERY_CATEGORY_ORDER = ['Meat & Seafood','Dairy & Eggs','Produce','Bakery & Bread','Pantry & Dry Goods','Frozen','Other'];
 const GROCERY_EXCLUDE = ['your phone','takeout menu','cash or card','call your favorite pizza place','order delivery'];
-
+ 
 function categorizeIngredient(ing) {
   const low = ing.toLowerCase();
   for (const [cat, kws] of GROCERY_CATEGORY_KEYWORDS) {
@@ -2805,7 +3931,7 @@ function categorizeIngredient(ing) {
   }
   return 'Other';
 }
-
+ 
 function weekOfDay(day) {
   if (day <= 7) return 1;
   if (day <= 14) return 2;
@@ -2813,12 +3939,12 @@ function weekOfDay(day) {
   if (day <= 28) return 4;
   return 5;
 }
-
+ 
 function getGroceryChecked() {
   try { return JSON.parse(localStorage.getItem(GROCERY_CHECKED_KEY)) || {}; }
   catch { return {}; }
 }
-
+ 
 function toggleGroceryItem(id) {
   const state = getGroceryChecked();
   state[id] = !state[id];
@@ -2826,7 +3952,7 @@ function toggleGroceryItem(id) {
   const el = document.querySelector(`.grocery-item[data-id="${id}"]`);
   if (el) el.classList.toggle('checked', !!state[id]);
 }
-
+ 
 // Builds the grocery list fresh from whatever meals are currently assigned
 // (auto-shuffle + any manual swaps) — always live, never stale.
 // Build categorized grocery data for every week (days 1-31), from whatever
@@ -2838,16 +3964,16 @@ function buildWeeksGroceryData() {
     const meal = getMealForDay(day);
     weeksData[weekOfDay(day)].push({ day, meal });
   }
-
+ 
   const result = {};
   [1,2,3,4,5].forEach(wk => {
     const dayMeals = weeksData[wk];
     if (dayMeals.length === 0) return;
-
+ 
     const uniqueMealNames = [...new Set(dayMeals.map(dm => dm.meal.name))];
     const nonTakeout = dayMeals.filter(dm => dm.meal.name !== 'Takeout Night');
     const catItems = {};
-
+ 
     if (nonTakeout.length > 0) {
       dayMeals.forEach(dm => {
         if (dm.meal.name === 'Takeout Night') return;
@@ -2862,7 +3988,7 @@ function buildWeeksGroceryData() {
         });
       });
     }
-
+ 
     result[wk] = {
       label: weekLabels[wk-1],
       mealNames: uniqueMealNames,
@@ -2873,13 +3999,41 @@ function buildWeeksGroceryData() {
   });
   return result;
 }
-
+ 
+// Build categorized grocery data for whichever breakfast/lunch items the
+// person has checked "add to grocery list" on the Breakfast & Lunch tab.
+function buildBfLunchGroceryData() {
+  const selected = getBfLunchSelected();
+  const allItems = [...breakfasts, ...lunches].filter(i => selected.includes(i.name));
+  const catItems = {};
+ 
+  allItems.forEach(item => {
+    const recipe = recipes[item.name];
+    if (!recipe) return;
+    recipe.ingredients.forEach(ing => {
+      const low = ing.toLowerCase();
+      if (GROCERY_EXCLUDE.some(x => low.includes(x))) return;
+      const cat = categorizeIngredient(ing);
+      if (!catItems[cat]) catItems[cat] = [];
+      catItems[cat].push({ ing, mealName: item.name });
+    });
+  });
+ 
+  return {
+    label: '🥣 Breakfast & Lunch Prep',
+    mealNames: allItems.map(i => i.name),
+    catItems,
+    isEmpty: allItems.length === 0
+  };
+}
+ 
 function renderGroceryList() {
   const container = document.getElementById('groceryView');
   if (!container) return;
   const groceryChecked = getGroceryChecked();
   const weeksData = buildWeeksGroceryData();
-
+  const bfLunchData = buildBfLunchGroceryData();
+ 
   let html = `
     <div class="grocery-topbar">
       <div class="grocery-intro">Grouped by week and grocery aisle — built from this month's shuffled plan plus any swaps, and updates automatically whenever either changes.</div>
@@ -2890,11 +4044,11 @@ function renderGroceryList() {
       </div>
     </div>
   `;
-
+ 
   Object.keys(weeksData).forEach(wkKey => {
     const wk = Number(wkKey);
     const wd = weeksData[wk];
-
+ 
     html += `<div class="grocery-week" id="grocery-week-${wk}">
       <div class="grocery-week-header">
         <div class="grocery-week-header-top">
@@ -2904,7 +4058,7 @@ function renderGroceryList() {
         <div class="grocery-week-meals">${wd.mealNames.join(', ')}</div>
       </div>
       <div class="grocery-week-body">`;
-
+ 
     if (wd.allTakeout) {
       html += `<div class="grocery-takeout-note">No groceries needed — takeout night!</div>`;
     } else {
@@ -2922,70 +4076,125 @@ function renderGroceryList() {
         });
         html += `</div>`;
       });
-
+ 
       if (wd.hasTakeout) {
         html += `<div class="grocery-takeout-note">Plus a Takeout Night this week — no shopping needed for that one.</div>`;
       }
     }
-
+ 
     html += `</div></div>`;
   });
-
+ 
+  // Breakfast & Lunch prep section — only from items checked "add to grocery list"
+  html += `<div class="grocery-week" id="grocery-week-bflunch">
+    <div class="grocery-week-header">
+      <div class="grocery-week-header-top">
+        <div class="grocery-week-title">${bfLunchData.label}</div>
+        ${bfLunchData.isEmpty ? '' : `<button class="email-btn-small" onclick="emailGroceryList('bflunch')">📤 Share This List</button>`}
+      </div>
+      <div class="grocery-week-meals">${bfLunchData.mealNames.join(', ')}</div>
+    </div>
+    <div class="grocery-week-body">`;
+ 
+  if (bfLunchData.isEmpty) {
+    html += `<div class="grocery-takeout-note">Nothing selected yet — go to the Breakfast &amp; Lunch tab and tap "Add to grocery list" on whatever you're making this week.</div>`;
+  } else {
+    GROCERY_CATEGORY_ORDER.forEach(cat => {
+      if (!bfLunchData.catItems[cat]) return;
+      html += `<div class="grocery-category"><h4>${cat}</h4>`;
+      bfLunchData.catItems[cat].forEach((item, idx) => {
+        const id = `bflunch_${cat.replace(/[^a-zA-Z0-9]/g,'')}_${idx}`;
+        const isChecked = !!groceryChecked[id];
+        html += `
+          <label class="grocery-item${isChecked ? ' checked' : ''}" data-id="${id}">
+            <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleGroceryItem('${id}')">
+            <span class="grocery-item-text">${item.ing} <span class="grocery-item-source">— ${item.mealName}</span></span>
+          </label>`;
+      });
+      html += `</div>`;
+    });
+  }
+ 
+  html += `</div></div>`;
+ 
   container.innerHTML = html;
 }
-
+ 
 // Build a plain-text version of the grocery list for emailing.
 // weekNum omitted = whole month; a number 1-5 = just that week.
 function buildGroceryText(weekNum) {
   const weeksData = buildWeeksGroceryData();
-  const weekKeys = weekNum ? [weekNum] : Object.keys(weeksData).map(Number);
+  const weekKeys = weekNum && weekNum !== 'bflunch' ? [weekNum] : Object.keys(weeksData).map(Number);
   let lines = [];
-
+ 
   if (!weekNum) {
     lines.push(`MONTHLY MEAL PLAN — GROCERY LIST (${planMonthName})`);
     lines.push('');
   }
-
-  weekKeys.forEach(wk => {
-    const wd = weeksData[wk];
-    if (!wd) return;
-    lines.push(`${wd.label.toUpperCase()} — ${wd.mealNames.join(', ')}`);
+ 
+  if (!weekNum || weekNum !== 'bflunch') {
+    weekKeys.forEach(wk => {
+      const wd = weeksData[wk];
+      if (!wd) return;
+      lines.push(`${wd.label.toUpperCase()} — ${wd.mealNames.join(', ')}`);
+      lines.push('');
+ 
+      if (wd.allTakeout) {
+        lines.push('No groceries needed — takeout night!');
+      } else {
+        GROCERY_CATEGORY_ORDER.forEach(cat => {
+          if (!wd.catItems[cat]) return;
+          lines.push(cat.toUpperCase());
+          wd.catItems[cat].forEach(item => {
+            lines.push(`- ${item.ing} (${item.mealName})`);
+          });
+          lines.push('');
+        });
+        if (wd.hasTakeout) {
+          lines.push('Plus a Takeout Night this week — no shopping needed for that one.');
+          lines.push('');
+        }
+      }
+      lines.push('');
+    });
+  }
+ 
+  if (!weekNum || weekNum === 'bflunch') {
+    const bfLunchData = buildBfLunchGroceryData();
+    lines.push(`${bfLunchData.label.toUpperCase()}${bfLunchData.mealNames.length ? ' — ' + bfLunchData.mealNames.join(', ') : ''}`);
     lines.push('');
-
-    if (wd.allTakeout) {
-      lines.push('No groceries needed — takeout night!');
+    if (bfLunchData.isEmpty) {
+      lines.push('Nothing selected yet — add items from the Breakfast & Lunch tab.');
     } else {
       GROCERY_CATEGORY_ORDER.forEach(cat => {
-        if (!wd.catItems[cat]) return;
+        if (!bfLunchData.catItems[cat]) return;
         lines.push(cat.toUpperCase());
-        wd.catItems[cat].forEach(item => {
+        bfLunchData.catItems[cat].forEach(item => {
           lines.push(`- ${item.ing} (${item.mealName})`);
         });
         lines.push('');
       });
-      if (wd.hasTakeout) {
-        lines.push('Plus a Takeout Night this week — no shopping needed for that one.');
-        lines.push('');
-      }
     }
     lines.push('');
-  });
-
+  }
+ 
   return lines.join('\n').trim();
 }
-
+ 
 // Send the grocery list via the phone/browser's native share sheet
 // (Mail, Messages, Notes, etc.) when available — this has no real length
 // limit, unlike mailto: links, which cap out around ~2000 characters and
 // silently fail to open once a list gets long.
-// weekNum omitted = whole month; a number 1-5 = just that week.
+// weekNum omitted = whole month; a number 1-5 = just that week; 'bflunch' = breakfast/lunch prep only.
 async function emailGroceryList(weekNum) {
   const weeksData = buildWeeksGroceryData();
-  const subject = weekNum
+  const subject = weekNum === 'bflunch'
+    ? `Grocery List — Breakfast & Lunch Prep (${planMonthName})`
+    : weekNum
     ? `Grocery List — ${weeksData[weekNum] ? weeksData[weekNum].label : 'Week ' + weekNum} (${planMonthName})`
     : `Grocery List — ${planMonthName}`;
   const body = buildGroceryText(weekNum);
-
+ 
   if (navigator.share) {
     try {
       await navigator.share({ title: subject, text: body });
@@ -2995,7 +4204,7 @@ async function emailGroceryList(weekNum) {
       // any other error: fall through to the mailto fallback below
     }
   }
-
+ 
   // Fallback for browsers without share support (mostly desktop).
   // mailto: links break above ~2000 chars in many clients, so trim hard.
   const MAX_BODY_CHARS = 1200;
@@ -3003,13 +4212,13 @@ async function emailGroceryList(weekNum) {
   if (finalBody.length > MAX_BODY_CHARS) {
     finalBody = finalBody.slice(0, MAX_BODY_CHARS) + '\n\n…list truncated — open the app for the full version.';
   }
-
+ 
   const mailto = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(finalBody)}`;
   window.location.href = mailto;
 }
-
-
-
+ 
+ 
+ 
 // Force a fresh random shuffle for the current month right now
 function reshuffleNow() {
   const state = { month: currentMonth, assignment: generateShuffle() };
@@ -3019,56 +4228,156 @@ function reshuffleNow() {
   refreshGroceryIfVisible();
   pushToCloud();
 }
-
-// ── View routing (Meal Plan <-> Grocery List) ───────────────────────────
+ 
+// ── Breakfast & Lunch rendering ─────────────────────────────────────────
+const BFLUNCH_SELECTED_KEY = 'mealplan_bflunch_selected';
+ 
+function getBfLunchSelected() {
+  try { return JSON.parse(localStorage.getItem(BFLUNCH_SELECTED_KEY)) || []; }
+  catch { return []; }
+}
+ 
+function saveBfLunchSelected(arr) {
+  try { localStorage.setItem(BFLUNCH_SELECTED_KEY, JSON.stringify(arr)); } catch {}
+}
+ 
+function toggleBfLunchItem(name) {
+  const selected = getBfLunchSelected();
+  const idx = selected.indexOf(name);
+  if (idx === -1) selected.push(name); else selected.splice(idx, 1);
+  saveBfLunchSelected(selected);
+  renderBfLunchView();
+  refreshGroceryIfVisible();
+}
+ 
+function setAllBfLunchSelected(items, on) {
+  let selected = getBfLunchSelected();
+  if (on) {
+    items.forEach(i => { if (!selected.includes(i.name)) selected.push(i.name); });
+  } else {
+    selected = selected.filter(n => !items.some(i => i.name === n));
+  }
+  saveBfLunchSelected(selected);
+  renderBfLunchView();
+  refreshGroceryIfVisible();
+}
+ 
+function buildPrepCardHTML(item) {
+  const selected = getBfLunchSelected().includes(item.name);
+  const goutHTML = item.gout ? `<div class="gout-tip">💧 ${item.gout}</div>` : '';
+  return `
+    <div class="prep-badge">${item.badge}</div>
+    <div class="meal-name" onclick="openRecipe('${item.name.replace(/'/g, "\\'")}')">${item.name}</div>
+    <div class="meal-desc">${item.desc}</div>
+    <div class="prep-note">🧊 ${item.prep}</div>
+    ${goutHTML}
+    <div class="card-actions">
+      <button class="grocery-add-btn${selected ? ' added' : ''}" onclick="toggleBfLunchItem('${item.name.replace(/'/g, "\\'")}')">
+        ${selected ? '✓ On grocery list' : '🛒 Add to grocery list'}
+      </button>
+    </div>
+  `;
+}
+ 
+function renderBfLunchView() {
+  const container = document.getElementById('bfLunchContainer');
+  container.innerHTML = '';
+ 
+  const sections = [
+    { label: '🌅 Breakfast', items: breakfasts },
+    { label: '🥪 Lunch', items: lunches }
+  ];
+ 
+  sections.forEach(section => {
+    const selected = getBfLunchSelected();
+    const allSelected = section.items.every(i => selected.includes(i.name));
+ 
+    const block = document.createElement('div');
+    block.className = 'week-block';
+    block.innerHTML = `
+      <div class="week-header">
+        <div>
+          <div class="week-title">${section.label}</div>
+        </div>
+        <button class="week-grocery-btn" onclick='setAllBfLunchSelected(${JSON.stringify(section.items.map(i => ({name: i.name})))}, ${!allSelected})'>
+          ${allSelected ? '✕ Clear all' : '🛒 Add all to list'}
+        </button>
+      </div>
+    `;
+ 
+    const grid = document.createElement('div');
+    grid.className = 'days-grid';
+ 
+    section.items.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'prep-card';
+      card.innerHTML = buildPrepCardHTML(item);
+      grid.appendChild(card);
+    });
+ 
+    block.appendChild(grid);
+    container.appendChild(block);
+  });
+}
+ 
+// ── View routing (Meal Plan <-> Grocery List <-> Breakfast & Lunch) ─────
 function showView(view) {
   const planView = document.getElementById('planView');
   const groceryView = document.getElementById('groceryView');
+  const bfLunchView = document.getElementById('bfLunchView');
   const tabs = document.querySelectorAll('.view-tab');
-
+ 
+  planView.style.display = 'none';
+  groceryView.style.display = 'none';
+  bfLunchView.style.display = 'none';
+ 
   if (view === 'grocery') {
-    planView.style.display = 'none';
     groceryView.style.display = 'block';
     renderGroceryList();
-    tabs.forEach(t => t.classList.toggle('active', t.dataset.view === 'grocery'));
+  } else if (view === 'bflunch') {
+    bfLunchView.style.display = 'block';
+    renderBfLunchView();
   } else {
+    view = 'plan';
     planView.style.display = '';
-    groceryView.style.display = 'none';
-    tabs.forEach(t => t.classList.toggle('active', t.dataset.view === 'plan'));
   }
+ 
+  tabs.forEach(t => t.classList.toggle('active', t.dataset.view === view));
 }
-
+ 
 function handleHashRoute() {
   const hash = location.hash.replace('#', '');
   if (hash.startsWith('groceries')) {
     showView('grocery');
-    const match = hash.match(/groceries-week-(\d)/);
+    const match = hash.match(/groceries-week-(\d|bflunch)/);
     if (match) {
       setTimeout(() => {
         const el = document.getElementById(`grocery-week-${match[1]}`);
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 50);
     }
+  } else if (hash.startsWith('breakfast-lunch')) {
+    showView('bflunch');
   } else {
     showView('plan');
   }
 }
-
+ 
 window.addEventListener('hashchange', handleHashRoute);
-
+ 
 // Initialize
 document.getElementById('monthLabel').textContent = planMonthName;
 ensureShuffleForMonth();
 buildUI('all');
 updateProgress();
 handleHashRoute();
-
+ 
 // ── Supabase cross-device sync ──────────────────────────────────────────────
 const SUPABASE_URL  = "https://sdkihobprbgbkrqgurqh.supabase.co";
 const SUPABASE_KEY  = "sb_publishable_XHvk0yy9qfuVSfRhwPh-aA_zPNRULww";
 const SYNC_TABLE    = "monthly_mealplan_data";
 const SHARED_ROW_ID = "family_mealplan";
-
+ 
 async function sbFetch(path, opts) {
   opts = opts || {};
   return fetch(SUPABASE_URL + "/rest/v1/" + path, {
@@ -3082,7 +4391,7 @@ async function sbFetch(path, opts) {
     body: opts.body ? JSON.stringify(opts.body) : undefined
   });
 }
-
+ 
 async function pushToCloud() {
   try {
     const payload = {
@@ -3103,7 +4412,7 @@ async function pushToCloud() {
     }
   } catch (e) { console.warn("Sync push failed:", e); }
 }
-
+ 
 async function pullFromCloud() {
   try {
     const res = await sbFetch(SYNC_TABLE + "?id=eq." + SHARED_ROW_ID, {
@@ -3131,23 +4440,23 @@ async function pullFromCloud() {
     refreshGroceryIfVisible();
   } catch (e) { console.warn("Sync pull failed:", e); }
 }
-
+ 
 // Override save functions to also push after every local save
 const _origSaveChecked = window.saveChecked || saveChecked;
 window.saveChecked = function(arr) {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); } catch(e) {}
   pushToCloud();
 };
-
+ 
 const _origSaveSwaps = window.saveSwaps || saveSwaps;
 window.saveSwaps = function(obj) {
   try { localStorage.setItem(SWAP_KEY, JSON.stringify(obj)); } catch(e) {}
   pushToCloud();
 };
-
+ 
 // Pull fresh data from cloud on load
 pullFromCloud();
-
+ 
 // ── Service Worker (enables PWA install to home screen) ────────────────────
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js').catch(function() {});
