@@ -30,6 +30,8 @@
     --tag-italian-text: #3a5a85;
     --tag-seafood: #e3eef2;
     --tag-seafood-text: #2b6e86;
+    --tag-asian: #f3e8ee;
+    --tag-asian-text: #8a3f63;
     --tag-gout: #eceef0;
     --tag-gout-text: #4a555e;
   }
@@ -211,6 +213,9 @@
 
   .filter-btn[onclick*="'seafood'"] { background: var(--tag-seafood); color: var(--tag-seafood-text); border-color: var(--tag-seafood); }
   .filter-btn[onclick*="'seafood'"].active { background: var(--tag-seafood-text); color: #ffffff; border-color: var(--tag-seafood-text); }
+
+  .filter-btn[onclick*="'asian'"] { background: var(--tag-asian); color: var(--tag-asian-text); border-color: var(--tag-asian); }
+  .filter-btn[onclick*="'asian'"].active { background: var(--tag-asian-text); color: #ffffff; border-color: var(--tag-asian-text); }
 
   .weeks {
     max-width: 960px;
@@ -534,6 +539,7 @@
   .tag-mexican  { background: var(--tag-mexican);  color: var(--tag-mexican-text);  }
   .tag-italian  { background: var(--tag-italian);  color: var(--tag-italian-text);  }
   .tag-seafood  { background: var(--tag-seafood);  color: var(--tag-seafood-text);  }
+  .tag-asian    { background: var(--tag-asian);    color: var(--tag-asian-text);    }
 
   /* ── Breakfast & Lunch view ─────────────────────────────────────────── */
   .bflunch-topbar {
@@ -1221,6 +1227,7 @@ html {
   <button class="filter-btn" onclick="filterMeals('mexican', this)">Mexican</button>
   <button class="filter-btn" onclick="filterMeals('italian', this)">Italian</button>
   <button class="filter-btn" onclick="filterMeals('seafood', this)">Seafood</button>
+  <button class="filter-btn" onclick="filterMeals('asian', this)">Asian</button>
 </div>
 
 <div class="progress-wrap">
@@ -3013,6 +3020,189 @@ const recipes = {
     ]
   },
 
+  "Beef and Broccoli": {
+    servings: "Serves 4",
+    ingredients: [
+      "1 lb flank or sirloin steak, thinly sliced against the grain",
+      "1 tbsp cornstarch, plus 1 tsp for sauce",
+      "2 tbsp vegetable oil",
+      "4 cups broccoli florets",
+      "3 cloves garlic, minced",
+      "1 tbsp fresh ginger, minced",
+      "1/3 cup low-sodium soy sauce",
+      "2 tbsp oyster sauce",
+      "2 tbsp brown sugar",
+      "1/2 cup beef broth or water",
+      "Cooked rice, for serving"
+    ],
+    steps: [
+      "Toss sliced beef with 1 tbsp cornstarch; let sit 10 minutes.",
+      "Whisk soy sauce, oyster sauce, brown sugar, broth, and remaining 1 tsp cornstarch together in a small bowl.",
+      "Heat 1 tbsp oil in a wok or large skillet over high heat. Sear beef in batches until browned, 1-2 minutes per side. Remove.",
+      "Add remaining oil and broccoli to the pan; stir-fry 2-3 minutes until bright green and just tender.",
+      "Add garlic and ginger, cook 30 seconds until fragrant.",
+      "Return beef to the pan, pour in the sauce, and toss until thickened and everything is glazed, about 1-2 minutes.",
+      "Serve hot over rice."
+    ]
+  },
+
+  "Mongolian Beef": {
+    servings: "Serves 4",
+    ingredients: [
+      "1 lb flank steak, thinly sliced against the grain",
+      "1/3 cup cornstarch",
+      "3 tbsp vegetable oil",
+      "3 cloves garlic, minced",
+      "1 tsp fresh ginger, minced",
+      "1/2 cup low-sodium soy sauce",
+      "1/2 cup water",
+      "2/3 cup packed brown sugar",
+      "4 scallions, sliced into 2-inch pieces",
+      "Cooked rice, for serving"
+    ],
+    steps: [
+      "Toss sliced beef in cornstarch until evenly coated, shaking off excess.",
+      "Heat oil in a large skillet or wok over medium-high heat. Sear beef in batches until crisp and browned, 2-3 minutes per side. Remove and set aside.",
+      "Reduce heat to medium. Add garlic and ginger, cook 20 seconds until fragrant.",
+      "Add soy sauce, water, and brown sugar. Simmer 2-3 minutes until slightly thickened.",
+      "Return beef to the pan and toss to coat in the sauce, cooking 1-2 minutes.",
+      "Stir in scallions just before serving. Serve over rice."
+    ]
+  },
+
+  "Chicken Fried Rice": {
+    servings: "Serves 4",
+    ingredients: [
+      "3 cups cooked, cold rice (day-old works best)",
+      "2 boneless chicken breasts, diced small",
+      "2 tbsp vegetable oil, divided",
+      "2 eggs, beaten",
+      "1 cup frozen peas and carrots",
+      "3 scallions, sliced",
+      "3 cloves garlic, minced",
+      "3 tbsp low-sodium soy sauce",
+      "1 tsp sesame oil",
+      "Salt and pepper"
+    ],
+    steps: [
+      "Heat 1 tbsp oil in a large skillet or wok over medium-high heat. Season and cook diced chicken until golden and cooked through. Remove and set aside.",
+      "Add a little more oil and scramble the eggs in the same pan; remove and set aside.",
+      "Add remaining oil, garlic, and peas and carrots; stir-fry 1-2 minutes.",
+      "Add cold rice, breaking up any clumps, and stir-fry 2-3 minutes until heated through.",
+      "Return chicken and egg to the pan. Add soy sauce and sesame oil, tossing to combine.",
+      "Stir in scallions and serve hot."
+    ]
+  },
+
+  "Teriyaki Chicken": {
+    servings: "Serves 4",
+    ingredients: [
+      "4 boneless, skinless chicken thighs",
+      "1 tbsp vegetable oil",
+      "Sauce: 1/2 cup low-sodium soy sauce, 1/4 cup brown sugar, 2 cloves garlic minced, 1 tsp fresh ginger minced, 1 tbsp rice vinegar, 1 tsp cornstarch mixed with 2 tbsp water",
+      "Cooked rice, for serving",
+      "Steamed broccoli, for serving",
+      "Sesame seeds, for garnish (optional)"
+    ],
+    steps: [
+      "Whisk soy sauce, brown sugar, garlic, ginger, and rice vinegar together in a small saucepan. Bring to a simmer.",
+      "Stir in the cornstarch slurry and simmer 1-2 minutes until thickened; set aside.",
+      "Heat oil in a skillet over medium-high heat. Season chicken and sear 5-6 minutes per side until cooked through.",
+      "Slice chicken and toss with the teriyaki sauce, or brush generously over the top.",
+      "Serve over rice with steamed broccoli, sprinkled with sesame seeds."
+    ]
+  },
+
+  "Orange Chicken": {
+    servings: "Serves 4",
+    ingredients: [
+      "1.5 lbs boneless, skinless chicken breast, cut into bite-sized pieces",
+      "1/2 cup cornstarch",
+      "3 tbsp vegetable oil",
+      "Sauce: 3/4 cup orange juice, zest of 1 orange, 1/3 cup low-sodium soy sauce, 1/4 cup brown sugar, 2 cloves garlic minced, 1 tsp fresh ginger minced, 1 tbsp rice vinegar, 1 tbsp cornstarch mixed with 2 tbsp water",
+      "Cooked rice, for serving",
+      "Sliced scallions, for garnish"
+    ],
+    steps: [
+      "Toss chicken pieces in cornstarch until coated.",
+      "Heat oil in a large skillet over medium-high heat. Pan-fry chicken in batches until golden and cooked through, about 3-4 minutes per side. Set aside.",
+      "In the same pan, combine orange juice, zest, soy sauce, brown sugar, garlic, ginger, and rice vinegar. Bring to a simmer.",
+      "Stir in the cornstarch slurry and simmer 1-2 minutes until thickened and glossy.",
+      "Return chicken to the pan and toss to coat evenly in the sauce.",
+      "Serve over rice, garnished with scallions."
+    ]
+  },
+
+  "Beef Lo Mein": {
+    servings: "Serves 4",
+    ingredients: [
+      "12 oz lo mein or spaghetti noodles",
+      "1 lb flank steak, thinly sliced against the grain",
+      "2 tbsp vegetable oil, divided",
+      "2 cups shredded cabbage",
+      "2 carrots, julienned",
+      "3 scallions, sliced",
+      "3 cloves garlic, minced",
+      "1/3 cup low-sodium soy sauce",
+      "2 tbsp oyster sauce",
+      "1 tsp sesame oil"
+    ],
+    steps: [
+      "Cook noodles according to package directions; drain and toss with a small drizzle of oil to keep from sticking.",
+      "Heat 1 tbsp oil in a wok or large skillet over high heat. Sear beef until browned, 2-3 minutes. Remove and set aside.",
+      "Add remaining oil, cabbage, and carrots; stir-fry 2-3 minutes until just tender.",
+      "Add garlic and cook 30 seconds until fragrant.",
+      "Add cooked noodles, soy sauce, oyster sauce, and sesame oil, tossing to combine.",
+      "Return beef to the pan and toss everything together until heated through.",
+      "Stir in scallions and serve hot."
+    ]
+  },
+
+  "Sesame Chicken": {
+    servings: "Serves 4",
+    ingredients: [
+      "1.5 lbs boneless, skinless chicken thighs, cut into bite-sized pieces",
+      "1/2 cup cornstarch",
+      "3 tbsp vegetable oil",
+      "Sauce: 1/3 cup low-sodium soy sauce, 3 tbsp honey, 2 tbsp rice vinegar, 2 cloves garlic minced, 1 tsp fresh ginger minced, 1 tbsp cornstarch mixed with 2 tbsp water",
+      "2 tbsp toasted sesame seeds",
+      "Cooked rice, for serving",
+      "Sliced scallions, for garnish"
+    ],
+    steps: [
+      "Toss chicken pieces in cornstarch until coated.",
+      "Heat oil in a large skillet over medium-high heat. Pan-fry chicken in batches until golden and cooked through. Set aside.",
+      "In the same pan, whisk together soy sauce, honey, rice vinegar, garlic, and ginger. Bring to a simmer.",
+      "Stir in the cornstarch slurry and simmer 1-2 minutes until thickened and glossy.",
+      "Return chicken to the pan and toss to coat evenly in the sauce.",
+      "Sprinkle with sesame seeds, garnish with scallions, and serve over rice."
+    ]
+  },
+
+  "Shrimp Fried Rice": {
+    servings: "Serves 4",
+    ingredients: [
+      "3 cups cooked, cold rice (day-old works best)",
+      "1 lb medium shrimp, peeled and deveined",
+      "2 tbsp vegetable oil, divided",
+      "2 eggs, beaten",
+      "1 cup frozen peas and carrots",
+      "3 scallions, sliced",
+      "3 cloves garlic, minced",
+      "3 tbsp low-sodium soy sauce",
+      "1 tsp sesame oil",
+      "Salt and pepper"
+    ],
+    steps: [
+      "Heat 1 tbsp oil in a large skillet or wok over medium-high heat. Season and cook shrimp until pink and opaque, about 2 minutes per side. Remove and set aside.",
+      "Add a little more oil and scramble the eggs in the same pan; remove and set aside.",
+      "Add remaining oil, garlic, and peas and carrots; stir-fry 1-2 minutes.",
+      "Add cold rice, breaking up any clumps, and stir-fry 2-3 minutes until heated through.",
+      "Return shrimp and egg to the pan. Add soy sauce and sesame oil, tossing to combine.",
+      "Stir in scallions and serve hot."
+    ]
+  },
+
   "Pizza Night": {
     servings: "Serves 4-6",
     ingredients: [
@@ -3216,6 +3406,38 @@ const swapPool = [
   { name:"Honey Mustard Chicken Thighs", cuisine:"american", seafood:false,
     desc:"Oven-baked chicken thighs glazed with honey mustard, served with roasted potatoes and green beans.",
     gout:"Chicken and honey mustard are both gout-neutral. Easy weeknight swap." },
+
+  { name:"Beef and Broccoli", cuisine:"asian", seafood:false,
+    desc:"Thinly sliced beef and crisp broccoli stir-fried in a savory garlic-ginger soy sauce, served over rice.",
+    gout:"Keep beef to about 4 oz and load up on the broccoli. Use low-sodium soy sauce to manage sodium." },
+
+  { name:"Mongolian Beef", cuisine:"asian", seafood:false,
+    desc:"Crispy sliced beef tossed in a sweet-savory soy and brown sugar glaze with scallions, served over rice.",
+    gout:"Keep the beef portion moderate — about 4 oz. Skip the deep-fry and pan-sear instead to lighten it up." },
+
+  { name:"Chicken Fried Rice", cuisine:"asian", seafood:false,
+    desc:"Wok-fried rice with diced chicken, egg, peas, carrots, and scallions in a light soy-sesame seasoning.",
+    gout:"Chicken and egg are both gout-friendly. Use low-sodium soy sauce and go light on it." },
+
+  { name:"Teriyaki Chicken", cuisine:"asian", seafood:false,
+    desc:"Pan-seared chicken thighs glazed in a homemade sweet soy teriyaki sauce, served over rice with steamed broccoli.",
+    gout:"Chicken thighs are gout-friendly. Homemade teriyaki lets you control the sodium and sugar." },
+
+  { name:"Orange Chicken", cuisine:"asian", seafood:false,
+    desc:"Lightly battered chicken pieces tossed in a tangy-sweet orange glaze, served over rice.",
+    gout:"Pan-fry instead of deep-frying to keep it lighter. Chicken itself is gout-friendly." },
+
+  { name:"Beef Lo Mein", cuisine:"asian", seafood:false,
+    desc:"Stir-fried lo mein noodles with sliced beef, cabbage, carrots, and scallions in a garlic-soy sauce.",
+    gout:"Keep beef to a moderate portion and bulk up the dish with extra vegetables." },
+
+  { name:"Sesame Chicken", cuisine:"asian", seafood:false,
+    desc:"Crispy chicken pieces tossed in a sticky sesame-soy glaze and topped with toasted sesame seeds, served over rice.",
+    gout:"Pan-sear instead of deep-frying for a lighter version. Chicken is gout-friendly." },
+
+  { name:"Shrimp Fried Rice", cuisine:"asian", seafood:true,
+    desc:"Wok-fried rice with shrimp, egg, peas, carrots, and scallions in a light soy-sesame seasoning.",
+    gout:"Shrimp is higher in purines than chicken — enjoy this one a little less often and keep the portion modest." },
 
   { name:"Pizza Night", cuisine:"american", seafood:false,
     desc:"Homemade or order out — your call. Load it up however the family wants it.",
