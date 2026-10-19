@@ -1,5 +1,5 @@
 // service-worker.js — Meal Plan PWA
-const CACHE_NAME = 'mealplan-v2';
+const CACHE_NAME = 'mealplan-v3';
 const ASSETS = [
   './',
   './index.html'
@@ -37,3 +37,4 @@ self.addEventListener('fetch', event => {
     caches.match(event.request).then(cached => cached || fetch(event.request))
   );
 });
+
