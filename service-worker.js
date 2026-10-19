@@ -1,5 +1,5 @@
 // service-worker.js — Meal Plan PWA
-const CACHE_NAME = 'mealplan-v1';
+const CACHE_NAME = 'mealplan-v2';
 const ASSETS = [
   './',
   './index.html'
