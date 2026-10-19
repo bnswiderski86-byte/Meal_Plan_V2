@@ -1204,6 +1204,28 @@ html {
 html {
   font-size: 18px;
 }  
+
+  /* ── Idle clock (dim, shifts slightly to protect the screen) ── */
+  .idle-clock {
+    position: fixed; inset: 0; z-index: 99999;
+    background: #000; display: none;
+    align-items: center; justify-content: center;
+    cursor: none; -webkit-tap-highlight-color: transparent;
+  }
+  .idle-clock.show { display: flex; }
+  .idle-clock-box { text-align: center; color: #5a626b; will-change: transform; }
+  .idle-clock-time {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+    font-size: clamp(64px, 22vw, 260px); line-height: 1; letter-spacing: 0.02em;
+  }
+  .idle-clock-date {
+    margin-top: 0.4em; font-family: 'Karla', Arial, sans-serif;
+    font-size: clamp(18px, 4vw, 40px); color: #444b53;
+  }
+  .idle-clock-hint {
+    margin-top: 1.2em; font-family: 'Karla', Arial, sans-serif;
+    font-size: clamp(12px, 2vw, 18px); color: #2f353b;
+  }
 </style>
 </head>
 <body>
@@ -1276,6 +1298,14 @@ html {
       <div class="recipe-servings" id="recipeServings"></div>
     </div>
     <div class="recipe-body" id="recipeBody"></div>
+  </div>
+</div>
+
+<div class="idle-clock" id="idleClock" aria-label="Clock. Touch the screen to go back to the meal plan.">
+  <div class="idle-clock-box" id="idleClockBox">
+    <div class="idle-clock-time" id="idleClockTime"></div>
+    <div class="idle-clock-date" id="idleClockDate"></div>
+    <div class="idle-clock-hint">Touch the screen to go back</div>
   </div>
 </div>
 
@@ -4686,6 +4716,70 @@ window.saveSwaps = function(obj) {
 
 // Pull fresh data from cloud on load
 pullFromCloud();
+
+// ── Idle clock ─────────────────────────────────────────────────────────────
+// After no touching for a while, show a dim 12-hour clock. Touch to go back.
+// Change these two numbers (in minutes) to adjust the wait.
+(function () {
+  var IDLE_MINUTES = 10;               // normal wait before the clock appears
+  var IDLE_MINUTES_RECIPE_OPEN = 45;   // longer wait while a recipe is open, so it stays up while you cook
+
+  var overlay = document.getElementById('idleClock');
+  var box = document.getElementById('idleClockBox');
+  var timeEl = document.getElementById('idleClockTime');
+  var dateEl = document.getElementById('idleClockDate');
+  var idleTimer = null, tickTimer = null;
+
+  function recipeIsOpen() {
+    var m = document.getElementById('recipeModal');
+    return !!(m && m.classList.contains('open'));
+  }
+
+  function draw() {
+    var now = new Date();
+    timeEl.textContent = now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
+    dateEl.textContent = now.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' });
+    // Nudge the clock a little each minute so no pixel stays lit in one spot
+    var dx = Math.round((Math.random() - 0.5) * 80);
+    var dy = Math.round((Math.random() - 0.5) * 60);
+    box.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+  }
+
+  function showClock() {
+    draw();
+    overlay.classList.add('show');
+    clearInterval(tickTimer);
+    tickTimer = setInterval(draw, 60 * 1000);
+  }
+
+  function hideClock() {
+    overlay.classList.remove('show');
+    clearInterval(tickTimer);
+    tickTimer = null;
+  }
+
+  function resetIdle() {
+    clearTimeout(idleTimer);
+    var mins = recipeIsOpen() ? IDLE_MINUTES_RECIPE_OPEN : IDLE_MINUTES;
+    idleTimer = setTimeout(showClock, mins * 60 * 1000);
+  }
+
+  // Touching the clock only closes the clock. It does not press anything underneath.
+  overlay.addEventListener('click', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    hideClock();
+    resetIdle();
+  });
+
+  ['pointerdown', 'keydown', 'wheel', 'scroll'].forEach(function (evt) {
+    document.addEventListener(evt, function () {
+      if (!overlay.classList.contains('show')) resetIdle();
+    }, true);
+  });
+
+  resetIdle();
+})();
 
 // ── Service Worker (enables PWA install to home screen) ────────────────────
 if ('serviceWorker' in navigator) {
