@@ -1216,11 +1216,17 @@ html {
   .idle-clock-box { text-align: center; color: #5a626b; will-change: transform; }
   .idle-clock-time {
     font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
-    font-size: clamp(64px, 22vw, 260px); line-height: 1; letter-spacing: 0.02em;
+    font-size: clamp(64px, min(16vw, 28vh), 240px); line-height: 1; letter-spacing: 0.02em;
+    white-space: nowrap; display: inline-block;
   }
   .idle-clock-date {
     margin-top: clamp(32px, 6vw, 80px); font-family: 'Karla', Arial, sans-serif;
     font-size: clamp(18px, 4vw, 40px); color: #444b53;
+  }
+  .idle-clock-affirm {
+    margin: clamp(24px, 4vw, 48px) auto 0; max-width: 80vw;
+    font-family: 'Karla', Arial, sans-serif; font-style: italic;
+    font-size: clamp(18px, 3vw, 34px); line-height: 1.35; color: #3b424a;
   }
   .idle-clock-hint {
     margin-top: clamp(28px, 4vw, 56px); font-family: 'Karla', Arial, sans-serif;
@@ -1305,6 +1311,7 @@ html {
   <div class="idle-clock-box" id="idleClockBox">
     <div class="idle-clock-time" id="idleClockTime"></div>
     <div class="idle-clock-date" id="idleClockDate"></div>
+    <div class="idle-clock-affirm" id="idleClockAffirm"></div>
     <div class="idle-clock-hint">Touch the screen to go back</div>
   </div>
 </div>
@@ -4724,7 +4731,48 @@ pullFromCloud();
   var IDLE_MINUTES = 10;               // normal wait before the clock appears
   var IDLE_MINUTES_RECIPE_OPEN = 45;   // longer wait while a recipe is open, so it stays up while you cook
 
+  // A new one shows each time the clock appears. Edit, add or remove lines freely.
+  var AFFIRMATIONS = [
+    "You have handled harder days than this one.",
+    "Slow progress is still progress.",
+    "You are allowed to rest and still be on track.",
+    "What you are building matters.",
+    "Done is better than perfect.",
+    "You figure things out. You always have.",
+    "Small steps still count.",
+    "You do not have to do it all today.",
+    "Your hard work is showing, even when it feels quiet.",
+    "You came a long way to be here.",
+    "It is okay to ask for help.",
+    "Mistakes are how you learn, not proof you cannot.",
+    "You make good decisions with the information you have.",
+    "Take a breath. You are doing fine.",
+    "The people who love you see how hard you try.",
+    "You are capable of more than you give yourself credit for.",
+    "A rough day does not undo your progress.",
+    "Keep going. You are closer than you think.",
+    "You are allowed to take up space.",
+    "Good things grow from steady effort."
+  ];
+  var deck = [], lastAffirm = null;
+  function nextAffirmation() {
+    if (!deck.length) {
+      deck = AFFIRMATIONS.slice();
+      for (var i = deck.length - 1; i > 0; i--) {   // shuffle
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = deck[i]; deck[i] = deck[j]; deck[j] = t;
+      }
+      // don't start the new round with the one we just showed
+      if (deck.length > 1 && deck[deck.length - 1] === lastAffirm) {
+        var k = deck.length - 1; var tmp = deck[k]; deck[k] = deck[0]; deck[0] = tmp;
+      }
+    }
+    lastAffirm = deck.pop();
+    return lastAffirm;
+  }
+
   var overlay = document.getElementById('idleClock');
+  var affirmEl = document.getElementById('idleClockAffirm');
   var box = document.getElementById('idleClockBox');
   var timeEl = document.getElementById('idleClockTime');
   var dateEl = document.getElementById('idleClockDate');
@@ -4739,6 +4787,14 @@ pullFromCloud();
     var now = new Date();
     timeEl.textContent = now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
     dateEl.textContent = now.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' });
+    // Keep the time on one line: shrink it if it is too wide for the screen (e.g. 12:58 PM)
+    timeEl.style.fontSize = '';
+    var size = parseFloat(getComputedStyle(timeEl).fontSize);
+    var maxW = window.innerWidth * 0.86;
+    while (timeEl.getBoundingClientRect().width > maxW && size > 40) {
+      size *= 0.95;
+      timeEl.style.fontSize = size + 'px';
+    }
     // Nudge the clock a little each minute so no pixel stays lit in one spot
     var dx = Math.round((Math.random() - 0.5) * 80);
     var dy = Math.round((Math.random() - 0.5) * 60);
@@ -4746,6 +4802,7 @@ pullFromCloud();
   }
 
   function showClock() {
+    affirmEl.textContent = nextAffirmation();
     draw();
     overlay.classList.add('show');
     clearInterval(tickTimer);
